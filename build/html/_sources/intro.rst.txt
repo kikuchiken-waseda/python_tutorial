@@ -193,7 +193,7 @@ What is programming?
 ここで，台本の名前は :file:`./hello.py` です．
 それを python という名前の役者に渡せばよいのです．
 
-.. code-block:: python
+.. code-block:: bash
 
    $ python ./hello.py
    hello
