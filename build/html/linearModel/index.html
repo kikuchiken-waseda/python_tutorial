@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>はじめての Python &mdash; k-lab-seminar-2019-programming 2019 ドキュメント</title>
+  <title>機械学習基礎（回帰分析） &mdash; k-lab-seminar-2019-programming 2019 ドキュメント</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="Introduction" href="intro.html" />
-    <link rel="prev" title="開発環境" href="../env/index.html" /> 
+    <link rel="next" title="線形回帰（単回帰式）" href="linear_regression.html" />
+    <link rel="prev" title="What next" href="../python/next.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,15 +85,14 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../env/index.html">開発環境</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">はじめての Python</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first.html">First Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="combat.html">Combat python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="next.html">What next</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/index.html">はじめての Python</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">機械学習基礎（回帰分析）</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linear_regression.html">線形回帰（単回帰式）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gradient_descent_method.html">勾配降下法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polynomial_regression.html">多項式回帰</a></li>
+<li class="toctree-l2"><a class="reference internal" href="learning_curve.html">学習曲線</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../linearModel/index.html">機械学習基礎（回帰分析）</a></li>
 </ul>
 
             
@@ -139,13 +138,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>はじめての Python</li>
+      <li>機械学習基礎（回帰分析）</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/python/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/linearModel/index.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -158,46 +157,19 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="python">
-<h1>はじめての Python<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h1>
+  <div class="section" id="id1">
+<h1>機械学習基礎（回帰分析）<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>このページは早稲田大学人間科学部菊池英明研究室における
-学部三年生向け合宿 python チュートリアルの資料となります．</p>
-<p>このページに関してはプログラミング初学者用に作成しているので，
-種々イントロダクションや，環境設定に関する記述もあります．</p>
-<p>一方で，あくまでも導入以上の情報を記述する気がないことに注意してください.</p>
-<p>また，執筆時の最新情報を記述する予定ですが，
-情報が古くなってしまう可能性も多くあることに注意してください．</p>
+学部三年生向けの機械学習基礎（回帰分析）の資料となります．</p>
+<p>このページは機械学習を学ぶ上で基本となる回帰分析について主に記述してあります．</p>
+<p>資料はオライリー・ジャパンから出されている「scikit-learnとTensorFlowによる実践機械学習」や，早稲田大学人間科学部で使用されているデータリテラシーの教科書（2017年度版）を参考に作成しております．</p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="intro.html#why-python">Why Python?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="intro.html#what-is-programming">What is programming?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="intro.html#id8">まとめ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="intro.html#id9">課題</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="first.html">First Python</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="first.html#id2">データモデル</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first.html#id4">制御構文</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first.html#id5">関数</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first.html#id6">クラス</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="combat.html">Combat python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="next.html">What next</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="next.html#id1">ライブラリを極める: ダークサイド</a></li>
-<li class="toctree-l2"><a class="reference internal" href="next.html#python">python を極める: ライトサイド</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="indices-and-tables">
-<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><a class="reference internal" href="../genindex.html"><span class="std std-ref">索引</span></a></li>
-<li><a class="reference internal" href="../py-modindex.html"><span class="std std-ref">モジュール索引</span></a></li>
-<li><a class="reference internal" href="../search.html"><span class="std std-ref">検索ページ</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear_regression.html">線形回帰（単回帰式）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gradient_descent_method.html">勾配降下法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="polynomial_regression.html">多項式回帰</a></li>
+<li class="toctree-l1"><a class="reference internal" href="learning_curve.html">学習曲線</a></li>
 </ul>
 </div>
 </div>
@@ -210,10 +182,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="intro.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="linear_regression.html" class="btn btn-neutral float-right" title="線形回帰（単回帰式）" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../env/index.html" class="btn btn-neutral float-left" title="開発環境" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../python/next.html" class="btn btn-neutral float-left" title="What next" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

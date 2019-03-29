@@ -28,7 +28,7 @@ K-lab 春学期セミナー
 
    ./env/index.rst
    ./python/index.rst
-
+   ./linearModel/index.rst
 
 Indices and tables
 ==================
