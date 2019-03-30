@@ -125,7 +125,6 @@
    import numpy as np
    import matplotlib as mpl
    mpl.rcParams['font.family'] = 'IPAPGothic'
-   mpl.use('Agg')
    import matplotlib.pyplot as plt
 
    X = 40 * np.random.rand(365, 1)
