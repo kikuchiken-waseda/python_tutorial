@@ -114,32 +114,51 @@
 
    ここで言うところの"誤差（距離の総和）"を，RMSEやMSEで表現しています．
 
-実習
+
+実習1：プロットを描いてみよう！
 ==============================================================================
 
-上の説明で提示した「散布図」および「正規方程式による予測線」は以下のコードで描くことができます．
+実習1ではまず，上の説明で出てきたプロットを描いてみましょう！
+
+上の説明で提示した「散布図」および「正規方程式による予測線」は下のコードで描くことができます．
+
+皆さんは昨日の実習でvimを使ったと思うので，こちらでもvimを使います（各自で何か使っているものがあれば，そちらを使ってください）．
+
+.. note ::
+   :kbd:`Finder` > :kbd:`アプリケーション` > :kbd:`ユーティリティ` > :kbd:`ターミナル` でターミナルが開けます．
+
+   ターミナルは菊池研でよく使う可能性があるので，Dock（下のメニューバー）に追加しておくことを勧めておきます．
+   :kbd:`ターミナル` のアイコンを二本指でタップして，オプションからDockに追加ができます．
+
+ターミナルに :code:`vim` と入力し，以下のコードを書いてください．
+コピペで構いません．
 
 .. code-block :: python
-   :caption: 散布図と正規方程式による予測線
+   :caption: 散布図と正規方程式による予測線（normal_equation.py）
 
    import numpy as np
-   import matplotlib as mpl
-   mpl.rcParams['font.family'] = 'IPAPGothic'
-   import matplotlib.pyplot as plt
 
-   X = 40 * np.random.rand(365, 1)
-   y = 20 + 2 * X + 10 * np.random.randn(365, 1)
+   n = 365
+   error_size = 10
+   X = 40 * np.random.rand(n, 1)
+   y = 20 + 2 * X + error_size * np.random.randn(n, 1)
 
-   X_b = np.c_[np.ones((365, 1)), X] 
+   X_b = np.c_[np.ones((n, 1)), X] 
    theta_best = np.linalg.inv(X_b.T.dot(X_b)).dot(X_b.T).dot(y)
+   print(theta_best)
 
    X_new = np.array([[0], [40]])
    X_new_b = np.c_[np.ones((2,  1)), X_new]
    y_predict = X_new_b.dot(theta_best)
 
+
+   # import matplotlib as mpl
+   # mpl.rcParams['font.family'] = 'IPAPGothic'
+   # mpl.rcParams['font.family'] = 'AppleGothic'
+   import matplotlib.pyplot as plt
    plt.plot(X_new, y_predict, "r-", label = "正規方程式による予測線")
-   plt.plot(X, y, "b.", label = "実測値: y = 2x + 20 + e")
-   plt.axis([0, 40, 0, 120])
+   plt.plot(X, y, "b.", label = "実測値: y = 2x + 20 + error")
+   plt.axis([0, 40, 0, 150])
    plt.title('気温とビールの売り上げの関係')
    plt.xlabel('気温(℃)')
    plt.ylabel('ビールの売り上げ(本/日)')
@@ -148,8 +167,124 @@
    plt.close()
 
 
-以下でそれぞれのコードの説明をします．
+書き終わったら，ノーマルモード（ :kbd:`esc`）にして，:kbd:`:w ./normal_equation.py` と入力してください．
+その後，:kbd:`:q` と入力して，いつものターミナルの画面に戻ります．
+
+-  もう一度，スクリプトを開くには :code:`vim ./normal_equation.py` とすればよいです．
+
+以下のようにプログラムを実行してもらうと，おそらく下のようなプロットが出てきます．
+
+.. code-block:: bash
+
+   $ python3 ./normal_equation.py
+
+.. warning:: 先頭の $ は書いてはいけません．
+
+   - これは，ターミナルで実行してくださいという意味です．
+   - $ の無い部分は出力です．
+
+.. image:: image/linear_regression/temperature_and_beer4.png
+   :scale: 90%
+
+まずは上のようなプロットを出してみてください
+（フォントの関係で，日本語で記載したグラフタイトルや軸ラベルなどが，お豆腐になる可能性があります．本質的には問題ないので，今回はそのまんまで）．
+
+これでひとまずプロットが書けました．
+ターミナルを見てみると，以下のような表示があると思います．
+
+.. code-block:: bash
+
+   $ python3 normal_equation.py 
+   [[20.81115726]
+    [ 1.96813527]]
+
+上の20くらいの数字が，予測線の切片を表しています．
+下の2くらいの数字が，予測線の傾きを表しています．
+
+直線の式で表現すると，y = 1.97x + 20.81 となります．
+
+実測値（青い点）はy = 2x + 20 + error をベースに作成したので，おおよそ予測ができていると言っていいでしょう．
+
+.. note ::
+   ターミナルでの作業を行う際には，プロットを消す必要があります．
+   プロットを残しておきたい人は，スクリーンショットでも取っておいてください．
+
+   コードで保存するやり方もありますが，ここでは説明しません．
 
 
+実習1の内容
+**************************************************************************
 
+上のコードを実行して，プロットを表示させてください．
+
+また，プロットを表示させた際の，ターミナルに表示される数字を確認してください．
+
+
+実習2：プロットを変化させてみよう！
+==============================================================================
+
+実習1でプロットを描くことができました．
+次は数字をいろいろいじってプロットを変化させてみましょう！
+
+下のコードは先ほど書いてもらったコードです．
+上から読んでいって二つ目のブロックに注目してください．
+
+
+.. code-block :: python
+   :caption: 散布図と正規方程式による予測線（normal_equation.py）
+
+   import numpy as np
+
+   n = 365
+   error_size = 10
+   X = 40 * np.random.rand(n, 1)
+   y = 20 + 2 * X + error_size * np.random.randn(n, 1)
+
+   X_b = np.c_[np.ones((n, 1)), X] 
+   theta_best = np.linalg.inv(X_b.T.dot(X_b)).dot(X_b.T).dot(y)
+   print(theta_best)
+
+   X_new = np.array([[0], [40]])
+   X_new_b = np.c_[np.ones((2,  1)), X_new]
+   y_predict = X_new_b.dot(theta_best)
+
+
+   # import matplotlib as mpl
+   # mpl.rcParams['font.family'] = 'IPAPGothic'
+   # mpl.rcParams['font.family'] = 'AppleGothic'
+   import matplotlib.pyplot as plt
+   plt.plot(X_new, y_predict, "r-", label = "正規方程式による予測線")
+   plt.plot(X, y, "b.", label = "実測値: y = 2x + 20 + error")
+   plt.axis([0, 40, 0, 150])
+   plt.title('気温とビールの売り上げの関係')
+   plt.xlabel('気温(℃)')
+   plt.ylabel('ビールの売り上げ(本/日)')
+   plt.legend(loc = 'upper left')
+   plt.show()
+   plt.close()
+
+
+以下のような記述があったと思います．
+
+.. code-block :: python
+
+   n = 365
+   error_size = 10
+
+nやerror_sizeを説明すると下のようになります．
+
+- n：サンプル数
+- error_size：誤差の大きさ
+
+雑な言い方をするとnを大きくすると（365より大きい数字を代入すると），青い点の数が増えます．
+error_sizeを大きくすると，青い点がy軸方向（縦軸方向）に広がりやすくなります．
+
+nやerror_sizeに代入する値を変化させて，プロットがどのように変化するのかを調べてください．
+またプロットの変化から，nやerror_sizeがどのような影響をもたらすのか，考えてください．
+
+
+実習2の内容
+**************************************************************************
+
+nやerror_sizeに代入する値を変化させて出てくるプロットから，今回の手法（回帰分析）の特徴や弱点を考察してください．
 
