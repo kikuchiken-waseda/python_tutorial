@@ -1,0 +1,534 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>統計学基礎 (重回帰分析/因子分析) &mdash; k-lab-seminar-2019-programming 2019 ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="prev" title="学習曲線" href="../linearModel/learning_curve.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> k-lab-seminar-2019-programming
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../env/index.html">開発環境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/index.html">はじめての Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linearModel/index.html">機械学習基礎（線形モデル）</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">統計学基礎 (重回帰分析/因子分析)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id3">統計学とは</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#r">R について</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">データの読み込み</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">データの代表値, 散布度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">統計的仮説検定</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">統計的仮説検定の意義</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#t-p">t 値 と p 値</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">様々な分析</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">重回帰分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">因子分析</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">k-lab-seminar-2019-programming</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>統計学基礎 (重回帰分析/因子分析)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/stats/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><a class="toc-backref" href="#id11">統計学基礎 (重回帰分析/因子分析)</a><a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="contents topic" id="id2">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id1" id="id11">統計学基礎 (重回帰分析/因子分析)</a><ul>
+<li><a class="reference internal" href="#id3" id="id12">統計学とは</a></li>
+<li><a class="reference internal" href="#r" id="id13">R について</a><ul>
+<li><a class="reference internal" href="#id4" id="id14">データの読み込み</a></li>
+<li><a class="reference internal" href="#id5" id="id15">データの代表値, 散布度</a></li>
+<li><a class="reference internal" href="#id6" id="id16">統計的仮説検定</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id7" id="id17">統計的仮説検定の意義</a><ul>
+<li><a class="reference internal" href="#t-p" id="id18">t 値 と p 値</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id8" id="id19">様々な分析</a><ul>
+<li><a class="reference internal" href="#id9" id="id20">重回帰分析</a></li>
+<li><a class="reference internal" href="#id10" id="id21">因子分析</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id12">統計学とは</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>統計という言葉の意味をご存知でしょうか？
+Wikipedia に よりますと以下のような意味だそうです．</p>
+<div class="line-block">
+<div class="line">統計（とうけい, statistic）は, 現象を調査することによって数量で把握すること,</div>
+<div class="line">または, 調査によって得られた数量データ(統計量)のことである.</div>
+<div class="line"><br /></div>
+<div class="line">- 出典: フリー百科事典『ウィキペディア（Wikipedia）』</div>
+<div class="line">- <a class="reference external" href="https://ja.wikipedia.org/wiki/%E7%B5%B1%E8%A8%88">https://ja.wikipedia.org/wiki/%E7%B5%B1%E8%A8%88</a></div>
+</div>
+<p>身長や体重を始めとした数値などをデータにすることを「統計」と言い,
+そのデータを整理したり比較したりして,
+手持ちのデータから持っていないデータについて議論する方法を学ぶことを
+「統計学」と呼びます.</p>
+<p>今回のセミナーでは, <code class="code docutils literal notranslate"><span class="pre">R</span></code> の基本的な操作と,
+統計学のうち, 「重回帰分析」「因子分析」の二つの分析に絞って説明していきたいと
+思っています.</p>
+</div>
+<div class="section" id="r">
+<h2><a class="toc-backref" href="#id13">R について</a><a class="headerlink" href="#r" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>今回の合宿ではデータの分析を行う上で, <code class="code docutils literal notranslate"><span class="pre">R</span></code> を用います.
+データリテラシーの授業で一度使っていると思うため,
+インストールなどの手順は省いて, 実際に動かすところから始めましょう.</p>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id14">データの読み込み</a><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>最初に, <code class="code docutils literal notranslate"><span class="pre">csv</span></code> ファイルを読み込みます.
+ここでは, 企業の人事評価に関してのデータを扱います.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">jhk</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="n">data.csv</span>”<span class="p">)</span>
+</pre></div>
+</div>
+<p>読み込んだデータがどのようなものであるのかを確認してみましょう．</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nf">dim</span><span class="p">(</span><span class="n">jhk</span><span class="p">)</span>  <span class="c1"># データの行数列数を確認する</span>
+<span class="o">&gt;</span> <span class="nf">colnames</span><span class="p">(</span><span class="n">jhk</span><span class="p">)</span>  <span class="c1"># 変数名の確認</span>
+<span class="o">&gt;</span> <span class="nf">head</span><span class="p">(</span><span class="n">jhk</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>  <span class="c1"># 最初の3行を表示</span>
+</pre></div>
+</div>
+<p>このデータのヒストグラムを描画させます.
+ここでは，パッケージ <code class="code docutils literal notranslate"><span class="pre">lattice</span></code> の <code class="code docutils literal notranslate"><span class="pre">histogram</span></code> 関数を用います.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nf">library</span><span class="p">(</span><span class="n">lattice</span><span class="p">)</span>  <span class="c1"># パッケージの読み込み</span>
+<span class="o">&gt;</span> <span class="nf">histogram</span><span class="p">(</span><span class="o">~</span><span class="n">stress</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">jhk</span><span class="p">,</span> <span class="n">breaks</span><span class="o">=</span><span class="m">20</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&quot;count&quot;</span><span class="p">)</span>  <span class="c1"># ヒストグラムを表示</span>
+</pre></div>
+</div>
+<p>関数の第 1 引数には, ヒストグラムを描画したい変数名を入れます.
+例えば <code class="code docutils literal notranslate"><span class="pre">department</span></code> であれば <code class="code docutils literal notranslate"><span class="pre">department</span></code> を,
+<code class="code docutils literal notranslate"><span class="pre">self_assertion</span></code> あれば <code class="code docutils literal notranslate"><span class="pre">self_assertion</span></code> を打ち込みます.
+第 2 引数にはデータ名, 第 3 引数はヒストグラムの階級数を入力し,
+第 4 引数の <code class="code docutils literal notranslate"><span class="pre">type</span></code> ではヒストグラムの縦軸を度数としています.</p>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id15">データの代表値, 散布度</a><a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>分布の中心位置を表現する指標のことを代表値と言います.
+よく使われる代表値には, 平均値, 中央値(メディアン), 最頻値(モード)が挙げられます.
+<code class="code docutils literal notranslate"><span class="pre">R</span></code> で上記の代表値を求めるには以下のようにします.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nf">mean</span><span class="p">(</span><span class="n">jhk</span><span class="o">$</span><span class="n">stress</span><span class="p">)</span>  <span class="c1"># ストレスの平均値</span>
+<span class="o">&gt;</span> <span class="nf">median</span><span class="p">(</span><span class="n">jhk</span><span class="o">$</span><span class="n">stress</span><span class="p">)</span>  <span class="c1"># ストレスの中央値</span>
+<span class="o">&gt;</span> <span class="nf">sort</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">jhk</span><span class="o">$</span><span class="n">age</span><span class="p">))</span>  <span class="c1"># 年代の最頻値</span>
+</pre></div>
+</div>
+<p>最頻値に関しては, 直接最頻値が出てくるわけではなく,
+年代の変数名とその数を表示させ, その中で一番多いものを選ぶ, という形になります.</p>
+</div>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id16">統計的仮説検定</a><a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ここでは, 統計的仮説検定の話をします.
+データリテラシーの授業を通して,
+<code class="code docutils literal notranslate"><span class="pre">t</span></code> 値, <code class="code docutils literal notranslate"><span class="pre">p</span></code> 値という言葉は何度も耳にしているのではないかと思います.</p>
+<p>では, <code class="code docutils literal notranslate"><span class="pre">t</span></code> 値, <code class="code docutils literal notranslate"><span class="pre">p</span></code> 値というものはそれぞれ何を表しているか説明できますか？
+それぞれの値が何を示しているのかの話をしつつ,
+統計的仮説検定の説明をしたいと思います.</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id17">統計的仮説検定の意義</a><a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>最初にも言いましたが, 統計学とは, 手持ちのデータからまだ持っていないデータについて議論する方法を学ぶ学問です.</p>
+<p>言い換えれば，手持ちのデータを分析することで,
+データから確率分布を推定し，
+まだ，知らないデータの値を予測します.</p>
+<p>その上で重要なのは, <strong>正しい確率分布を推定できているか</strong> になります.</p>
+<p>これを間違えてしまうと, まだ以後の予測は正しいものになりません.
+元のデータから正しい確率分布が推定できているかどうかを判断するためには
+統計的仮説検定が有効です.</p>
+<div class="section" id="t-p">
+<h3><a class="toc-backref" href="#id18">t 値 と p 値</a><a class="headerlink" href="#t-p" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>今回説明をする統計的仮説検定は <code class="code docutils literal notranslate"><span class="pre">t</span></code> 検定です．</p>
+<p>この検定には <code class="code docutils literal notranslate"><span class="pre">t</span></code> 値という指標が使われます．
+この指標は期待値が 0 ではないことを示すための指標です．</p>
+<p><code class="code docutils literal notranslate"><span class="pre">t</span></code> 値はこのように計算できます.</p>
+<div class="math notranslate nohighlight">
+\[t 値 = \frac{期待値 - 0}{標準誤差}\]</div>
+<p><code class="code docutils literal notranslate"><span class="pre">t</span></code> 値が大きければ, 分子が大きいか, 分母が小さい,
+またはその両方が起こっている可能性が考えられます.</p>
+<p>分子が大きければ期待値と 0 との差が大きいことが言えますし,
+分母が小さければ標準偏差が小さい, サンプル数が大きいことが言えます.</p>
+<p>つまり <code class="code docutils literal notranslate"><span class="pre">t</span></code> 値が大きければ,
+そのデータには期待値は 0 ではないと見なせます.</p>
+<p>また, 求められた <code class="code docutils literal notranslate"><span class="pre">t</span></code> 値の値を,
+偶然超えてしまう確率のことを <code class="code docutils literal notranslate"><span class="pre">p</span></code> 値と言います.
+統計学上では,  <code class="code docutils literal notranslate"><span class="pre">p</span></code> 値が 0.05(5%) を下回れば有意差があると見なすことが多いです.</p>
+<p>つまり,  <code class="code docutils literal notranslate"><span class="pre">p</span></code> 値が 0.05 以下であると,
+偶然求めた <code class="code docutils literal notranslate"><span class="pre">t</span></code> 値を上回る可能性が 5% 以下であると言え,
+要するにそのデータには有意差があると言えます.</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p>有意水準に関して</p>
+<p>有意水準の 0.05% という値は，
+慣例的なもので論理的な意味がある値ではないことは，
+常に注意が必要です．</p>
+<p>これは解析者の差別と偏見によって決定するものであるため，
+常に，&quot;有意水準は XXX % と定めた&quot; のように記述をする必要があります．</p>
+<p class="last">10000 回同じ実験をして，5 回までは違う結果になるかもだけど許してねという意味です．</p>
+</div>
+<p>これらの値を求めるために <code class="code docutils literal notranslate"><span class="pre">t</span></code> 検定を行います．
+例として, 男性と女性からできる二つの母集団で「協調性」の平均に差があるかを統計的に推測してみましょう.</p>
+<p><code class="code docutils literal notranslate"><span class="pre">R</span></code> では以下のように求められます.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nf">t.test</span><span class="p">(</span><span class="n">cooperativeness</span><span class="o">~</span><span class="n">gender</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">jhk</span><span class="p">,</span> <span class="n">var.equal</span><span class="o">=</span><span class="bp">T</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="m">3.9599</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="m">798</span><span class="p">,</span> <span class="n">p</span><span class="o">-</span><span class="n">value</span> <span class="o">=</span> <span class="m">8.167e-05</span>
+</pre></div>
+</div>
+<p>分析の結果,  <code class="code docutils literal notranslate"><span class="pre">t</span></code> 値は 3.9599,
+自由度は 798, <code class="code docutils literal notranslate"><span class="pre">p</span></code> 値：8.167*10^-5 となりました．</p>
+<p>少なくとも 0.1％ 水準で有意であると言えます．
+つまり, 「母平均に差がない」という帰無仮説が棄却され,
+男性と女性の母平均には差があると言えそうです.</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id19">様々な分析</a><a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ここまで統計学の基本的なことを復習がてら話してきました.
+それでは, 実際に手を動かして(一応今までも動かしていますが)分析に触れて見ましょう.</p>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id20">重回帰分析</a><a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>重回帰分析とは簡単に言うと,
+1 つの目的変数を複数の説明変数で説明しようとする分析のことです.
+1 つの目的変数を 1 つの説明変数で説明しようとする単回帰分析よりも,
+細かい分析が可能になります.</p>
+<p>ここでは, あるフィットネスジムチェーンの企業の顧客満足度のデータを用います.
+データを読み込んで見てもらえば分かりますが,
+ランダムにふられた店舗番号, 顧客数, 立地満足度, 設備満足度, 店舗面積満足度, トレーナー満足度, トレーナー数, トレーナーの接客研修の有無, 入会特典の有無についてのアンケートです.</p>
+<p>一度, 単回帰のモデルを考えてみましょう.
+例えば, 「設備満足度」によって「顧客数」を説明する場合には,
+以下の式を立てることができます．</p>
+<div class="math notranslate nohighlight">
+\[顧客数 = \alpha + \beta \times 設備満足度 + e\]</div>
+<p>ここで単回帰式は一次関数ですので，
+<span class="math notranslate nohighlight">\(\alpha\)</span> は切片, <span class="math notranslate nohighlight">\(\beta\)</span> は傾きです．
+この <span class="math notranslate nohighlight">\(\beta\)</span> のことを単回帰係数と呼びます.</p>
+<p>この式は, 顧客数という目的変数を立地満足度という説明変数できる部分を表すものですが,
+顧客数を立地満足度のみで説明できるとは思えません.
+その説明できなかった部分が誤差 <span class="math notranslate nohighlight">\(e\)</span> として表現されています.</p>
+<p>では, 重回帰分析とはどのようなものでしょうか？</p>
+<p>重回帰分析は, 複数の説明変数を用いて目的変数を説明するものだと述べました.
+例えば, 「立地満足度」と「設備満足度」説明するならば,
+以下の式で表現できます．</p>
+<div class="math notranslate nohighlight">
+\[顧客数 = \alpha + \beta_{1} \times 立地満足度 + \beta_{2} \times 設備満足度 + e\]</div>
+<p>説明変数が増えていることから, 傾きも二種類あります.
+説明変数が 2 個以上ある場合には, これらの傾きを偏回帰係数と呼びます.</p>
+<p>一通り言葉で説明したので, 実際に分析を始めましょう.
+重回帰分析の具体的な手順は以下の通りです.</p>
+<ol class="arabic simple">
+<li>回帰モデルの作成(どのような説明変数を入れるかの検討)</li>
+<li>モデルにおける母数の推定(各説明変数に付与された偏回帰係数の値を推定)</li>
+<li>モデルの診断と評価(重回帰モデルの評価)</li>
+<li>偏回帰係数の解釈(モデルの評価が良好であれば, 偏回帰係数を解釈)</li>
+</ol>
+<p>今回は, 「顧客数」という目的変数を「立地満足度」「設備満足度」「店舗面積満足度」「トレーナー満足度」の4つの説明変数によって説明するモデルを作成し,
+R を用いた重回帰分析の基本的な手順を踏んでいきます.</p>
+<p>重回帰モデルを以下のように仮定します．</p>
+<div class="math notranslate nohighlight">
+\[顧客数 = \alpha + \beta_{1} \times 立地満足度 + \beta_{2} \times 設備満足度 + \beta_{3} \times 店舗面積満足度 + \beta_{4} \times トレーナー満足度 + e\]</div>
+<p><code class="code docutils literal notranslate"><span class="pre">R</span></code> を用いて重回帰分析を行うときは関数 <code class="code docutils literal notranslate"><span class="pre">lm</span></code> 関数を用います.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">csdat</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;data2.csv&quot;</span><span class="p">)</span>  <span class="c1"># データの読み込み</span>
+<span class="o">&gt;</span> <span class="nf">head</span><span class="p">(</span><span class="n">cedar</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>  <span class="c1"># 最初の 3 行を確認する</span>
+<span class="o">&gt;</span> <span class="n">res1</span> <span class="o">&lt;-</span> <span class="nf">lm</span><span class="p">(</span><span class="n">num</span> <span class="o">~</span> <span class="n">location</span> <span class="o">+</span> <span class="n">facility</span> <span class="o">+</span> <span class="n">area</span> <span class="o">+</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">csdat</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>見てわかるとは思いますが, 関数 <code class="code docutils literal notranslate"><span class="pre">lm</span></code> は第 1 引数にモデルの式を与えます.
+<code class="code docutils literal notranslate"><span class="pre">~</span></code> の左側に目的変数, 右側に用いる説明変数を + で繋いでいくだけです.</p>
+<p>重回帰分析の結果が含まれた <code class="code docutils literal notranslate"><span class="pre">res1</span></code> に対して関数 <code class="code docutils literal notranslate"><span class="pre">summary</span></code> を用いると,
+主要な値が表示されます．</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nf">summary</span><span class="p">(</span><span class="n">res1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>結果の <code class="code docutils literal notranslate"><span class="pre">Estimate</span></code> というのが各変数の偏回帰係数となっており,
+傾きを示したもので, <code class="code docutils literal notranslate"><span class="pre">intercept</span></code> は切片を意味します.</p>
+<p>時間の関係上, モデルの診断・評価ができないため,
+今回はこのモデルがいい評価を得た前提で話を進めます.</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p>モデルは仮説</p>
+<p>ここで重回帰式というのは解析者が勝手に考えた，
+仮説を試してみた結果に過ぎないことに注意が必要です．</p>
+<p>ようはモデルを作成しただけでは，
+それがうまくいっていたものなのか，
+そうじゃないのかはわかりません．</p>
+<p class="last">実際の研究では，
+今回飛ばしたモデルの診断・評価こそが重要になります．</p>
+</div>
+<p>上記の結果をまとめると，
+顧客数は以下の式で予測を行うことが出来そうです．</p>
+<div class="math notranslate nohighlight">
+\[顧客数 = \alpha + 29.105 \times 立地満足度 + 21.640 \times 設備満足度 + 23.803 \times店舗面積満足度 + 32.421 \times トレーナー満足度 + e\]</div>
+</div>
+<div class="section" id="id10">
+<h3><a class="toc-backref" href="#id21">因子分析</a><a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>因子分析は, 質問紙等のアンケートに含まれている項目の間の相関関係を元に,
+ある項目群に共通している成分(因子)を見つけるための手法となっています.</p>
+<p>主に心理尺度を利用した調査研究で扱われます.因子分析には探索的因子分析と確認的因子分析の二種類がありますが, 本セミナーでは探索的因子分析の身の説明をさせていただきます.</p>
+<p>人がある行動を起こす際,
+その理由には大きく分けて内発的動機づけと外発的動機づけの2つがあると言われています.</p>
+<p>内発的動機づけとは, その物事を「面白いからやる」と活動そのものに興味を持っている状態で, 外発的動機づけとは, 「褒美がもらえるから」「やらないと怒られるから」など報酬の獲得, 罰の回避など, 活動そのものとは関係のない目的を達成するための手段としての動機づけとなっています.</p>
+<p>因子分析を行う上で, 今回は中学生が学習をする理由について調査するため, 内発的, 外発的共に4つずつの項目に答えてもらったデータを用います.</p>
+<p>内発的動機づけの項目は</p>
+<ul class="simple">
+<li>I1. 問題を解くことは面白いから</li>
+<li>I2. 勉強すること自体が好きだから</li>
+<li>I3. わかるようになるのが嬉しいから</li>
+<li>I4. 好奇心が満たされるから</li>
+</ul>
+<p>外発的動機づけの項目は</p>
+<ul class="simple">
+<li>E1. 成績が下がると怒られるから</li>
+<li>E2. 勉強することは規則のようなものだから</li>
+<li>E3. みんなが勉強しているから</li>
+<li>E4. 周りの人がやりなさいと言うから</li>
+</ul>
+<p>となっています.</p>
+<p>それぞれに 1 (全く当てはまらない) から 4 (かなり当てはまる) までの評価をしてもらいました.</p>
+<p>では, 最初にデータを読み込んで見ましょう</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">mtv</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;data3.csv&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="nf">head</span><span class="p">(</span><span class="n">mtv</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>これらの回答に得点を与え, 合計点を内発的動機づけ,
+外発的動機づけのそれぞれの得点とすることで,
+動機づけの程度を表すことができます.
+このように, 対象に数値を与える規則のことを尺度と言います.</p>
+<p>さて, 探索的因子分析を行う上で, 踏む手順は以下の通りとなります.
+一つずつ見ていきましょう.</p>
+<ol class="arabic simple">
+<li>因子数の決定</li>
+<li>因子負荷の推定</li>
+<li>因子軸の回転 (因子が二つ以上の場合)</li>
+<li>因子の解釈</li>
+</ol>
+<p>まず, 因子数の決定を行いましょう.
+因子数の決定には何種類かありますが, 今回はスクリーテストを用いて見ましょう.
+固有値を縦軸, 因子の番号を横軸に取り,
+固有値の変化をプロットした折れ線グラフのことをスクリープロットと言います.</p>
+<p>スクリーテストでは, 固有値の推移がなだらかになる直前までの固有値の数を因子数とします.
+スクリープロットは, <code class="code docutils literal notranslate"><span class="pre">psych</span></code> というパッケージの <code class="code docutils literal notranslate"><span class="pre">VSS.scree</span></code> を用いることで出力できます.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nf">library</span><span class="p">(</span><span class="n">psych</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="nf">VSS.scree</span><span class="p">(</span><span class="n">dkk</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>ここで出力されたスクリープロットを見ると,
+第 3 因子以降でなだらかになっています.</p>
+<p>したがって, 因子数は 2 までと決めてみることができそうです．</p>
+<p>仮に第 4 因子以降でなだらかになるようであれば因子数は3となりますので,
+臨機応変に対応してください.</p>
+<p>次に, 因子負荷の推定を行います.</p>
+<p>因子負荷は, それぞれの観測変数が各因子をどの程度反映しているかを示します.
+探索的因子分析による因子負荷の推定は,
+パッケージ <code class="code docutils literal notranslate"><span class="pre">psych</span></code> の <code class="code docutils literal notranslate"><span class="pre">fa</span></code> という関数により行うことができます.
+先ほどのスクリーテストにより, 因子数は 2 として分析していきましょう.</p>
+<p>因子数が 2 つであるため, 因子軸を回転させる必要がありますが,
+まず最初に回転する前の因子負荷の値を推定しましょう.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">fa.mtv</span> <span class="o">&lt;-</span> <span class="nf">ca</span><span class="p">(</span><span class="n">mtv</span><span class="p">,</span> <span class="n">nfactors</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">fm</span><span class="o">=</span>“<span class="n">ml</span>”<span class="p">,</span> <span class="n">rotate</span><span class="o">=</span>“<span class="n">none</span>”<span class="p">)</span>
+<span class="o">&gt;</span> <span class="nf">print</span><span class="p">(</span><span class="n">fa.mtv</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="bp">T</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>因子分析の結果を変数 <code class="code docutils literal notranslate"><span class="pre">fa.mtv</span></code> に保存します.</p>
+<p>関数 <code class="code docutils literal notranslate"><span class="pre">fa</span></code> では, 第一引数でデータを指定, 第二引数で因子数の指定, 第三引数では推定法を記述します.</p>
+<p>今回は心理学研究で最もよく使われている最尤法を用いています.</p>
+<p>第四引数では回転の方向を決めるものですが, 今回はなしにしております.
+出力画面に出てくる結果ですが,
+ML1, ML2の列はそれぞれ第一因子, 第二因子の因子負荷を大きい順に
+並び替えたものとなっております.</p>
+<p>下に出てくる <code class="code docutils literal notranslate"><span class="pre">SS</span> <span class="pre">loadings</span></code> は因子寄与と呼ばれるもので,
+各因子が説明できる観測変数の分散の大きさを表します.</p>
+<p><code class="code docutils literal notranslate"><span class="pre">Proportion</span> <span class="pre">Var</span></code> は各因子の寄与率を合計した値であり,
+累積寄与率と呼ばれることが多いです.</p>
+<p>では, 因子軸の回転について考えて見ましょう.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../linearModel/learning_curve.html" class="btn btn-neutral float-left" title="学習曲線" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Takuya Asai
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
