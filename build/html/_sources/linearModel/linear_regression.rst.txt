@@ -235,6 +235,7 @@
 
    import numpy as np
 
+
    n = 365
    error_size = 10
    X = 40 * np.random.rand(n, 1)
