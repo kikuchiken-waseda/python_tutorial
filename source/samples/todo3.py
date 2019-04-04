@@ -80,28 +80,13 @@ class TodoList(object):
 
     todos = []
 
-    def __init__(self):
-        from os import path
-        if path.exists("./data.txt"):
-            with open("./data.txt", "r") as f:
-                for line in f:
-                    self.add(line.strip())
-
-    def save(self):
-        text = "\n".join([
-            todo.text
-            for todo in self.todos
-        ])
-        with open("./data.txt", mode='w') as f:
-            f.write(text)
-
     def add(self, todo):
         """todo を追加する.
 
         Args:
             todo (Todo): 追加する TODO.
         """
-        self.todos.append(Todo(todo))
+        self.todos.append(todo)
 
     def show(self):
         """todo list を表示する."""
@@ -130,24 +115,22 @@ class TodoList(object):
 
 
 if __name__ == "__main__":
-    from argparse import ArgumentParser
-    parser = ArgumentParser()
-    parser.add_argument("--add", type=str, default="")
-    parser.add_argument("--fin", type=str, default="")
-    parser.add_argument("--delete", type=str, default="")
-    args = parser.parse_args()
-
     todo_list = TodoList()
-    if args.add:
-        todo_list.add(args.add)
-        todo_list.save()
 
-    if args.delete:
-        todo_list.delete(int(args.delete))
-        todo_list.save()
+    # TODO を沢山加える
+    todo_list.add(Todo("TODO1"))
+    todo_list.add(Todo("TODO2"))
+    todo_list.add(Todo("TODO3"))
 
-    if args.fin:
-        todo_list.finish(int(args.fin))
-        todo_list.save()
+    # TODO を表示する
+    print("show todo")
+    todo_list.show()
 
+    # 最初の TODO を削除する
+    print("del todo")
+    todo_list.delete(0)
+    todo_list.show()
+
+    print("fin todo")
+    todo_list.finish(0)
     todo_list.show()
