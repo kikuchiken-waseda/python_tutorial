@@ -26,6 +26,7 @@
         <script type="text/javascript" src="../_static/doctools.js"></script>
         <script type="text/javascript" src="../_static/language_data.js"></script>
         <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -89,7 +90,7 @@
 <li class="toctree-l2"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">First Python</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id2">データモデル</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#int-float-complex-bool">数値型: int, float, complex, bool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#int-float-bool">数値型: int / float / bool</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#list-tuple-str">シーケンス型: list, tuple, str</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#set-frozenset">集合型: set, frozenset</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#dict">マッピング型: dict</a></li>
@@ -199,7 +200,7 @@
 <ul class="simple">
 <li><a class="reference internal" href="#first-python" id="id13">First Python</a><ul>
 <li><a class="reference internal" href="#id2" id="id14">データモデル</a><ul>
-<li><a class="reference internal" href="#int-float-complex-bool" id="id15">数値型: int, float, complex, bool</a></li>
+<li><a class="reference internal" href="#int-float-bool" id="id15">数値型: int / float / bool</a></li>
 <li><a class="reference internal" href="#list-tuple-str" id="id16">シーケンス型: list, tuple, str</a></li>
 <li><a class="reference internal" href="#set-frozenset" id="id17">集合型: set, frozenset</a></li>
 <li><a class="reference internal" href="#dict" id="id18">マッピング型: dict</a></li>
@@ -302,18 +303,17 @@
 </span></pre></div>
 </div>
 </div>
-<div class="section" id="int-float-complex-bool">
-<h3><a class="toc-backref" href="#id15">数値型: int, float, complex, bool</a><a class="headerlink" href="#int-float-complex-bool" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="int-float-bool">
+<h3><a class="toc-backref" href="#id15">数値型: int / float / bool</a><a class="headerlink" href="#int-float-bool" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>1 つで意味をもつものに関してを数値型といいます．
-これは厳密には以下の 4 種類です.</p>
+大雑把に言えば，数ですね．
+代表的なものに以下の 3 つがあります．</p>
 <ul class="simple">
 <li>int: 整数</li>
 <li>float: 実数</li>
-<li>complex: 複素数</li>
 <li>bool: 真偽値(True, False)</li>
 </ul>
-<p>大雑把に言えば，数ですね．
-数値型は数値型同士において四則演算を行うことができます．</p>
+<p>数値型は数値型同士において四則演算を行うことができます．</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="go">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">0</span> <span class="o">-</span> <span class="mi">1</span>
@@ -433,8 +433,7 @@
 定義されているということです．</p>
 <p>逆に言えば，どんなことができるのかを決めることで，
 全く新しい型を作成した時に，数値にしたり，その他にしたりすることができます（こう
-いうプログラミングの方法をダックタイプといいます）．
-これは後でクラス定義の際に使用するので覚えておいてください．</p>
+いうプログラミングの方法をダックタイプといいます）．</p>
 </div>
 <div class="section" id="list-tuple-str">
 <h3><a class="toc-backref" href="#id16">シーケンス型: list, tuple, str</a><a class="headerlink" href="#list-tuple-str" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -558,8 +557,31 @@ str は文字限定の機能を使うことができます</p>
 <div class="section" id="id3">
 <h4>タプル型<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>list とはうって変わって tuple オブジェクトは非可変です．
-そのため, list のような操作を行うことはできません．</p>
-<p>この型は最初の内では，むしろ，種々制御構文内で使用されることが多いです．</p>
+これは少し理解が難しいかもしれません．</p>
+<p>例えば以下のようなことは可能です．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tuples</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">new_tuples</span> <span class="o">=</span> <span class="n">tuples</span> <span class="o">+</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">new_tuples</span><span class="p">)</span>
+<span class="go">(1, 2, 3, 4, 5, 6, 7)</span>
+</pre></div>
+</div>
+<p>また，これも可能です．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tuples</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">new_tuples</span> <span class="o">=</span> <span class="n">tuples</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">new_tuples</span><span class="p">)</span>
+<span class="go">(3, 4)</span>
+</pre></div>
+</div>
+<p>つまり, 何か新しい変数にするなら，
+リスト型と同じような操作ができるのです．</p>
+<p>一方で, <code class="code docutils literal notranslate"><span class="pre">append</span></code> 関数や, <code class="code docutils literal notranslate"><span class="pre">pop</span></code> 関数のように
+一度決まった変数そのものを変更することはできません．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tuples</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tuples</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="go">TypeError: &#39;tuple&#39; object does not support item assignment</span>
+</pre></div>
+</div>
+<p>この型は初学者の内では，むしろ，種々制御構文内で使用されることが多いです．</p>
 </div>
 <div class="section" id="str">
 <h4>str型<a class="headerlink" href="#str" title="このヘッドラインへのパーマリンク">¶</a></h4>
@@ -959,6 +981,76 @@ word でもいいですし，chrome でもいいです．</p>
 <p>これは日常でも沢山あります．
 例えばどのようなものがあるのでしょうか？
 すこし考えてみてください(それは大いにプログラミングの上達を手助けします)．</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p>引数とは何者か</p>
+<p>関数を教えていると，
+しばしば引数に関して混乱する方が多いです．</p>
+<p>初学者の内は，引数とは定義されていない（ことの多い）変数なのだ，と
+理解するのがよいです．</p>
+<p>どういうことでしょうか？</p>
+<p>例えば以下の例で考えてみます:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">9</span>
+</pre></div>
+</div>
+<p>関数 <code class="code docutils literal notranslate"><span class="pre">add</span></code> は変数 <code class="code docutils literal notranslate"><span class="pre">a</span></code> と変数 <code class="code docutils literal notranslate"><span class="pre">b</span></code> を
+足しているだけです．</p>
+<p>で実際に使用している際には, <code class="code docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2)</span></code> や <code class="code docutils literal notranslate"><span class="pre">(10,</span> <span class="pre">-1)</span></code> を使っています．
+では例えば, 1 はどこに入るのでしょうか？
+あるいは -1 はどこに入るのでしょうか？</p>
+<p>これを考えると, 引数とは，後で値が決まる変数の一種だと分かると思います．</p>
+<p>引数が変数であるということを示す例をもう一つおみせします:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">5</span>
+</pre></div>
+</div>
+<p class="last">何が起きたのか考えてみましょう．</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p>可変長引数</p>
+<p>引数に関してはもう一つ，
+面白い書き方があります:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="nb">print</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">show</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">show</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+<p>このように引数の前に * をつけると，
+いくつでも後で値を決めることができる引数になります．</p>
+<p>こういうのもあります:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">show</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">[&#39;a: 1&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">show</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">[&#39;a: 1&#39;, &#39;b: 2&#39;]</span>
+</pre></div>
+</div>
+<p>何が起きたか考えてみてください．</p>
+<ul class="last simple">
+<li>これら二つの例にはタプルや辞書型が関わってきます．</li>
+</ul>
+</div>
 </div>
 <div class="section" id="id6">
 <h2><a class="toc-backref" href="#id26">クラス</a><a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -1324,17 +1416,17 @@ $ python todo.py --add 頑張る
     <span class="n">todo_list</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Todo</span><span class="p">(</span><span class="s2">&quot;TODO3&quot;</span><span class="p">))</span>
 
     <span class="c1"># TODO を表示する</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;show todo&quot;</span><span class="p">)</span>
     <span class="n">todo_list</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-    <span class="k">print</span><span class="p">()</span>
 
     <span class="c1"># 最初の TODO を削除する</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;del todo&quot;</span><span class="p">)</span>
     <span class="n">todo_list</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">todo_list</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-    <span class="k">print</span><span class="p">()</span>
 
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;fin todo&quot;</span><span class="p">)</span>
     <span class="n">todo_list</span><span class="o">.</span><span class="n">finish</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">todo_list</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-    <span class="k">print</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1353,36 +1445,59 @@ TODO LIST を自由に管理できません．</p>
 </pre></div>
 </div>
 </li>
-<li><dl class="first docutils">
-<dt>--add &quot;内容&quot; を加えると新規 todo を追加します::</dt>
-<dd><p class="first last">$ python todo.py --add &quot;やること&quot;
+<li><p class="first">--add &quot;内容&quot; を加えると新規 todo を追加します:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python todo.py --add &quot;やること&quot;
 - [] TODO 1 (0)
 - [] TODO 2 (1)
 - [] TODO 3 (2)
-- [] やること (3)</p>
-</dd>
-</dl>
+- [] やること (3)
+</pre></div>
+</div>
 </li>
-<li><dl class="first docutils">
-<dt>--fin id を加えるとその ID の TODO を修了します::</dt>
-<dd><p class="first last">$ python todo.py --fin 1
+<li><p class="first">--fin id を加えるとその ID の TODO を修了します:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python todo.py --fin 1
 - [x] TODO 1 (0)
 - [] TODO 2 (1)
 - [] TODO 3 (2)
-- [] やること (3)</p>
-</dd>
-</dl>
+- [] やること (3)
+</pre></div>
+</div>
 </li>
-<li><dl class="first docutils">
-<dt>--del id を加えるとその ID の TODO を削除します::</dt>
-<dd><p class="first last">$ python todo.py --del 1
+<li><p class="first">--del id を加えるとその ID の TODO を削除します:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python todo.py --delete 1
 - [] TODO 2 (2)
 - [] TODO 3 (3)
-- [] やること (4)</p>
-</dd>
-</dl>
+- [] やること (4)
+</pre></div>
+</div>
 </li>
 </ol>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p>ファイルの読み書き</p>
+<p>この課題を達成するためには，
+TODO を一度保存する必要があります．</p>
+<p>以下にファイルを保存する例を示します:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+    <span class="s2">&quot;aaa&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bbb&quot;</span><span class="p">,</span>
+<span class="p">])</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./items.txt&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>一方で保存したファイルを読み込みリストにする方法は
+以下の通りです:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="k">import</span> <span class="n">path</span>
+<span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;./items.txt&quot;</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./items.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
