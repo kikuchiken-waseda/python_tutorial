@@ -9,6 +9,7 @@ class Todo(object):
     def set_is_finish(self, x):
         self.is_finished = x
 
+
 if __name__ == "__main__":
     from argparse import ArgumentParser
     parser = ArgumentParser()

@@ -12,12 +12,9 @@
 どうやって手元にあるデータから全体を予測するのか，具体的にはどのようにしてパラメータの求めるのかが大事になる，
 と言いました．
 
-ここでは，具体的に二つのやり方をお伝えします．
+ここでは，具体的にバッチ勾配降下法のやり方をお伝えします．
 
-- バッチ勾配降下法
-- 確率勾配降下法
-
-どちらも，ランダムな初期パラメータから初めて，
+バッチ勾配降下法は，ランダムな初期パラメータから初めて，
 ちょっとずつパラメータを変化させて，
 最終的に最適解（誤差MSEが最も小さくなるパラメータ）を見つける手法です．
 
@@ -79,7 +76,53 @@
 このコードを実行してイテレーション，学習率を変化させて，プロットの変化を確認してみてください．
 
 
-確率勾配降下法
-==============================================================================
+.. code-block :: python
+   :caption: バッチ勾配降下法（batch_gradient_descent_method.py）
 
+   import numpy as np
+   X = 2 * np.random.rand(100, 1)
+   y = 4 + 3 * X + np.random.randn(100, 1)
+   X_b = np.c_[np.ones((100, 1)), X]
+
+   eta = 0.1           # 学習率
+   n_iterations = 10   # イテレーション
+   m = 100             # サンプル数
+
+   theta = np.random.randn(2, 1)  # 無作為な初期値
+
+   import matplotlib.pyplot as plt
+   for iteration in range(n_iterations):
+        gradients = 2/m * X_b.T.dot(X_b.dot(theta) - y)
+        theta = theta - eta * gradients
+        X_new = np.array([[0], [7]])
+        X_new_b = np.c_[np.ones((2,  1)), X_new]  # 各インスタンスにx0 = 1 を加える
+        y_predict = X_new_b.dot(theta)
+
+        plt.plot(X_new, y_predict, "r-")
+        plt.plot(X, y, "b.")
+        plt.axis([0, 2, 0, 15])
+
+   print(theta)
+   plt.show()
+
+イテレーション（歩数）10回程度だと，だんだん近づいて行っている様子がわかるかと思います．
+
+.. image:: image/gradient_descent_method/batch.png
+   :scale: 90%
+
+
+今回もターミナルを見てみると，以下のような表示があると思います．
+
+.. code-block:: bash
+
+   $ python3 normal_equation.py 
+   [[3.79748615]
+    [3.09573583]]
+
+上の4くらいの数字が，予測線の切片を表しています．
+下の3くらいの数字が，予測線の傾きを表しています．
+今回は，y = 3X + 4 + error をベースに作成したので，おおよそ予測はできていると言っていいでしょう．
+
+ここから，学習率やイテレーションを変化させて，上記で説明した問題を引き起こしてください．
+サンプル数に関しては，線形回帰の項目で問題を確認してもらったので，変化させなくて大丈夫です．
 
