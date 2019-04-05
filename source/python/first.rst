@@ -1122,190 +1122,62 @@ python さんに実行して貰うカ所になります．
 
 こういう文を python に伝えているので，実行結果は "TODO" になりました．
 
-引数入力
+TODO クラスを拡張する
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-でもこのままでは結局 "TODO" しか入力できないじゃないか．
-そのように憤慨なされる方がいれば，とても実践的で，筆者は好ましく思います．
+さて, ここまでで,
+class :code:`Todo` を使うと,
+何をやりたいのかを管理することができるようになりました.
 
-一寸，脇道に逸れることになりますが，
-引数入力をしていきましょう．
+ただ, TODO アプリというと,
+普通はその仕事が終わったのかどうなのかを管理できるはずです.
 
-これは単語を決める作業ではなくて，
-文章を作る作業なので当然書く場所は，
-:code:`if __name__ == "__main__":`
-の下になります.
-
-以下のようにしてみてください．
-
-.. code-block:: python
-
-    if __name__ == "__main__":
-        from argparse import ArgumentParser
-        parser = ArgumentParser()
-        parser.add_argument("--add", type=str, default="")
-        args = parser.parse_args()
-
-        todo = Todo(args.add)
-        print(todo.text)
-
-実行してみましょう．
-
-.. code-block:: bash
-
-   $ python todo.py
-
-何も出ませんね．
-これは以下のように使用します．
-
-.. code-block:: bash
-
-   $ python todo.py --add test
-   test
-   $ python todo.py --add 頑張る
-   頑張る
-
-今までクラスの説明を行ってきましたから，
-この記述が大体どんなことをやっているのか，
-イメージ付きますかね．
-
-例えば --add じゃなくて， --text という引数で，
-同じことできますか？
-
-ここではその程度の説明にとどめておきます．
-
-TODO LIST クラス
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-ここまでの説明で，
-我々は好きな文字で TODO を入れることができるようになりました．
-でも，一つの TODO だけですね．
-
-今回作成したい TODO アプリは，
-いくつかの TODO を管理したいです．
-
-複数の TODO を管理するためのクラスである TodoList クラスを作成してみましょう．
-
-.. note::
-
-   ここで，python のデータモデルは，一つなのか沢山なのかに意味があるという話を
-   思い出してください．
-
-   先に一つを作ったので，今度は沢山を作ります．
-
-TODOLIST は以下のことができます．
-
-- TODO LIST は TODO を登録できる
-- TODO LIST は TODO を確認できる
-- TODO LIST は TODO を消せる
-- TODO LIST は TODO を修了できる
-
-つまり，4 つの関数を持つはずです．
-
-また， TODO LIST は何かの TODO を持っている LIST なわけですから，
-属性は :code:`todos` でこれは list 型なはずです．
-
-この内, 修了をさせるというのは一寸難しいかもしれません．
-ある TODO が修了したかどうかを記録しておく属性が必要になるでしょう．
-
-例えば以下のようなものはどうでしょう？
+では, それをできるようにしてみましょう.
 
 .. code-block:: python
 
    class Todo(object):
-       """Todo class.
-
-       ユーザのやることを管理します．
-
-       Attributes:
-           text (str): todo の内容
-           is_finished (bool): todo が修了したか否か
-       """
 
        text = ""
        is_finished = False
 
        def __init__(self, text):
-           """インスタンス化の挙動を定義します.
-
-           Args:
-               text (str): todo の内容
-               id (int): todo の id
-           """
            self.text = text
 
-       def finish(self):
-           """インスタンスを修了状態にします."""
-           self.is_finished = True
-
-
-   class TodoList(object):
-       """Todo list クラス.
-
-       複数の todo を管理します.
-
-       Attributes:
-           todos (list) : Todo インスタンスを入れておくリストです
-
-       """
-
-       todos = []
-
-       def add(self, todo):
-           """todo を追加する.
-
-           Args:
-               todo (Todo): 追加する TODO.
-           """
-           self.todos.append(todo)
-
-       def show(self):
-           """todo list を表示する."""
-
-           for i, todo in enumerate(self.todos):
-               if todo.is_finished:
-                   check = "X"
-               else:
-                   check = ""
-               print("- [{}] {} ({})".format(check, todo.text, str(i)))
-
-       def delete(self, i):
-           """todo を削除する.
-
-           Args:
-               i (int): 削除する Todo のインデックス
-           """
-           self.todos.pop(i)
-
-       def finish(self, i):
-           """todo を修了する.
-
-           Args:
-               i (int): 修了する Todo のインデックス
-           """
-           self.todos[i].finish()
-
+       def set_is_finish(self, x):
+           self.is_finished = x
 
    if __name__ == "__main__":
-       todo_list = TodoList()
+       todo = Todo("TODO")
+       print(todo.text)
+       print(todo.is_finished)
 
-       # TODO を沢山加える
-       todo_list.add(Todo("TODO1"))
-       todo_list.add(Todo("TODO2"))
-       todo_list.add(Todo("TODO3"))
+       todo.set_is_finish(True)
+       print(todo.is_finished)
 
-       # TODO を表示する
-       todo_list.show()
-       print()
+実行してみると以下のようになります::
 
-       # 最初の TODO を削除する
-       todo_list.delete(0)
-       todo_list.show()
-       print()
+   $ python todo.py
+   'TODO'
+   False
+   True
 
-       todo_list.finish(0)
-       todo_list.show()
-       print()
+先の例と同じように, :code:`if __name__ == "__main__":` 以下が,
+ユーザの動作です.
+
+今回は, 最初に, :code:`Todo("TODO")` とすることで,
+ユーザは TODO の内容を入力しています.
+
+その上で, その内容と, 終わったかどうかを表示しています.
+これが一つ目の出力結果と二つ目の出力結果ですね.
+
+それから時間が経って, 最終的にその TODO が終了したとします.
+その際の挙動が :code:`todo.set_is_finish(True)` ですね.
+そうすると, いままで :code:`False` であった :code:`todo.is_finished` が
+:code:`True` に変わりました.
+これが三つ目の出力結果です.
+
+
 
 実習
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1313,30 +1185,125 @@ TODOLIST は以下のことができます．
 さて，ここからは実習をしましょう．
 
 このスクリプトでは，
-TODO LIST を自由に管理できません．
+一つの TODO を管理できるだけでした.
+これでは TODO LIST アプリとは言えないので,
+複数の TODO を管理できるようにしてみましょう.
 
+また, 今までは, :code:`if __main__ == __name__:` 以下にユーザの
+作業を書いていました.
+これでは, 実際のアプリっぽくないので
 以下の挙動になるように種々クラスや実行文を書き換えてください．
 
 1. 何も引数を与えずに実行すると今までに登録された全ての todo を表示します::
 
-    $ python todo.py
-    - [] TODO 1 (0)
-    - [] TODO 2 (1)
-    - [] TODO 3 (2)
+   # TODO の登録がない場合
+   $ python todo.py
+
+   # TODO の登録がある場合
+   $ python todo.py
+   - [False] TODO 1 (0)
+   - [False] TODO 2 (1)
+   - [False] TODO 3 (2)
 2. --add "内容" を加えると新規 todo を追加します::
-    $ python todo.py --add "やること"
-    - [] TODO 1 (0)
-    - [] TODO 2 (1)
-    - [] TODO 3 (2)
-    - [] やること (3)
-3. --fin id を加えるとその ID の TODO を修了します::
-    $ python todo.py --fin 1
-    - [x] TODO 1 (0)
-    - [] TODO 2 (1)
-    - [] TODO 3 (2)
-    - [] やること (3)
-4. --del id を加えるとその ID の TODO を削除します::
-    $ python todo.py --del 1
-    - [] TODO 2 (2)
-    - [] TODO 3 (3)
-    - [] やること (4)
+
+   # TODO の登録がない場合
+   $ python todo.py --add "やること"
+   - [False] やること (0)
+
+   # TODO の登録がすでにあった場合
+   $ python todo.py --add "やること"
+   - [False] TODO (0)
+   - [False] やること (1)
+3. --fininish id を加えるとその ID の TODO を修了します::
+
+   $ python todo.py --finish 0
+   - [True] TODO 1 (0)
+   - [False] TODO 2 (1)
+   - [False] TODO 3 (2)
+   - [False] やること (3)
+4. --delete id を加えるとその ID の TODO を削除します::
+
+   $ python todo.py --delete 1
+   - [True] TODO 1 (0)
+   - [False] TODO 3 (1)
+   - [False] やること (2)
+
+ヒント:
+   - 筆者は 1 つのクラスと 3 つの関数でこれを行いました.
+   - ユーザの入力部分に関しては, 以下のノートに記載しています.
+   - プログラミングではデータを保存する際には基本的にファイルへの入出力が必要です.
+      - この方法に関しては with 構文の説明で触れています.
+      - ただし, ファイルに保存を行うには, Todo オブジェクトの内容を一度文字列化する必要があります
+      - 同様に, ファイルを読み込むと, その内容は文字列型になります.
+        これを何とかして Todo オブジェクトに変更する必要があります.
+
+.. note:: 引数入力
+
+   この課題では, 実際にユーザに情報を入力させます.
+   この方法に関しては今まで 説明していなかったので,
+   ここで説明させてください.
+
+
+   .. code-block:: python
+
+      class Todo(object):
+
+         text = ""
+         is_finished = False
+
+         def __init__(self, text):
+            self.text = text
+
+         def set_is_finish(self, x):
+            self.is_finished = x
+
+      if __name__ == "__main__":
+         from argparse import ArgumentParser
+         parser = ArgumentParser()
+         parser.add_argument("--add", type=str)
+         args = parser.parse_args()
+
+         if args.add:
+            todo = Todo(args.add)
+            print(todo.text)
+
+   実行してみましょう．
+
+   .. code-block:: bash
+
+      $ python todo.py
+
+   何も出ませんね．
+   これは以下のように使用します．
+
+   .. code-block:: bash
+
+      $ python todo.py --add test
+      test
+      $ python todo.py --add 頑張る
+      頑張る
+
+   何が変わったのかというと,
+   python を実行する際に, :code:`--add "やりたい内容"` を付け加えているときと,
+   そうじゃない時とで実行する内容を変えることができたのです.
+
+   これを決めている部分は :code:`if __name__ -- "__main__":` 以下の行,
+   上から4 行目までです.
+
+   特に重要な部分は :code:`parser.add_argument("--add", type=str)` です.
+   この関数は, 第一引数に, 実行時にどのようなオプションを使うのかを書きます.
+   第二引数は, そのオプションに与えられる値の型がなんなのかを書きます.
+
+   今回の場合では, 実行時に "--add" というオプションが書かれた時には,
+   Todo に登録する内容が, その後に続くと決めたいので,
+   :code:`parser.add_argument` の第二引数は str 型になります.
+
+   この :code:`parser.add_argument` は :code:`args = parser.parse_args()` を
+   書く前であれば何回でも使えます.
+
+   ここで :code:`Todo(args.add)` に注目してくさい.
+   ここには, やることの内容がはいるのでした.
+   つまり :code:`args.add` にはユーザの入力が入っていることがわかります.
+
+   どうように, 例えば :code:`parser.add_argument("--text", type=str)`
+   とした場合にはユーザの入力は :code:`args.text` でとりだすことができます.
