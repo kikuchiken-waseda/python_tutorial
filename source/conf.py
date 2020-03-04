@@ -18,12 +18,13 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'k-lab-seminar-2019-programming'
+project = 'k-lab-seminar'
 copyright = '2019, Takuya Asai'
 author = 'Takuya Asai'
 
 # The short X.Y version
-version = ''
+version = '1.0'
+
 # The full version, including alpha/beta/rc tags
 release = '2019'
 
