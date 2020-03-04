@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>K-lab 春学期セミナー &mdash; k-lab-seminar-2019-programming 2019 ドキュメント</title>
+  <title>K-lab 春学期セミナー &mdash; k-lab-seminar 2019 ドキュメント</title>
   
 
   
@@ -21,12 +21,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script type="text/javascript" src="_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
-    <link rel="next" title="開発環境" href="env/index.html" /> 
+    <link rel="next" title="開発環境" href="2019/env/index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -52,7 +52,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> k-lab-seminar-2019-programming
+            <a href="#" class="icon icon-home"> k-lab-seminar
           
 
           
@@ -60,6 +60,10 @@
 
           
             
+            
+              <div class="version">
+                1.0
+              </div>
             
           
 
@@ -82,12 +86,10 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">2019 年度資料</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="env/index.html">開発環境</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python/index.html">はじめての Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="linearModel/index.html">機械学習基礎（線形モデル）</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stats/index.html">統計学基礎 (重回帰分析/因子分析)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2019/env/index.html">開発環境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2019/python/index.html">はじめての Python</a></li>
 </ul>
 
             
@@ -102,7 +104,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">k-lab-seminar-2019-programming</a>
+          <a href="#">k-lab-seminar</a>
         
       </nav>
 
@@ -156,64 +158,20 @@
 <h1>K-lab 春学期セミナー<a class="headerlink" href="#k-lab" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>このページは早稲田大学人間科学部菊池英明研究室における
 学部三年生向け合宿の資料ページになります．</p>
-<div class="admonition note">
-<p class="first admonition-title">注釈</p>
-<p>このページに関して</p>
-<p>プログラミング初学者用に作成しているので，
-種々イントロダクションや，環境設定に関しては必ずしも最良とは限りません.</p>
-<ul class="simple">
-<li><dl class="first docutils">
-<dt>つまり，比較的初心者でも使用可能だったり理解可能な内容を記述します．</dt>
-<dd><ul class="first last">
-<li>そのため, 一部説明には正確性が欠けていたり，より良いツールがあったりします．</li>
-<li>その点，御留意ください．</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li>これらの情報は 2019 年度の最新の情報になります．</li>
-<li><dl class="first docutils">
-<dt>また Mac OS を前提をした記述です</dt>
-<dd><ul class="first last">
-<li>基本的には最新版の OS (Mojave) を前提としますので，
-そうでない場合には事前にアップデートをしておいてください</li>
-<li><a class="reference external" href="https://support.apple.com/ja-jp/macos/mojave">https://support.apple.com/ja-jp/macos/mojave</a></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-<p class="last">いくつかの項目は <strong>事前準備必須</strong> となっていることに注意してください．</p>
-</div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
+<p class="caption"><span class="caption-text">2019 年度資料</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="env/index.html">開発環境</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="env/index.html#id3">アプリケーションのインストール</a></li>
-<li class="toctree-l2"><a class="reference internal" href="env/index.html#id8">サービスアカウント設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2019/env/index.html">開発環境</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2019/env/index.html#id3">アプリケーションのインストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2019/env/index.html#id6">サービスアカウント設定</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="python/index.html">はじめての Python</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="python/intro.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python/first.html">First Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python/combat.html">Combat python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python/next.html">What next</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python/index.html#indices-and-tables">Indices and tables</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="linearModel/index.html">機械学習基礎（線形モデル）</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="linearModel/linear_regression.html">線形回帰（回帰分析）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linearModel/gradient_descent_method.html">勾配降下法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linearModel/polynomial_regression.html">多項式回帰</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linearModel/learning_curve.html">学習曲線</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="stats/index.html">統計学基礎 (重回帰分析/因子分析)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="stats/index.html#id3">統計学とは</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stats/index.html#r">R について</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stats/index.html#id7">統計的仮説検定の意義</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stats/index.html#id8">様々な分析</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stats/index.html#id11">最後に</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2019/python/index.html">はじめての Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2019/python/intro.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2019/python/first.html">First Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2019/python/combat.html">Combat python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2019/python/next.html">What next</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2019/python/index.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
 </ul>
@@ -221,9 +179,9 @@
 <div class="section" id="indices-and-tables">
 <h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span class="std std-ref">索引</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">モジュール索引</span></a></li>
-<li><a class="reference internal" href="search.html"><span class="std std-ref">検索ページ</span></a></li>
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">索引</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">モジュール索引</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">検索ページ</span></a></p></li>
 </ul>
 </div>
 </div>
@@ -236,7 +194,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="env/index.html" class="btn btn-neutral float-right" title="開発環境" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="2019/env/index.html" class="btn btn-neutral float-right" title="開発環境" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>

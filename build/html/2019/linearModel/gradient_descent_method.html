@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>勾配降下法 &mdash; k-lab-seminar 2019 ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> k-lab-seminar
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python/index.html">はじめての Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stats/index.html">統計学基礎 (重回帰分析/因子分析)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">k-lab-seminar</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>勾配降下法</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/2019/linearModel/gradient_descent_method.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><a class="toc-backref" href="#id7">勾配降下法</a><a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="contents topic" id="id2">
+<p class="topic-title">目次</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id1" id="id7">勾配降下法</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id3" id="id8">どうやってパラメータの最適解を求めるのか？</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id9">バッチ勾配降下法</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id10">実習3</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id8">どうやってパラメータの最適解を求めるのか？</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>前回，線形回帰（回帰分析）の章の最後で，
+どうやって手元にあるデータから全体を予測するのか，具体的にはどのようにしてパラメータの求めるのかが大事になる，
+と言いました．</p>
+<p>ここでは，具体的にバッチ勾配降下法のやり方をお伝えします．</p>
+<p>バッチ勾配降下法は，ランダムな初期パラメータから初めて，
+ちょっとずつパラメータを変化させて，
+最終的に最適解（誤差MSEが最も小さくなるパラメータ）を見つける手法です．</p>
+<p>しかしパラメータを変化させるやり方が異なるため，分けて説明します．</p>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id9">バッチ勾配降下法</a><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>バッチ勾配降下法は，一歩ずつ誤差MSEが小さくなるようパラメータを変化させていきます．</p>
+<p>パラメータを変化させていく上で，イテレーションと学習率と言われる指標が重要になっていきます．</p>
+<p>崖下り（山登りの逆的な何か）を例に出すと，イテレーションや学習率，誤差MSEは下のようなものになります．</p>
+<ul class="simple">
+<li><p>イテレーション：歩数</p></li>
+<li><p>学習率：歩幅</p></li>
+<li><p>誤差MSE：標高</p></li>
+</ul>
+<p>一定の歩幅，規定の歩数で崖を下っていき，標高を下げていきます．
+これ以上標高が下がらない谷底（誤差MSEが最小）に到達したら最適なパラメータがわかる，といった形です．</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>歩数があまりにも小さければ，たどり着けません．</p>
+<ul class="simple">
+<li><p>谷底までが100mくらいだったとして，3,4歩でたどり着けというのは無理があるでしょう．</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../_images/example1.png"><img alt="../../_images/example1.png" src="../../_images/example1.png" style="width: 576.0px; height: 432.0px;" /></a>
+<p>歩数があまりにも大きければ，無駄に歩くことになります</p>
+<ul class="simple">
+<li><p>100歩くらいで着きそうなのに，1000歩歩けと言われたら疲れてしまいます．</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../_images/example2.png"><img alt="../../_images/example2.png" src="../../_images/example2.png" style="width: 576.0px; height: 432.0px;" /></a>
+<p>歩幅があまりにも小さければ，たどり着くまでに時間がかかります．また変な窪みを谷底と勘違いします．</p>
+<ul class="simple">
+<li><p>谷底までが100mくらいだったとして，谷底の手前に幅10mの窪みがあった時，歩幅が3mとかだと窪みを超えられず，窪みを谷底と勘違いします．</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../_images/example3.png"><img alt="../../_images/example3.png" src="../../_images/example3.png" style="width: 576.0px; height: 432.0px;" /></a>
+<p>歩幅があまりにも大きければ，変な窪みにハマることはなさそうですが，通り過ぎ続けてしまうでしょう．</p>
+<ul class="simple">
+<li><p>しかし歩幅が1000m（人間じゃない）あったら，何歩歩いても谷底を通り過ぎ続けてしまうでしょう．</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../_images/example4.png"><img alt="../../_images/example4.png" src="../../_images/example4.png" style="width: 576.0px; height: 432.0px;" /></a>
+</div>
+<p>上の例からも分かるように，バッチ勾配降下法はイテレーションと学習率をいかに良い値にするかが大事になっていきます．</p>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id10">実習3</a><a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>下のコードはバッチ勾配降下法を行うためのコードです．</p>
+<p>このコードを実行してイテレーション，学習率を変化させて，プロットの変化を確認してみてください．</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">バッチ勾配降下法（batch_gradient_descent_method.py）</span><a class="headerlink" href="#id6" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">X</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">X</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">X_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">X</span><span class="p">]</span>
+
+<span class="n">eta</span> <span class="o">=</span> <span class="mf">0.1</span>           <span class="c1"># 学習率</span>
+<span class="n">n_iterations</span> <span class="o">=</span> <span class="mi">10</span>   <span class="c1"># イテレーション</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">100</span>             <span class="c1"># サンプル数</span>
+
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># 無作為な初期値</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_iterations</span><span class="p">):</span>
+     <span class="n">gradients</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="n">m</span> <span class="o">*</span> <span class="n">X_b</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_b</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+     <span class="n">theta</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">gradients</span>
+     <span class="n">X_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">]])</span>
+     <span class="n">X_new_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">1</span><span class="p">)),</span> <span class="n">X_new</span><span class="p">]</span>  <span class="c1"># 各インスタンスにx0 = 1 を加える</span>
+     <span class="n">y_predict</span> <span class="o">=</span> <span class="n">X_new_b</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_new</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">)</span>
+     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;b.&quot;</span><span class="p">)</span>
+     <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>イテレーション（歩数）10回程度だと，だんだん近づいて行っている様子がわかるかと思います．</p>
+<a class="reference internal image-reference" href="../../_images/batch.png"><img alt="../../_images/batch.png" src="../../_images/batch.png" style="width: 576.0px; height: 432.0px;" /></a>
+<p>今回もターミナルを見てみると，以下のような表示があると思います．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 normal_equation.py
+<span class="o">[[</span><span class="m">3</span>.79748615<span class="o">]</span>
+ <span class="o">[</span><span class="m">3</span>.09573583<span class="o">]]</span>
+</pre></div>
+</div>
+<p>上の4くらいの数字が，予測線の切片を表しています．
+下の3くらいの数字が，予測線の傾きを表しています．
+今回は，y = 3X + 4 + error をベースに作成したので，おおよそ予測はできていると言っていいでしょう．</p>
+<p>ここから，学習率やイテレーションを変化させて，上記で説明した問題を引き起こしてください．
+サンプル数に関しては，線形回帰の項目で問題を確認してもらったので，変化させなくて大丈夫です．</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Takuya Asai
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -4,16 +4,17 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pynvim = "*"
+flake8 = "*"
+jedi = "*"
+yapf = "*"
+ipython = "*"
+flake8-rst = "*"
 
 [packages]
 sphinx = "*"
 sphinx-autobuild = "*"
-flake8 = "*"
-pynvim = "*"
 sphinx-rtd-theme = "*"
-yapf = "*"
-ipython = "*"
-jedi = "*"
 
 [requires]
 python_version = "3.7"

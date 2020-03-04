@@ -1,0 +1,1565 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>First Python &mdash; k-lab-seminar 2019 ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> k-lab-seminar
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">First Python</a><ul>
+<li><a class="reference internal" href="#id2">データモデル</a><ul>
+<li><a class="reference internal" href="#int-float-bool">数値型: int / float / bool</a></li>
+<li><a class="reference internal" href="#list-tuple-str">シーケンス型: list, tuple, str</a><ul>
+<li><a class="reference internal" href="#list">list 限定操作</a></li>
+<li><a class="reference internal" href="#id3">タプル型</a></li>
+<li><a class="reference internal" href="#str">str型</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#set-frozenset">集合型: set, frozenset</a></li>
+<li><a class="reference internal" href="#dict">マッピング型: dict</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id4">制御構文</a><ul>
+<li><a class="reference internal" href="#if">if 文</a></li>
+<li><a class="reference internal" href="#while">while 文</a></li>
+<li><a class="reference internal" href="#for">for 文</a></li>
+<li><a class="reference internal" href="#try">try 文</a></li>
+<li><a class="reference internal" href="#with">with 文</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5">関数</a></li>
+<li><a class="reference internal" href="#id6">クラス</a><ul>
+<li><a class="reference internal" href="#todo">TODO アプリ</a></li>
+<li><a class="reference internal" href="#id7">TODO クラス</a></li>
+<li><a class="reference internal" href="#id8">インスタンス化</a></li>
+<li><a class="reference internal" href="#id9">実行カ所</a></li>
+<li><a class="reference internal" href="#id10">TODO クラスを拡張する</a></li>
+<li><a class="reference internal" href="#id11">実習</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">k-lab-seminar</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>First Python</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/2019/python/first.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="first-python">
+<h1><a class="toc-backref" href="#id13">First Python</a><a class="headerlink" href="#first-python" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>実は上の例で，一通り python に関して，
+最低限知っておくべきことの実例を示してします.</p>
+<p>以後しばらくは，何を伝えたかったのかの説明をします．</p>
+<div class="contents topic" id="id1">
+<p class="topic-title">目次</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#first-python" id="id13">First Python</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id14">データモデル</a></p>
+<ul>
+<li><p><a class="reference internal" href="#int-float-bool" id="id15">数値型: int / float / bool</a></p></li>
+<li><p><a class="reference internal" href="#list-tuple-str" id="id16">シーケンス型: list, tuple, str</a></p></li>
+<li><p><a class="reference internal" href="#set-frozenset" id="id17">集合型: set, frozenset</a></p></li>
+<li><p><a class="reference internal" href="#dict" id="id18">マッピング型: dict</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id4" id="id19">制御構文</a></p>
+<ul>
+<li><p><a class="reference internal" href="#if" id="id20">if 文</a></p></li>
+<li><p><a class="reference internal" href="#while" id="id21">while 文</a></p></li>
+<li><p><a class="reference internal" href="#for" id="id22">for 文</a></p></li>
+<li><p><a class="reference internal" href="#try" id="id23">try 文</a></p></li>
+<li><p><a class="reference internal" href="#with" id="id24">with 文</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id5" id="id25">関数</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id26">クラス</a></p>
+<ul>
+<li><p><a class="reference internal" href="#todo" id="id27">TODO アプリ</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id28">TODO クラス</a></p></li>
+<li><p><a class="reference internal" href="#id8" id="id29">インスタンス化</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id30">実行カ所</a></p></li>
+<li><p><a class="reference internal" href="#id10" id="id31">TODO クラスを拡張する</a></p></li>
+<li><p><a class="reference internal" href="#id11" id="id32">実習</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id14">データモデル</a><a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>プログラミングは一種の言葉です．
+言葉の構成要素を考えると，
+大雑把には二つに分けることができます．</p>
+<p>つまり，単語と文です．</p>
+<p>python では単語のことをデータモデル,
+文のことを制御構文といいます．</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>この説明に関しては異論を認めます．
+つまり，正確な説明ではありません．</p>
+<p>あくまでもここでの説明のための操作上の定義です.</p>
+</div>
+<p>よい文章を書くためには，
+できるだけ多くの単語を使いこなせる方がいいわけで，
+ここではまず，単語の話からしていきます．</p>
+<p>Python においてデータモデルは，
+基本的に 2 つに分けることができます．</p>
+<ul class="simple">
+<li><p>1 つで意味をもつもの</p></li>
+<li><p>いっぱいで意味をもつもの</p></li>
+</ul>
+<p>ここでは python を使う上で必要になる特に重要な単語の使い方を説明していきます．</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>基本的以外のものは，その両方(変数)か，その両方ではないもの(None)です．</p>
+<p>この内，関数についてだけ先に説明をさせてください．</p>
+<p>イントロダクションの例で変数を使用している部分を紹介します．</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># クリスマスに隠された本当の意味とは</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">itertools</span>
+<span class="hll"><span class="gp">&gt;&gt;&gt; </span><span class="n">words</span> <span class="o">=</span> <span class="s2">&quot;christmas&quot;</span>
+</span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">))]</span>
+</pre></div>
+</td></tr></table></div>
+<p>この例の内変数は 3 行目です．</p>
+<p>イコール記号を使っていますが数学的な意味でのイコールとは少し意味が異なります．</p>
+<p>どちらかというと，ラベル付けという意味です(よく箱という風に説明される方がいる
+のですが，箱よりラベルの方が分かり易いと思います)．</p>
+<p>つまりこの例では,
+<code class="code docutils literal notranslate"><span class="pre">christmas</span></code> という文字列に <code class="code docutils literal notranslate"><span class="pre">word</span></code> というラベルを貼っているのです．
+それで次に <code class="code docutils literal notranslate"><span class="pre">word</span></code> というラベルを見た時には python は
+頑張ってラベルを探し，その内容を返します．</p>
+<p>いくつか例を見てみましょう．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">word</span> <span class="o">=</span> <span class="s2">&quot;christmas&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="go">christmas</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">number</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+<p>なんとなくお分かりいただけましたでしょうか？
+これは単なるラベルなので，左辺の文字は何でもよいです．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;christmas&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">christmas</span>
+</pre></div>
+</div>
+<p>だたし，このラベルには注意が必要です．
+以下の結果が如何して，そうなるのか，
+説明できるでしょうか？</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">word</span> <span class="o">=</span> <span class="s2">&quot;christmas&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="hll"><span class="go">christmas</span>
+</span><span class="gp">&gt;&gt;&gt; </span><span class="n">word</span> <span class="o">=</span> <span class="s2">&quot;new year&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="hll"><span class="go">new year</span>
+</span></pre></div>
+</div>
+</div>
+<div class="section" id="int-float-bool">
+<h3><a class="toc-backref" href="#id15">数値型: int / float / bool</a><a class="headerlink" href="#int-float-bool" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>1 つで意味をもつものに関してを数値型といいます．
+大雑把に言えば，数ですね．
+代表的なものに以下の 3 つがあります．</p>
+<ul class="simple">
+<li><p>int: 整数</p></li>
+<li><p>float: 実数</p></li>
+<li><p>bool: 真偽値(True, False)</p></li>
+</ul>
+<p>数値型は数値型同士において四則演算を行うことができます．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">0</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="go">-1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">*</span> <span class="mi">5</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">10</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="go">5.0</span>
+</pre></div>
+</div>
+<p>数値型同士と言いました．
+つまり, bool と int も演算を行うことが可能です．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">+</span> <span class="kc">True</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">+</span> <span class="kc">False</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+<p>さて，では True や False は結局なにものでしょうか？
+上の例から考えてみてください．</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>先の例を見て，あれ？文字は？と感じた方は，
+とても良いです．</p>
+<p>実は文字は，複数で初めて意味を持つので,
+文字列型となり，次の章での説明になります．</p>
+<p>それが証拠に 文字列と int は四則演算できません．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;a&quot;</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="go">----------------------------------------------</span>
+<span class="go">TypeError: can only concatenate str (not &quot;int&quot;) to str</span>
+</pre></div>
+</div>
+</div>
+<p>大抵の場合，四則演算が可能であれば，
+比較を行うことができます．</p>
+<p>比較とは以下の操作のことを指します．</p>
+<table class="colwidths-given docutils align-default" id="id12">
+<caption><span class="caption-text">比較演算</span><a class="headerlink" href="#id12" title="このテーブルへのパーマリンク">¶</a></caption>
+<colgroup>
+<col style="width: 60%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>演算子</p></th>
+<th class="head"><p>意味</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&lt;</p></td>
+<td><p>より小さい</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt;=</p></td>
+<td><p>以下</p></td>
+</tr>
+<tr class="row-even"><td><p>&gt;</p></td>
+<td><p>より大きい</p></td>
+</tr>
+<tr class="row-odd"><td><p>&gt;=</p></td>
+<td><p>以上</p></td>
+</tr>
+<tr class="row-even"><td><p>==</p></td>
+<td><p>等しい</p></td>
+</tr>
+<tr class="row-odd"><td><p>!=</p></td>
+<td><p>等しくない</p></td>
+</tr>
+<tr class="row-even"><td><p>is</p></td>
+<td><p>同一のオブジェクトである</p></td>
+</tr>
+<tr class="row-odd"><td><p>is not</p></td>
+<td><p>同一のオブジェクトでない</p></td>
+</tr>
+</tbody>
+</table>
+<p>例えば以下のような結果になります．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">2</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">1</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">2</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">1</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">&gt;</span> <span class="kc">False</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">!=</span> <span class="mi">1</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">!=</span> <span class="kc">True</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">0</span> <span class="o">==</span> <span class="kc">False</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>ただし, <code class="code docutils literal notranslate"><span class="pre">is</span></code> や <code class="code docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span></code> は，
+今までの説明とは異なる挙動を示します．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">0</span> <span class="ow">is</span> <span class="kc">False</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">True</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>もし，貴方がプログラミング経験豊富な方であれば，
+この特性が極めて理に適っていることに気が付くと思います．</p>
+<p>初学者の方は，まだ，あまり考えなくていいです（いずれ問題が起きたときに思い知るで
+しょうから）.</p>
+<p>この章を通じて説明したかった内容には，
+数値型の扱いがあります．</p>
+<p>数値型は四則演算可能で，かつ，
+比較可能（ハッシュ可能といいます）であるという特性を持っています．</p>
+<p>もう一つこの章で何となく感じて欲しいことがあります．
+それは Python において，
+データ型は，どんなことができるのか（つまり動詞）との関係で，
+定義されているということです．</p>
+<p>逆に言えば，どんなことができるのかを決めることで，
+全く新しい型を作成した時に，数値にしたり，その他にしたりすることができます（こう
+いうプログラミングの方法をダックタイプといいます）．</p>
+</div>
+<div class="section" id="list-tuple-str">
+<h3><a class="toc-backref" href="#id16">シーケンス型: list, tuple, str</a><a class="headerlink" href="#list-tuple-str" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>続いてはシークエンス型です．
+これはいっぱいで意味をもつものの内，
+順番が大事なものです．</p>
+<p>これには list, tuple, str が相当します．</p>
+<p>ここで, list と tuple ですが，
+list は一度作った後に変更可能ですが，
+tuple は変更不可能という特徴があります．</p>
+<ul class="simple">
+<li><p>これは一見 list の方が便利だと考えられますが，
+逆に tuple は演算速度が速いです．</p></li>
+</ul>
+<p>一方で list と str を比較すると，
+str は文字限定の機能を使うことができます</p>
+<p>例えば，こういう風に使います．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># list</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="go">[1, 2, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># tuple</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="go">(1, 2, 3)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># str</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">)</span>
+<span class="go">apple</span>
+</pre></div>
+</div>
+<p>基本的には, データを何かの記号で囲っていることに注意してください．</p>
+<p>順番を持っているので，
+特定の順番のデータだけを取り出すこともできます．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="go">o</span>
+</pre></div>
+</div>
+<p>ここで，順番（インデックス）は 0 から始まります．
+もちろん，空の箱を作ることもできます．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">([])</span>
+<span class="go">[]</span>
+</pre></div>
+</div>
+<p>ただし，存在しないインデックスの内容を取り出すことはできません．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">([</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<span class="go">-------------------------------------</span>
+<span class="go">IndexError: list index out of range</span>
+</pre></div>
+</div>
+<p>データの取り出し方は色々あります．</p>
+<ul class="simple">
+<li><p>以下のような操作をスライスと言います．</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="go">[2, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="go">[2, 4]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">[4, 3, 2, 1]</span>
+</pre></div>
+</div>
+<p>また, 長さを持っているため，以下のような関数を実行することができます．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)]</span>
+<span class="go">[2, 3, 4]</span>
+</pre></div>
+</div>
+<div class="section" id="list">
+<h4>list 限定操作<a class="headerlink" href="#list" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>list は和と積が定義されています(差と商は定義されていません)．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="go">[1, 2, 3, 1, 2]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="go">[1, 2, 3, 1, 2, 3]</span>
+</pre></div>
+</div>
+<p>ここで二項目の型は非常に重要です．
+つまり，以下の演算はできません．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="go">TypeError: can only concatenate list (not &quot;int&quot;) to list</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="go">TypeError: can&#39;t multiply sequence by non-int of type &#39;list&#39;</span>
+</pre></div>
+</div>
+<p>また，以下のような操作を行うことができます．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<span class="go">[1, 2, 3, 1]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">numbers</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<span class="go">[1, 2, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<span class="go">[1, 2, 3, 1, 2]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<span class="go">[2, 1, 3, 2, 1]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="go">[1, 1, 2, 2, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+<p>ここで，何か今までと違うと思った方は，
+とてもいいセンスをしています．</p>
+<p>list の種々操作の多くは一度変数を使用すると，
+その後別の変数に代入することはあまりありません( <code class="code docutils literal notranslate"><span class="pre">pop</span></code> の例とか面白いですよね)．
+何故かというと， list は可変オブジェクトだからです．</p>
+</div>
+<div class="section" id="id3">
+<h4>タプル型<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>list とはうって変わって tuple オブジェクトは非可変です．
+これは少し理解が難しいかもしれません．</p>
+<p>例えば以下のようなことは可能です．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tuples</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">new_tuples</span> <span class="o">=</span> <span class="n">tuples</span> <span class="o">+</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">new_tuples</span><span class="p">)</span>
+<span class="go">(1, 2, 3, 4, 5, 6, 7)</span>
+</pre></div>
+</div>
+<p>また，これも可能です．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tuples</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">new_tuples</span> <span class="o">=</span> <span class="n">tuples</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">new_tuples</span><span class="p">)</span>
+<span class="go">(3, 4)</span>
+</pre></div>
+</div>
+<p>つまり, 何か新しい変数にするなら，
+リスト型と同じような操作ができるのです．</p>
+<p>一方で, <code class="code docutils literal notranslate"><span class="pre">append</span></code> 関数や, <code class="code docutils literal notranslate"><span class="pre">pop</span></code> 関数のように
+一度決まった変数そのものを変更することはできません．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tuples</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tuples</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="go">TypeError: &#39;tuple&#39; object does not support item assignment</span>
+</pre></div>
+</div>
+<p>この型は初学者の内では，むしろ，種々制御構文内で使用されることが多いです．</p>
+</div>
+<div class="section" id="str">
+<h4>str型<a class="headerlink" href="#str" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>文字列型と list 型はとても良く似ています．
+つまり，和と積が定義されています．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;apple&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="s2">&quot;pen&quot;</span><span class="p">)</span>
+<span class="go">applepen</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">apple</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="go">&#39;appleapple&#39;</span>
+</pre></div>
+</div>
+<p>ただし，文字列に特化した様々な操作が用意されています．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;This&quot;</span><span class="p">,</span> <span class="s2">&quot;is&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;pen&quot;</span><span class="p">])</span>
+<span class="go">&#39;This is a pen&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;This is a pen&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="go">[&#39;This&#39;, &#39;is&#39;, &#39;a&#39;, &#39;pen&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;This is a pen&quot;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="go">&#39;THIS IS A PEN&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;This is a pen&quot;</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="go">&#39;this is a pen&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;This is a pen&quot;</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;pen&quot;</span><span class="p">)</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;This is a pen&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;pen&quot;</span><span class="p">,</span> <span class="s2">&quot;pepar&quot;</span><span class="p">)</span>
+<span class="go">&#39;This is a pepar&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;1 + 1 = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">&#39;1 + 1 = 2&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="set-frozenset">
+<h3><a class="toc-backref" href="#id17">集合型: set, frozenset</a><a class="headerlink" href="#set-frozenset" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>シークエンス型は順番を大事にしますが，
+集合型は順番を無視します．</p>
+<p>これは同じ値は一つだけという意味を持ちます．</p>
+<ul class="simple">
+<li><p>例えば，色の種類とか，何かの種類を決める時に便利です．</p></li>
+</ul>
+<p>これは以下のように使います．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pokemon_set</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">pokemon_set</span><span class="p">)</span>
+<span class="go">{&#39;green&#39;, &#39;red&#39;}</span>
+</pre></div>
+</div>
+<p>基本的な操作は以下の通りです．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pokemon_set</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pokemon_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">pokemon_set</span><span class="p">)</span>
+<span class="go">{&#39;red&#39;, &#39;blue&#39;, &#39;green&#39;}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pokemon_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">pokemon_set</span><span class="p">)</span>
+<span class="go">{&#39;blue&#39;, &#39;green&#39;, &#39;red&#39;}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pokemon_set</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">pokemon_set</span><span class="p">)</span>
+<span class="go">{&#39;red&#39;, &#39;green&#39;}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">version</span> <span class="o">=</span> <span class="n">pokemon_set</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">version</span><span class="p">)</span>
+<span class="go">&#39;red&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">pokemon_set</span><span class="p">)</span>
+<span class="go">{&#39;green&#39;}</span>
+</pre></div>
+</div>
+<p>また， set 型はつまり集合なので，以下の操作が可能です．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">k_pokemon_set</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Bulbasaur&quot;</span><span class="p">,</span> <span class="s2">&quot;Charmander&quot;</span><span class="p">,</span> <span class="s2">&quot;Squirtle&quot;</span><span class="p">,</span> <span class="s2">&quot;Zubat&quot;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">j_pokemon_set</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Chikorita&quot;</span><span class="p">,</span> <span class="s2">&quot;Cyndaquil&quot;</span><span class="p">,</span> <span class="s2">&quot;Totodile&quot;</span><span class="p">,</span> <span class="s2">&quot;Zubat&quot;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">k_pokemon_set</span> <span class="o">|</span> <span class="n">j_pokemon_set</span><span class="p">)</span>
+<span class="go">{&#39;Bulbasaur&#39;, &#39;Chikorita&#39;, &#39;Zubat&#39;, &#39;Totodile&#39;, &#39;Squirtle&#39;, &#39;Cyndaquil&#39;, &#39;Charmander&#39;}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">k_pokemon_set</span> <span class="o">-</span> <span class="n">j_pokemon_set</span><span class="p">)</span>
+<span class="go">{&#39;Squirtle&#39;, &#39;Bulbasaur&#39;, &#39;Charmander&#39;}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">k_pokemon_set</span> <span class="o">&amp;</span> <span class="n">j_pokemon_set</span><span class="p">)</span>
+<span class="go">{&#39;Zubat&#39;}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">k_pokemon_set</span> <span class="o">^</span> <span class="n">j_pokemon_set</span><span class="p">)</span>
+<span class="go">{&#39;Bulbasaur&#39;, &#39;Chikorita&#39;, &#39;Totodile&#39;, &#39;Squirtle&#39;, &#39;Cyndaquil&#39;, &#39;Charmander&#39;}</span>
+</pre></div>
+</div>
+<p>この辺を使いこなせると，確立や，ニューラルネットワークに強くなります．</p>
+<p>また，以下のような作業を行うことも多いです．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">k_pokemons</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bulbasaur&quot;</span><span class="p">,</span> <span class="s2">&quot;Charmander&quot;</span><span class="p">,</span> <span class="s2">&quot;Squirtle&quot;</span><span class="p">,</span> <span class="s2">&quot;Zubat&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">j_pokemons</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Chikorita&quot;</span><span class="p">,</span> <span class="s2">&quot;Cyndaquil&quot;</span><span class="p">,</span> <span class="s2">&quot;Totodile&quot;</span><span class="p">,</span> <span class="s2">&quot;Zubat&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pokemons</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">k_pokemons</span> <span class="o">+</span> <span class="n">j_pokemons</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dict">
+<h3><a class="toc-backref" href="#id18">マッピング型: dict</a><a class="headerlink" href="#dict" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>辞書型は, set 型と変数の組み合わせです．
+つまり，一つの  key を持ち，それに対応する value を持ちます．</p>
+<p>これは以下のように使います．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>これは辞書なので，あるインデックスで検索を行うことができます．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">]</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+<p>リスト型にとても良く似た指定方法ですが，
+インデックスは数字ではなく，文字列です．</p>
+<p>当然，存在しないインデックスを指定するとエラーになります．</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="p">[</span><span class="s2">&quot;four&quot;</span><span class="p">]</span>
+<span class="go">KeyError: &#39;four&#39;</span>
+</pre></div>
+</div>
+<p>辞書型はとても作り込まれた型で，
+様々なことができます．</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">dict</span><span class="p">))</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dict</span><span class="p">[</span><span class="s2">&quot;four&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
+<span class="go">{&#39;one&#39;: 1, &#39;two&#39;: 2, &#39;three&#39;: 3, &#39;four&#39;: 4}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;four&quot;</span> <span class="ow">in</span> <span class="nb">dict</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;five&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">dict</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;one&quot;</span><span class="p">))</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;five&quot;</span><span class="p">))</span>
+<span class="go">None</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;one&quot;</span><span class="p">))</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;five&quot;</span><span class="p">))</span>
+<span class="go">None</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;one&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;five&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
+<span class="go">{&#39;one&#39;: 1, &#39;two&#39;: 2, &#39;three&#39;: 3, &#39;four&#39;: 4, &#39;five&#39;: 5}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+<span class="go">[&#39;one&#39;, &#39;two&#39;, &#39;three&#39;, &#39;four&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+<span class="go">[1, 2, 3, 4, 5]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
+<span class="go">[(&#39;two&#39;, 2), (&#39;three&#39;, 3), (&#39;four&#39;, 4)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id19">制御構文</a><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>さて，ここまでに色々な単語について説明をしてきました．
+ここからはそれらの単語を使った文章について説明をしていきます．</p>
+<div class="section" id="if">
+<h3><a class="toc-backref" href="#id20">if 文</a><a class="headerlink" href="#if" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>if 文とは読んで字の如し,
+xx たっだら oo するという意味の文章です．
+例えば以下のように使用します．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">val</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;いっぱい&quot;</span><span class="p">)</span>
+<span class="go">いっぱい</span>
+</pre></div>
+</div>
+<p>負例の場合はどうなるのでしょう．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">val</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;いっぱい&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>その場合には何も起きません．</p>
+<p>ここで <code class="code docutils literal notranslate"><span class="pre">else</span></code> というキーワードを使うと，
+そうじゃなかったらを表現できます</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">val</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;いっぱい&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ちょっと&quot;</span><span class="p">)</span>
+<span class="go">ちょっと</span>
+</pre></div>
+</div>
+<p>xxx か否か以外にも条件を足すことが可能です.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">val</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;いっぱい&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">elif</span> <span class="p">(</span><span class="n">val</span> <span class="o">&gt;</span> <span class="mi">99</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ふつう&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ちょっと&quot;</span><span class="p">)</span>
+<span class="go">ちょっと</span>
+</pre></div>
+</div>
+<p>この elif はいくつでもよいです．</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>逆に言えば if や else は一回に一つしかありえません．</dt><dd><ul>
+<li><p>elif だけということもありえません．</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>因みに，今回紹介する制御構文の多くはこの if 文から作成されています．
+つまり，色々なところに else が出てくるのです．</p>
+</div>
+<div class="section" id="while">
+<h3><a class="toc-backref" href="#id21">while 文</a><a class="headerlink" href="#while" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>while 文に関しては基本的に,
+初学者が使用することはないので単純な例だけを記述します．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+   <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>こうすると, while 以下が三回繰り返されます．
+ここにも else が登場します(本質が条件式なので)．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;!!FINISH!!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>でも実務上 while を使用する，
+最も有意義な例はこれです．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;無限ループって怖くない？&#39;</span><span class="p">)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>これを実行すると'無限ループって怖くない？'と三秒ごとに永遠に，
+表示されます．</p>
+<ul class="simple">
+<li><p><kbd class="kbd docutils literal notranslate">ctrl + c</kbd> で停止されます．</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>無限ループはいつ使うのか</p>
+<p>初学者に無限ループを教えると，
+何故かみな怖がります．</p>
+<p>でも，実はとても一般的に使用します．
+例えば，何かアプリケーションをイメージしてください．
+word でもいいですし，chrome でもいいです．</p>
+<p>これらは一度起動したら，閉じるボタンを押すまで，
+ずっと起動しています．</p>
+<p>こういう風にずっと起動させておきたい何かを作る際に，
+無限ループは使用されます．</p>
+</div>
+</div>
+<div class="section" id="for">
+<h3><a class="toc-backref" href="#id22">for 文</a><a class="headerlink" href="#for" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Python において繰り返し処理を行う，
+最も一般的な例は for 文でしょう．</p>
+<p>これは以下のように使用します．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;this is a pen.&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>基本的にリストや辞書の中身を一つずつ見て行くときに便利です．</p>
+<p>プログラミングにおいては，しばしば，いま何回目のデータを見ているのかが知りたくなります．そういうときには以下の記法を覚えておくと便利です．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;this is a pen.&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">word</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>この制御構文は list や tuple, dict と共に使用されることが多いので，
+以下のような書き方も可能です．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>また，この書き方は if  文と併用可能です．</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="try">
+<h3><a class="toc-backref" href="#id23">try 文</a><a class="headerlink" href="#try" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>try 文は何かエラーが起きても頑張るようにする制御構文です．
+たとえば以下のコードはエラーが起きます．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">IndexError: list index out of range</span>
+</pre></div>
+</div>
+<p>当たり前ですね．
+しかし，以下のようにすると，
+エラーが起きた時も何とかすることが可能です．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="code docutils literal notranslate"><span class="pre">except</span> <span class="pre">Exception</span></code> は何かのエラーが起きた場合には，
+それ以下のものを実行してという意味です．</p>
+<p>xxx ならば ooo なので，else 文が使用可能です．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">v</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">v</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="with">
+<h3><a class="toc-backref" href="#id24">with 文</a><a class="headerlink" href="#with" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>with 文は制御構文の中でもかなり特殊なものです．
+イメージ的には，何かを開いてから，閉じるまでという意味です．</p>
+<p>これは大変理解しにくいため，まずは以下の事例を覚えてください．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;tmp.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;some string&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>これを実行すると，tmp.txt というファイルが作成されます．
+逆にファイルを読み込むには以下のようにします．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;tmp.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id25">関数</a><a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>今から説明する関数と，クラスは，
+今回のチュートリアルの中で特に難しく，かつ，大切なものになります．</p>
+<p>これらは，単語であるという意味において，
+データモデルであり，文章を使うという意味において，制御構文です．</p>
+<p>どういうことかというと，自分で新しい単語を作る方法であるという意味です．</p>
+<p>今から説明をする関数は，実は今まで使用してきたものです．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>この内の len() の部分がそうですね．
+この語は長さを出すという意味を持ちます．</p>
+<p>プログラミングの主な仕事の一つは，
+このような操作に関係する単語を自分で決めることにあります．</p>
+<p>これは以下のようにします．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">get_word_num</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>このように決めた言葉を使うには以下のようにします．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_word_num</span><span class="p">(</span><span class="s2">&quot;this is a pen.&quot;</span><span class="p">)</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+<p>ここで，関数とは何かを，
+良く理解しておきましょう．</p>
+<p>関数とは, (多くの場合自分で決めた)言葉です.
+今回の場合, <code class="code docutils literal notranslate"><span class="pre">get_word_num</span></code> という言葉です．
+この部分は自分で自由に決めることができます（というか決めなくてはいけません）.
+その意味では変数に近いです．</p>
+<p>それと同時に，関数とは動詞です．
+つまり，目的語が入ります．
+今回の場合目的語は x ですね．
+この目的語も実は何でもいいです．
+単なるラベル(変数)です.</p>
+<p>つまり以下のようにしたっていいわけです．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="s2">&quot;this is a pen.&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+<p>勿論，自動詞のように目的語の存在しない関数だって作れます．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">x</span><span class="p">():</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">x</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+<p>すこし，不思議ですね．</p>
+<p>じゃあ，今までの例にすべて出て来た <code class="code docutils literal notranslate"><span class="pre">return</span></code> は必要なのでしょうか？
+実は必須ではありません．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">x</span><span class="p">():</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">x</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="go">None</span>
+</pre></div>
+</div>
+<p>あれ？と思って頂けるとうれしいです．
+今まで算数で扱ってきた，関数とは随分違うものですね．</p>
+<p>関数とは例えるなら，トンネルです．
+それもドラえもんのガリバートンネルみたいなやつです．</p>
+<p>入り口があってもいいし，
+出口があってもいい(そしてなくてもいい)．</p>
+<p>ただ，そこを通すと，通ったものが何か変わる（時もある）.
+そんなトンネルなのです．</p>
+<p>これは日常でも沢山あります．
+例えばどのようなものがあるのでしょうか？
+すこし考えてみてください(それは大いにプログラミングの上達を手助けします)．</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>引数とは何者か</p>
+<p>関数を教えていると，
+しばしば引数に関して混乱する方が多いです．</p>
+<p>初学者の内は，引数とは定義されていない（ことの多い）変数なのだ，と
+理解するのがよいです．</p>
+<p>どういうことでしょうか？</p>
+<p>例えば以下の例で考えてみます:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">9</span>
+</pre></div>
+</div>
+<p>関数 <code class="code docutils literal notranslate"><span class="pre">add</span></code> は変数 <code class="code docutils literal notranslate"><span class="pre">a</span></code> と変数 <code class="code docutils literal notranslate"><span class="pre">b</span></code> を
+足しているだけです．</p>
+<p>で実際に使用している際には, <code class="code docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2)</span></code> や <code class="code docutils literal notranslate"><span class="pre">(10,</span> <span class="pre">-1)</span></code> を使っています．
+では例えば, 1 はどこに入るのでしょうか？
+あるいは -1 はどこに入るのでしょうか？</p>
+<p>これを考えると, 引数とは，後で値が決まる変数の一種だと分かると思います．</p>
+<p>引数が変数であるということを示す例をもう一つおみせします:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">5</span>
+</pre></div>
+</div>
+<p>何が起きたのか考えてみましょう．</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>可変長引数</p>
+<p>引数に関してはもう一つ，
+面白い書き方があります:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="nb">print</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">show</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">show</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+<p>このように引数の前に * をつけると，
+いくつでも後で値を決めることができる引数になります．</p>
+<p>こういうのもあります:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">show</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">[&#39;a: 1&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">show</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">[&#39;a: 1&#39;, &#39;b: 2&#39;]</span>
+</pre></div>
+</div>
+<p>何が起きたか考えてみてください．</p>
+<ul class="simple">
+<li><p>これら二つの例にはタプルや辞書型が関わってきます．</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id26">クラス</a><a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>クラスとは，雑に説明すれば，型です．
+そう，型，そのものを自分で作ることができるのです．</p>
+<p>型とは何かと考えると，基本的には名詞，つまりデータだったはずです．
+そして，python の型は, 何ができるのかによって，定義されます．
+つまり，その名詞が目的語になる関数をもっています．</p>
+<div class="section" id="todo">
+<h3><a class="toc-backref" href="#id27">TODO アプリ</a><a class="headerlink" href="#todo" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>例えば，簡単な TODO アプリを作ってみましょう．</p>
+<p>TODO アプリには何が必要ですか？
+アプリを作成するときには，それが何をすることができるのかを
+まず言葉で説明をする習慣をつけましょう．</p>
+<p>TODO アプリは何ができますか？</p>
+<p>以下に，筆者が考える TODO アプリの最小限の説明を書きます．</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>TODO LIST は TODO を管理する</dt><dd><ul>
+<li><p>TODO LIST は TODO を登録できる</p></li>
+<li><p>TODO LIST は TODO を確認できる</p></li>
+<li><p>TODO LIST は TODO を修了できる</p></li>
+<li><p>TODO LIST は TODO を消せる</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>まあ，こんなところですかね．
+ここで，これらの文章を見てみると，
+全て名詞 TODO LIST および TODO が出てきていることに気がつきます
+（というかそうしたのです）．</p>
+<p>つまり, 今作りたい TODO アプリは 2 つのクラスのみで作成することが出来そうです．
+そう, TodoList クラスと Todo クラスです．</p>
+</div>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id28">TODO クラス</a><a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>まずは Todo クラスに関して，
+もう少し詳しく考えてみましょうか．</p>
+<p>TODO ってなんですか？</p>
+<p>TODO は一般に何をやるのかの情報をまとめたものです．</p>
+<p>これは以下のように書きます．</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>この辺から，対話環境で記述することが難しくなると思います．</dt><dd><ul>
+<li><p>一度スクリプトに書いてから実行してみてください．</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Todo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">text</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">todo</span> <span class="o">=</span> <span class="n">Todo</span><span class="p">(</span><span class="s2">&quot;TODO&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">todo</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>これで，新しく Todo クラスが使えるようになりました．
+使い方は以下の通りです．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python todo.py
+TODO
+</pre></div>
+</div>
+<p>さて，ここまでで何をやったのかを説明しましょう．
+このスクリプトでは Todo  クラスを作成しています．
+<code class="code docutils literal notranslate"><span class="pre">class</span> <span class="pre">Todo</span></code> から始まる部分です．</p>
+<p>ここにやりたいことを書いていきます．
+TODO は &quot;何をやるのかの情報&quot; を保存します．
+<code class="code docutils literal notranslate"><span class="pre">text=&quot;&quot;</span></code> と書かれている部分がそれですね．
+この <code class="code docutils literal notranslate"><span class="pre">text</span></code> に&quot;何をやるのかの情報&quot;が入ります．</p>
+</div>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id29">インスタンス化</a><a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ん，でも <code class="code docutils literal notranslate"><span class="pre">text</span></code> には &quot;&quot; しか入らないじゃんと思った皆様は，
+今までの話に付いて来れています．
+でも，スクリプトを実行した結果は &quot;TODO&quot; となっています．
+なんででしょう？</p>
+<p>この謎を解く鍵が, <code class="code docutils literal notranslate"><span class="pre">__init__()</span></code> 関数です.
+上のコードには以下のように書かれています．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">text</span>
+</pre></div>
+</div>
+<p>この関数は引数を二つ持ちます．
+<code class="code docutils literal notranslate"><span class="pre">self</span></code> と <code class="code docutils literal notranslate"><span class="pre">text</span></code> です
+(python の関数は引数名に制約を持たないので別の名前でもよいのです)．</p>
+<p>関数の中身をみると，<code class="code docutils literal notranslate"><span class="pre">text</span></code> の値を <code class="code docutils literal notranslate"><span class="pre">self.text</span></code> に入れています．
+では <code class="code docutils literal notranslate"><span class="pre">self</span></code> とは何かというと，クラス Todo そのものです（自分自身だから self ）.
+つまりこの関数を実行すると, <code class="code docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">text)</span></code> の <code class="code docutils literal notranslate"><span class="pre">text</span></code> が
+クラス <code class="code docutils literal notranslate"><span class="pre">todo</span></code> に登録されます．</p>
+<p>実際に <code class="code docutils literal notranslate"><span class="pre">text</span></code> を登録している場所はどこでしょうか?
+これは以下の部分ですね．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">todo</span> <span class="o">=</span> <span class="n">Todo</span><span class="p">(</span><span class="s2">&quot;TODO&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">todo</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>ここまでで質問ありますか？</p>
+<p>... 無いと困ります．</p>
+<ul class="simple">
+<li><p>ん？ <code class="code docutils literal notranslate"><span class="pre">__init__</span></code> なんて使っていないけど？ と思った皆様はとても，感が良いです.</p></li>
+<li><p>ん？ <code class="code docutils literal notranslate"><span class="pre">self</span></code> は？ と思った皆様もここまでの話によくついて来れています．</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">&quot;__main__&quot;:</span></code> って何と思った方，後で説明します．</p></li>
+</ul>
+<p>python のクラスにはいくつか特別な名前の関数が存在します．
+<code class="code docutils literal notranslate"><span class="pre">__init__()</span></code> は正にそれで，クラスをインスタンス化する際に使います．</p>
+<p>インスタンス化とは，具体化のことです．</p>
+<p>今回作成している Todo クラスは,
+ユーザによって毎回異なる内容が登録されるはずです．</p>
+<p>でも，今までやってきた用に変数に直接値を入れてしまうと，
+その値を変更することができません.</p>
+<p>そのような時に（人類が古い歴史の中で編み出した）秘策が抽象化です．</p>
+<p>例えば，我々人間は，一人一人，身長も違えば，体重も違います．
+髪の色も，皮膚の色も，もしかしたら手の数だって違うのです．</p>
+<p>それでも，どんな人間でも身長が存在するし，体重が存在します．
+このように，個別具体的なことは一旦わすれて，あるモノが，
+どのような属性を持っているのかを考えることをここでは抽象化と言っています．</p>
+<p>言い換えれば, 先の <code class="code docutils literal notranslate"><span class="pre">Todo</span></code> クラスは，
+TODO を一つの属性 <code class="code docutils literal notranslate"><span class="pre">text</span></code> を持つものだと抽象化したものです．
+で，この属性 <code class="code docutils literal notranslate"><span class="pre">text</span></code> に具体的な値を入れることを，
+プログラミングの世界では インスタンス化といいます．</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>プログラミングとギリシャ哲学</p>
+<p>ここで，哲学に詳しいかたは，
+きっと，アリストテレスや，プラトンを思い出したことでしょう．
+そう，イディア論です．</p>
+<p>クラス指向のプログラミングは，正しく，イディア論の実戦です．
+ある名詞を，どのように抽象化するのかこそが，
+プログラマの腕の見せ所なのですから．</p>
+<p>だからそこ，プログラミングを行うには，
+それが何であるのかを常に言葉で説明する習慣をつけた方が良いです．</p>
+</div>
+<p>さて，次の疑問．</p>
+<p><code class="code docutils literal notranslate"><span class="pre">__init__()</span></code> の第一引数は <code class="code docutils literal notranslate"><span class="pre">self</span></code> でした．
+しかし， <code class="code docutils literal notranslate"><span class="pre">todo=Todo(&quot;TODO&quot;)</span></code> には <code class="code docutils literal notranslate"><span class="pre">self</span></code> がありません．
+これはなんででしょう．</p>
+<p>これもクラス関数の特殊な事情です．
+Python のクラス関数は <strong>第一引数が self である</strong> というルールが存在します．</p>
+<p>ちょっと，試してみましょう．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Todo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">text</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">todo</span> <span class="o">=</span> <span class="n">Todo</span><span class="p">(</span><span class="s2">&quot;TODO&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">todo</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>違いは,  <code class="code docutils literal notranslate"><span class="pre">__init__(text):</span></code> の様に self を無くしただけです．
+実行してみましょう．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python todo.py
+Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+File <span class="s2">&quot;todo.py&quot;</span>, line <span class="m">68</span>, in &lt;module&gt;
+    <span class="nv">todo</span> <span class="o">=</span> Todo<span class="o">(</span><span class="s2">&quot;TODO&quot;</span><span class="o">)</span>
+TypeError: __init__<span class="o">()</span> takes <span class="m">1</span> positional argument but <span class="m">2</span> were given
+</pre></div>
+</div>
+<p>結果はエラーです．
+ここでエラーコードをよく読むと（プログラミングが上手くなる人間は何時もエラーを怖
+れません.まず英語を読みましょう）.</p>
+<p>TypeError: __init__() takes 1 positional argument but 2 were given</p>
+<p>どういう意味ですか？
+この結果に納得行きますか？</p>
+<p>納得できるまで考えてください．</p>
+<ul class="simple">
+<li><p>そして，直すのを忘れないでください．</p></li>
+</ul>
+<p>直したら，次に行きます．</p>
+</div>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id30">実行カ所</a><a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>最後の疑問は <code class="code docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">&quot;__main__&quot;:</span></code> って何という疑問でした．</p>
+<p>これは決まり事なので，簡単に説明します(本当は理由があるけど)．</p>
+<p><code class="code docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">&quot;__main__&quot;:</span></code> はここから先には，
+文章を書くよという意味です．</p>
+<p>より正確には <code class="code docutils literal notranslate"><span class="pre">python</span> <span class="pre">xxx.py</span></code> の形でスクリプトを実行した時に，
+python さんに実行して貰うカ所になります．</p>
+<p>今説明をしているクラスや，いままでに説明をした関数は，
+自分で単語を決めている部分です．
+でも，誰かに説明をするときには，普通単語だけでやり取りをすることはありません(”んだけでやり取りができるほど，python とは仲良くなれないのです)．
+何処かで，自分の決めた単語を使って文として，何をしてほしいのかを書く必要があります．</p>
+<p>その，ここから先が文ですよ．という宣言が，
+<code class="code docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">&quot;__main__&quot;:</span></code> です．</p>
+<p>ここは以下のようになっています．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">todo</span> <span class="o">=</span> <span class="n">Todo</span><span class="p">(</span><span class="s2">&quot;TODO&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">todo</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>文としては以下のことが書かれていますね．</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>まず，Todo クラスをインスタンス化してください．</dt><dd><ul>
+<li><p>その時には， <code class="code docutils literal notranslate"><span class="pre">&quot;TODO&quot;</span></code> という値を属性にいれてください．</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>次に，<code class="code docutils literal notranslate"><span class="pre">todo</span></code> インスタンスの <code class="code docutils literal notranslate"><span class="pre">text</span></code> という属性を表示してください</p></li>
+</ul>
+<p>こういう文を python に伝えているので，実行結果は &quot;TODO&quot; になりました．</p>
+</div>
+<div class="section" id="id10">
+<h3><a class="toc-backref" href="#id31">TODO クラスを拡張する</a><a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>さて, ここまでで,
+class <code class="code docutils literal notranslate"><span class="pre">Todo</span></code> を使うと,
+何をやりたいのかを管理することができるようになりました.</p>
+<p>ただ, TODO アプリというと,
+普通はその仕事が終わったのかどうなのかを管理できるはずです.</p>
+<p>では, それをできるようにしてみましょう.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Todo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">is_finished</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">text</span>
+
+    <span class="k">def</span> <span class="nf">set_is_finish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_finished</span> <span class="o">=</span> <span class="n">x</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">todo</span> <span class="o">=</span> <span class="n">Todo</span><span class="p">(</span><span class="s2">&quot;TODO&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">todo</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">todo</span><span class="o">.</span><span class="n">is_finished</span><span class="p">)</span>
+
+    <span class="n">todo</span><span class="o">.</span><span class="n">set_is_finish</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">todo</span><span class="o">.</span><span class="n">is_finished</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>実行してみると以下のようになります:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python todo.py
+&#39;TODO&#39;
+False
+True
+</pre></div>
+</div>
+<p>先の例と同じように, <code class="code docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">&quot;__main__&quot;:</span></code> 以下が,
+ユーザの動作です.</p>
+<p>今回は, 最初に, <code class="code docutils literal notranslate"><span class="pre">Todo(&quot;TODO&quot;)</span></code> とすることで,
+ユーザは TODO の内容を入力しています.</p>
+<p>その上で, その内容と, 終わったかどうかを表示しています.
+これが一つ目の出力結果と二つ目の出力結果ですね.</p>
+<p>それから時間が経って, 最終的にその TODO が終了したとします.
+その際の挙動が <code class="code docutils literal notranslate"><span class="pre">todo.set_is_finish(True)</span></code> ですね.
+そうすると, いままで <code class="code docutils literal notranslate"><span class="pre">False</span></code> であった <code class="code docutils literal notranslate"><span class="pre">todo.is_finished</span></code> が
+<code class="code docutils literal notranslate"><span class="pre">True</span></code> に変わりました.
+これが三つ目の出力結果です.</p>
+</div>
+<div class="section" id="id11">
+<h3><a class="toc-backref" href="#id32">実習</a><a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>さて，ここからは実習をしましょう．</p>
+<p>このスクリプトでは，
+一つの TODO を管理できるだけでした.
+これでは TODO LIST アプリとは言えないので,
+複数の TODO を管理できるようにしてみましょう.</p>
+<p>また, 今までは, <code class="code docutils literal notranslate"><span class="pre">if</span> <span class="pre">__main__</span> <span class="pre">==</span> <span class="pre">__name__:</span></code> 以下にユーザの
+作業を書いていました.
+これでは, 実際のアプリっぽくないので
+以下の挙動になるように種々クラスや実行文を書き換えてください．</p>
+<ol class="arabic">
+<li><p>何も引数を与えずに実行すると今までに登録された全ての todo を表示します:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO の登録がない場合</span>
+</pre></div>
+</div>
+<p>$ python todo.py</p>
+<p># TODO の登録がある場合
+$ python todo.py
+- [False] TODO 1 (0)
+- [False] TODO 2 (1)
+- [False] TODO 3 (2)</p>
+</li>
+<li><p>--add &quot;内容&quot; を加えると新規 todo を追加します:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO の登録がない場合</span>
+</pre></div>
+</div>
+<p>$ python todo.py --add &quot;やること&quot;
+- [False] やること (0)</p>
+<p># TODO の登録がすでにあった場合
+$ python todo.py --add &quot;やること&quot;
+- [False] TODO (0)
+- [False] やること (1)</p>
+</li>
+<li><p>--fininish id を加えるとその ID の TODO を修了します:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python todo.py --finish 0
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>[True] TODO 1 (0)</p></li>
+<li><p>[False] TODO 2 (1)</p></li>
+<li><p>[False] TODO 3 (2)</p></li>
+<li><p>[False] やること (3)</p></li>
+</ul>
+</li>
+<li><p>--delete id を加えるとその ID の TODO を削除します:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python todo.py --delete 1
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>[True] TODO 1 (0)</p></li>
+<li><p>[False] TODO 3 (1)</p></li>
+<li><p>[False] やること (2)</p></li>
+</ul>
+</li>
+</ol>
+<dl class="simple">
+<dt>ヒント:</dt><dd><ul class="simple">
+<li><p>筆者は 1 つのクラスと 3 つの関数でこれを行いました.</p></li>
+<li><p>ユーザの入力部分に関しては, 以下のノートに記載しています.</p></li>
+<li><dl class="simple">
+<dt>プログラミングではデータを保存する際には基本的にファイルへの入出力が必要です.</dt><dd><ul>
+<li><p>この方法に関しては with 構文の説明で触れています.</p></li>
+<li><p>ただし, ファイルに保存を行うには, Todo オブジェクトの内容を一度文字列化する必要があります</p></li>
+<li><p>同様に, ファイルを読み込むと, その内容は文字列型になります.
+これを何とかして Todo オブジェクトに変更する必要があります.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>引数入力</p>
+<p>この課題では, 実際にユーザに情報を入力させます.
+この方法に関しては今まで 説明していなかったので,
+ここで説明させてください.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Todo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+   <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+   <span class="n">is_finished</span> <span class="o">=</span> <span class="kc">False</span>
+
+   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">text</span>
+
+   <span class="k">def</span> <span class="nf">set_is_finish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">is_finished</span> <span class="o">=</span> <span class="n">x</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+   <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
+   <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">()</span>
+   <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--add&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+   <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+   <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">add</span><span class="p">:</span>
+      <span class="n">todo</span> <span class="o">=</span> <span class="n">Todo</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">add</span><span class="p">)</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">todo</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>実行してみましょう．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python todo.py
+</pre></div>
+</div>
+<p>何も出ませんね．
+これは以下のように使用します．</p>
+</div>
+<dl>
+<dt>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</dt><dd><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python todo.py --add <span class="nb">test</span>
+<span class="nb">test</span>
+$ python todo.py --add 頑張る
+頑張る
+</pre></div>
+</div>
+<p>何が変わったのかというと,
+python を実行する際に, <code class="code docutils literal notranslate"><span class="pre">--add</span> <span class="pre">&quot;やりたい内容&quot;</span></code> を付け加えているときと,
+そうじゃない時とで実行する内容を変えることができたのです.</p>
+</dd>
+</dl>
+<blockquote>
+<div><p>todo_list.show()</p>
+<p># 最初の TODO を削除する
+print(&quot;del todo&quot;)
+todo_list.delete(0)
+todo_list.show()</p>
+<p>print(&quot;fin todo&quot;)
+todo_list.finish(0)
+todo_list.show()</p>
+</div></blockquote>
+<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; ab9befd71acb8a1ffa43f5c42c060871d632c4e2</p>
+<blockquote>
+<div><p>これを決めている部分は <code class="code docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">--</span> <span class="pre">&quot;__main__&quot;:</span></code> 以下の行,
+上から4 行目までです.</p>
+<p>特に重要な部分は <code class="code docutils literal notranslate"><span class="pre">parser.add_argument(&quot;--add&quot;,</span> <span class="pre">type=str)</span></code> です.
+この関数は, 第一引数に, 実行時にどのようなオプションを使うのかを書きます.
+第二引数は, そのオプションに与えられる値の型がなんなのかを書きます.</p>
+<p>今回の場合では, 実行時に &quot;--add&quot; というオプションが書かれた時には,
+Todo に登録する内容が, その後に続くと決めたいので,
+<code class="code docutils literal notranslate"><span class="pre">parser.add_argument</span></code> の第二引数は str 型になります.</p>
+<p>この <code class="code docutils literal notranslate"><span class="pre">parser.add_argument</span></code> は <code class="code docutils literal notranslate"><span class="pre">args</span> <span class="pre">=</span> <span class="pre">parser.parse_args()</span></code> を
+書く前であれば何回でも使えます.</p>
+<p>ここで <code class="code docutils literal notranslate"><span class="pre">Todo(args.add)</span></code> に注目してくさい.
+ここには, やることの内容がはいるのでした.
+つまり <code class="code docutils literal notranslate"><span class="pre">args.add</span></code> にはユーザの入力が入っていることがわかります.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</dt><dd><p>どうように, 例えば <code class="code docutils literal notranslate"><span class="pre">parser.add_argument(&quot;--text&quot;,</span> <span class="pre">type=str)</span></code>
+とした場合にはユーザの入力は <code class="code docutils literal notranslate"><span class="pre">args.text</span></code> でとりだすことができます.</p>
+</dd>
+</dl>
+<blockquote>
+<div><ul class="simple">
+<li><p>[] TODO 2 (1)</p></li>
+<li><p>[] TODO 3 (2)</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic" start="2">
+<li><p>--add &quot;内容&quot; を加えると新規 todo を追加します:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python todo.py --add &quot;やること&quot;
+- [] TODO 1 (0)
+- [] TODO 2 (1)
+- [] TODO 3 (2)
+- [] やること (3)
+</pre></div>
+</div>
+</li>
+<li><p>--fin id を加えるとその ID の TODO を修了します:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python todo.py --fin 1
+- [x] TODO 1 (0)
+- [] TODO 2 (1)
+- [] TODO 3 (2)
+- [] やること (3)
+</pre></div>
+</div>
+</li>
+<li><p>--del id を加えるとその ID の TODO を削除します:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python todo.py --delete 1
+- [] TODO 2 (2)
+- [] TODO 3 (3)
+- [] やること (4)
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>ファイルの読み書き</p>
+<p>この課題を達成するためには，
+TODO を一度保存する必要があります．</p>
+<p>以下にファイルを保存する例を示します:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+    <span class="s2">&quot;aaa&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bbb&quot;</span><span class="p">,</span>
+<span class="p">])</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./items.txt&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>一方で保存したファイルを読み込みリストにする方法は
+以下の通りです:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;./items.txt&quot;</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./items.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; ab9befd71acb8a1ffa43f5c42c060871d632c4e2</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Takuya Asai
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

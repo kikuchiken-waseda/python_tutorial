@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>線形回帰（回帰分析） &mdash; k-lab-seminar-2019-programming 2019 ドキュメント</title>
+  <title>線形回帰（回帰分析） &mdash; k-lab-seminar 2019 ドキュメント</title>
   
 
   
@@ -21,12 +21,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -39,7 +39,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="next" title="勾配降下法" href="gradient_descent_method.html" />
-    <link rel="prev" title="機械学習基礎（線形モデル）" href="index.html" /> 
+    <link rel="prev" title="機械学習基礎 (線形モデル)" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -53,7 +53,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> k-lab-seminar-2019-programming
+            <a href="../index.html" class="icon icon-home"> k-lab-seminar
           
 
           
@@ -61,6 +61,10 @@
 
           
             
+            
+              <div class="version">
+                1.0
+              </div>
             
           
 
@@ -87,7 +91,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../env/index.html">開発環境</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/index.html">はじめての Python</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">機械学習基礎（線形モデル）</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">機械学習基礎 (線形モデル)</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">線形回帰（回帰分析）</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id3">機械学習は何がしたいのか？</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id4">予測するためには何が必要なの？（数式を書くには何が必要なの？）</a></li>
@@ -122,7 +126,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">k-lab-seminar-2019-programming</a>
+          <a href="../index.html">k-lab-seminar</a>
         
       </nav>
 
@@ -153,7 +157,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">機械学習基礎（線形モデル）</a> &raquo;</li>
+          <li><a href="index.html">機械学習基礎 (線形モデル)</a> &raquo;</li>
         
       <li>線形回帰（回帰分析）</li>
     
@@ -177,18 +181,21 @@
   <div class="section" id="id1">
 <h1><a class="toc-backref" href="#id12">線形回帰（回帰分析）</a><a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="contents topic" id="id2">
-<p class="topic-title first">目次</p>
+<p class="topic-title">目次</p>
 <ul class="simple">
-<li><a class="reference internal" href="#id1" id="id12">線形回帰（回帰分析）</a><ul>
-<li><a class="reference internal" href="#id3" id="id13">機械学習は何がしたいのか？</a></li>
-<li><a class="reference internal" href="#id4" id="id14">予測するためには何が必要なの？（数式を書くには何が必要なの？）</a></li>
-<li><a class="reference internal" href="#id5" id="id15">パラメータはどうやって求めるの？</a></li>
-<li><a class="reference internal" href="#id6" id="id16">実習1：プロットを描いてみよう！</a><ul>
-<li><a class="reference internal" href="#id7" id="id17">実習1の内容</a></li>
+<li><p><a class="reference internal" href="#id1" id="id12">線形回帰（回帰分析）</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id3" id="id13">機械学習は何がしたいのか？</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id14">予測するためには何が必要なの？（数式を書くには何が必要なの？）</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id15">パラメータはどうやって求めるの？</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id16">実習1：プロットを描いてみよう！</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id7" id="id17">実習1の内容</a></p></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id8" id="id18">実習2：プロットを変化させてみよう！</a><ul>
-<li><a class="reference internal" href="#id9" id="id19">実習2の内容</a></li>
+<li><p><a class="reference internal" href="#id8" id="id18">実習2：プロットを変化させてみよう！</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id9" id="id19">実習2の内容</a></p></li>
 </ul>
 </li>
 </ul>
@@ -253,13 +260,13 @@
 <p>ちなみに手元にあるデータから全体を予測するという考え方は，まさしく統計の基本的な考え方となります．</p>
 <p>次章，勾配降下法に続く</p>
 <div class="admonition note">
-<p class="first admonition-title">注釈</p>
+<p class="admonition-title">注釈</p>
 <p>直線は，二点が分かれば描くことができます．
 つまりプロットが二つ（上の例で言うと二日分）あれば，直線は引けます．
 でもプロットが三つ（上の例で言うと三日分）以上ある時，すべてのデータが一つの直線上にあることは，かなり珍しいです（現実世界では多分ないです）．</p>
 <p>なので，すべてのデータが一直線上にあるような，完璧な予測はほぼ不可能です．
 よって妥協案としてプロットと直線の誤差（距離の総和）が一番小さくなるような直線を，一番良い予測線と考えます．</p>
-<p class="last">ここで言うところの&quot;誤差（距離の総和）&quot;を，RMSEやMSEで表現しています．</p>
+<p>ここで言うところの&quot;誤差（距離の総和）&quot;を，RMSEやMSEで表現しています．</p>
 </div>
 </div>
 <div class="section" id="id6">
@@ -268,16 +275,16 @@
 <p>上の説明で提示した「散布図」および「正規方程式による予測線」は下のコードで描くことができます．</p>
 <p>皆さんは昨日の実習でvimを使ったと思うので，こちらでもvimを使います（各自で何か使っているものがあれば，そちらを使ってください）．</p>
 <div class="admonition note">
-<p class="first admonition-title">注釈</p>
+<p class="admonition-title">注釈</p>
 <p><kbd class="kbd docutils literal notranslate">Finder</kbd> &gt; <kbd class="kbd docutils literal notranslate">アプリケーション</kbd> &gt; <kbd class="kbd docutils literal notranslate">ユーティリティ</kbd> &gt; <kbd class="kbd docutils literal notranslate">ターミナル</kbd> でターミナルが開けます．</p>
-<p class="last">ターミナルは菊池研でよく使う可能性があるので，Dock（下のメニューバー）に追加しておくことを勧めておきます．
+<p>ターミナルは菊池研でよく使う可能性があるので，Dock（下のメニューバー）に追加しておくことを勧めておきます．
 <kbd class="kbd docutils literal notranslate">ターミナル</kbd> のアイコンを二本指でタップして，オプションからDockに追加ができます．</p>
 </div>
 <p>ターミナルに <code class="code docutils literal notranslate"><span class="pre">vim</span></code> と入力し，以下のコードを書いてください．
 コピペで構いません．</p>
 <div class="literal-block-wrapper docutils container" id="id10">
 <div class="code-block-caption"><span class="caption-text">散布図と正規方程式による予測線（normal_equation.py）</span><a class="headerlink" href="#id10" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">n</span> <span class="o">=</span> <span class="mi">365</span>
 <span class="n">error_size</span> <span class="o">=</span> <span class="mi">10</span>
@@ -286,7 +293,7 @@
 
 <span class="n">X_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">X</span><span class="p">]</span>
 <span class="n">theta_best</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X_b</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_b</span><span class="p">))</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_b</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">theta_best</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">theta_best</span><span class="p">)</span>
 
 <span class="n">X_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">40</span><span class="p">]])</span>
 <span class="n">X_new_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">1</span><span class="p">)),</span> <span class="n">X_new</span><span class="p">]</span>
@@ -296,7 +303,7 @@
 <span class="c1"># import matplotlib as mpl</span>
 <span class="c1"># mpl.rcParams[&#39;font.family&#39;] = &#39;IPAPGothic&#39;</span>
 <span class="c1"># mpl.rcParams[&#39;font.family&#39;] = &#39;AppleGothic&#39;</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_new</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;正規方程式による予測線&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;b.&quot;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;実測値: y = 2x + 20 + error&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">150</span><span class="p">])</span>
@@ -312,18 +319,18 @@
 <p>書き終わったら，ノーマルモード（ <kbd class="kbd docutils literal notranslate">esc</kbd>）にして，<kbd class="kbd docutils literal notranslate">:w ./normal_equation.py</kbd> と入力してください．
 その後，<kbd class="kbd docutils literal notranslate">:q</kbd> と入力して，いつものターミナルの画面に戻ります．</p>
 <ul class="simple">
-<li>もう一度，スクリプトを開くには <code class="code docutils literal notranslate"><span class="pre">vim</span> <span class="pre">./normal_equation.py</span></code> とすればよいです．</li>
+<li><p>もう一度，スクリプトを開くには <code class="code docutils literal notranslate"><span class="pre">vim</span> <span class="pre">./normal_equation.py</span></code> とすればよいです．</p></li>
 </ul>
 <p>以下のようにプログラムを実行してもらうと，おそらく下のようなプロットが出てきます．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 ./normal_equation.py
 </pre></div>
 </div>
 <div class="admonition warning">
-<p class="first admonition-title">警告</p>
+<p class="admonition-title">警告</p>
 <p>先頭の $ は書いてはいけません．</p>
-<ul class="last simple">
-<li>これは，ターミナルで実行してくださいという意味です．</li>
-<li>$ の無い部分は出力です．</li>
+<ul class="simple">
+<li><p>これは，ターミナルで実行してくださいという意味です．</p></li>
+<li><p>$ の無い部分は出力です．</p></li>
 </ul>
 </div>
 <a class="reference internal image-reference" href="../_images/temperature_and_beer4.png"><img alt="../_images/temperature_and_beer4.png" src="../_images/temperature_and_beer4.png" style="width: 576.0px; height: 432.0px;" /></a>
@@ -341,10 +348,10 @@
 <p>直線の式で表現すると，y = 1.97x + 20.81 となります．</p>
 <p>実測値（青い点）はy = 2x + 20 + error をベースに作成したので，おおよそ予測ができていると言っていいでしょう．</p>
 <div class="admonition note">
-<p class="first admonition-title">注釈</p>
+<p class="admonition-title">注釈</p>
 <p>ターミナルでの作業を行う際には，プロットを消す必要があります．
 プロットを残しておきたい人は，スクリーンショットでも取っておいてください．</p>
-<p class="last">コードで保存するやり方もありますが，ここでは説明しません．</p>
+<p>コードで保存するやり方もありますが，ここでは説明しません．</p>
 </div>
 <div class="section" id="id7">
 <h3><a class="toc-backref" href="#id17">実習1の内容</a><a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -360,7 +367,7 @@
 上から読んでいって二つ目のブロックに注目してください．</p>
 <div class="literal-block-wrapper docutils container" id="id11">
 <div class="code-block-caption"><span class="caption-text">散布図と正規方程式による予測線（normal_equation.py）</span><a class="headerlink" href="#id11" title="このコードへのパーマリンク">¶</a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 
 <span class="n">n</span> <span class="o">=</span> <span class="mi">365</span>
@@ -370,7 +377,7 @@
 
 <span class="n">X_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">X</span><span class="p">]</span>
 <span class="n">theta_best</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X_b</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_b</span><span class="p">))</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_b</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">theta_best</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">theta_best</span><span class="p">)</span>
 
 <span class="n">X_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">40</span><span class="p">]])</span>
 <span class="n">X_new_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">1</span><span class="p">)),</span> <span class="n">X_new</span><span class="p">]</span>
@@ -380,7 +387,7 @@
 <span class="c1"># import matplotlib as mpl</span>
 <span class="c1"># mpl.rcParams[&#39;font.family&#39;] = &#39;IPAPGothic&#39;</span>
 <span class="c1"># mpl.rcParams[&#39;font.family&#39;] = &#39;AppleGothic&#39;</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_new</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;正規方程式による予測線&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;b.&quot;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;実測値: y = 2x + 20 + error&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">150</span><span class="p">])</span>
@@ -400,8 +407,8 @@
 </div>
 <p>nやerror_sizeを説明すると下のようになります．</p>
 <ul class="simple">
-<li>n：サンプル数</li>
-<li>error_size：誤差の大きさ</li>
+<li><p>n：サンプル数</p></li>
+<li><p>error_size：誤差の大きさ</p></li>
 </ul>
 <p>雑な言い方をするとnを大きくすると（365より大きい数字を代入すると），青い点の数が増えます．
 error_sizeを大きくすると，青い点がy軸方向（縦軸方向）に広がりやすくなります．</p>
@@ -425,7 +432,7 @@ error_sizeを大きくすると，青い点がy軸方向（縦軸方向）に広
         <a href="gradient_descent_method.html" class="btn btn-neutral float-right" title="勾配降下法" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="機械学習基礎（線形モデル）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="機械学習基礎 (線形モデル)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
