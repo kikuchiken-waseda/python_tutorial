@@ -1422,9 +1422,7 @@ $ python todo.py --add &quot;やること&quot;
 </div>
 <p>何も出ませんね．
 これは以下のように使用します．</p>
-</div>
-<dl>
-<dt>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</dt><dd><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python todo.py --add <span class="nb">test</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python todo.py --add <span class="nb">test</span>
 <span class="nb">test</span>
 $ python todo.py --add 頑張る
 頑張る
@@ -1433,21 +1431,7 @@ $ python todo.py --add 頑張る
 <p>何が変わったのかというと,
 python を実行する際に, <code class="code docutils literal notranslate"><span class="pre">--add</span> <span class="pre">&quot;やりたい内容&quot;</span></code> を付け加えているときと,
 そうじゃない時とで実行する内容を変えることができたのです.</p>
-</dd>
-</dl>
-<blockquote>
-<div><p>todo_list.show()</p>
-<p># 最初の TODO を削除する
-print(&quot;del todo&quot;)
-todo_list.delete(0)
-todo_list.show()</p>
-<p>print(&quot;fin todo&quot;)
-todo_list.finish(0)
-todo_list.show()</p>
-</div></blockquote>
-<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; ab9befd71acb8a1ffa43f5c42c060871d632c4e2</p>
-<blockquote>
-<div><p>これを決めている部分は <code class="code docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">--</span> <span class="pre">&quot;__main__&quot;:</span></code> 以下の行,
+<p>これを決めている部分は <code class="code docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">--</span> <span class="pre">&quot;__main__&quot;:</span></code> 以下の行,
 上から4 行目までです.</p>
 <p>特に重要な部分は <code class="code docutils literal notranslate"><span class="pre">parser.add_argument(&quot;--add&quot;,</span> <span class="pre">type=str)</span></code> です.
 この関数は, 第一引数に, 実行時にどのようなオプションを使うのかを書きます.
@@ -1460,73 +1444,9 @@ Todo に登録する内容が, その後に続くと決めたいので,
 <p>ここで <code class="code docutils literal notranslate"><span class="pre">Todo(args.add)</span></code> に注目してくさい.
 ここには, やることの内容がはいるのでした.
 つまり <code class="code docutils literal notranslate"><span class="pre">args.add</span></code> にはユーザの入力が入っていることがわかります.</p>
-</div></blockquote>
-<dl class="simple">
-<dt>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</dt><dd><p>どうように, 例えば <code class="code docutils literal notranslate"><span class="pre">parser.add_argument(&quot;--text&quot;,</span> <span class="pre">type=str)</span></code>
+<p>どうように, 例えば <code class="code docutils literal notranslate"><span class="pre">parser.add_argument(&quot;--text&quot;,</span> <span class="pre">type=str)</span></code>
 とした場合にはユーザの入力は <code class="code docutils literal notranslate"><span class="pre">args.text</span></code> でとりだすことができます.</p>
-</dd>
-</dl>
-<blockquote>
-<div><ul class="simple">
-<li><p>[] TODO 2 (1)</p></li>
-<li><p>[] TODO 3 (2)</p></li>
-</ul>
-</div></blockquote>
-<ol class="arabic" start="2">
-<li><p>--add &quot;内容&quot; を加えると新規 todo を追加します:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python todo.py --add &quot;やること&quot;
-- [] TODO 1 (0)
-- [] TODO 2 (1)
-- [] TODO 3 (2)
-- [] やること (3)
-</pre></div>
 </div>
-</li>
-<li><p>--fin id を加えるとその ID の TODO を修了します:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python todo.py --fin 1
-- [x] TODO 1 (0)
-- [] TODO 2 (1)
-- [] TODO 3 (2)
-- [] やること (3)
-</pre></div>
-</div>
-</li>
-<li><p>--del id を加えるとその ID の TODO を削除します:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python todo.py --delete 1
-- [] TODO 2 (2)
-- [] TODO 3 (3)
-- [] やること (4)
-</pre></div>
-</div>
-</li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
-<p>ファイルの読み書き</p>
-<p>この課題を達成するためには，
-TODO を一度保存する必要があります．</p>
-<p>以下にファイルを保存する例を示します:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
-    <span class="s2">&quot;aaa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;bbb&quot;</span><span class="p">,</span>
-<span class="p">])</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./items.txt&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>一方で保存したファイルを読み込みリストにする方法は
-以下の通りです:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">path</span>
-<span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;./items.txt&quot;</span><span class="p">):</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./items.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-            <span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; ab9befd71acb8a1ffa43f5c42c060871d632c4e2</p>
 </div>
 </div>
 </div>

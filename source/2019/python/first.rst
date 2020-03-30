@@ -1345,7 +1345,6 @@ class :code:`Todo` を使うと,
    この方法に関しては今まで 説明していなかったので,
    ここで説明させてください.
 
-
    .. code-block:: python
 
       class Todo(object):
@@ -1378,7 +1377,6 @@ class :code:`Todo` を使うと,
    何も出ませんね．
    これは以下のように使用します．
 
-<<<<<<< HEAD
    .. code-block:: bash
 
       $ python todo.py --add test
@@ -1389,20 +1387,6 @@ class :code:`Todo` を使うと,
    何が変わったのかというと,
    python を実行する際に, :code:`--add "やりたい内容"` を付け加えているときと,
    そうじゃない時とで実行する内容を変えることができたのです.
-=======
-       # TODO を表示する
-       print("show todo")
-       todo_list.show()
-
-       # 最初の TODO を削除する
-       print("del todo")
-       todo_list.delete(0)
-       todo_list.show()
-
-       print("fin todo")
-       todo_list.finish(0)
-       todo_list.show()
->>>>>>> ab9befd71acb8a1ffa43f5c42c060871d632c4e2
 
    これを決めている部分は :code:`if __name__ -- "__main__":` 以下の行,
    上から4 行目までです.
@@ -1422,57 +1406,5 @@ class :code:`Todo` を使うと,
    ここには, やることの内容がはいるのでした.
    つまり :code:`args.add` にはユーザの入力が入っていることがわかります.
 
-<<<<<<< HEAD
    どうように, 例えば :code:`parser.add_argument("--text", type=str)`
    とした場合にはユーザの入力は :code:`args.text` でとりだすことができます.
-=======
-    $ python todo.py
-    - [] TODO 1 (0)
-    - [] TODO 2 (1)
-    - [] TODO 3 (2)
-2. --add "内容" を加えると新規 todo を追加します::
-
-    $ python todo.py --add "やること"
-    - [] TODO 1 (0)
-    - [] TODO 2 (1)
-    - [] TODO 3 (2)
-    - [] やること (3)
-3. --fin id を加えるとその ID の TODO を修了します::
-
-    $ python todo.py --fin 1
-    - [x] TODO 1 (0)
-    - [] TODO 2 (1)
-    - [] TODO 3 (2)
-    - [] やること (3)
-4. --del id を加えるとその ID の TODO を削除します::
-
-    $ python todo.py --delete 1
-    - [] TODO 2 (2)
-    - [] TODO 3 (3)
-    - [] やること (4)
-
-.. note:: ファイルの読み書き
-
-   この課題を達成するためには，
-   TODO を一度保存する必要があります．
-
-   以下にファイルを保存する例を示します::
-
-      text = "\n".join([
-          "aaa",
-          "bbb",
-      ])
-      with open("./items.txt", mode='w') as f:
-          f.write(text)
-
-   一方で保存したファイルを読み込みリストにする方法は
-   以下の通りです::
-
-      from os import path
-      items = []
-      if path.exists("./items.txt"):
-          with open("./items.txt", "r") as f:
-              for line in f:
-                  items.append(line.strip())
-      print(items)
->>>>>>> ab9befd71acb8a1ffa43f5c42c060871d632c4e2
