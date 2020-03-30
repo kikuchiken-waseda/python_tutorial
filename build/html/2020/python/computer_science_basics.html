@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>計算機科学基礎 &mdash; k-lab-seminar 2019 ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="prev" title="What next" href="../../2019/python/next.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> k-lab-seminar
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">2019 年 度資料</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../2019/env/index.html">開発環境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2019/python/index.html">はじめての Python</a></li>
+</ul>
+<p class="caption"><span class="caption-text">2020 年 度資料</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">計算機科学基礎</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-this">What is this</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#for-whom">For whom?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">準備運動</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">フィボナッチ数列</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">圧縮</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">暗号化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">円周率</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">ハノイの塔</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">まとめと応用のヒント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">練習問題</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">検索問題</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">制約充足問題</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">グラフ問題</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">遺伝的アルゴリズム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#k">K 平均クラスタリング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">ニューラルネット</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">敵対探索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id17">その他</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">k-lab-seminar</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>計算機科学基礎</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/2020/python/computer_science_basics.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><a class="toc-backref" href="#id18">計算機科学基礎</a><a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="contents topic" id="id2">
+<p class="topic-title">目次</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id1" id="id18">計算機科学基礎</a></p>
+<ul>
+<li><p><a class="reference internal" href="#what-is-this" id="id19">What is this</a></p></li>
+<li><p><a class="reference internal" href="#for-whom" id="id20">For whom?</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id21">準備運動</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id4" id="id22">フィボナッチ数列</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id23">圧縮</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id24">暗号化</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id25">円周率</a></p></li>
+<li><p><a class="reference internal" href="#id8" id="id26">ハノイの塔</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id27">まとめと応用のヒント</a></p></li>
+<li><p><a class="reference internal" href="#id10" id="id28">練習問題</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id11" id="id29">検索問題</a></p></li>
+<li><p><a class="reference internal" href="#id12" id="id30">制約充足問題</a></p></li>
+<li><p><a class="reference internal" href="#id13" id="id31">グラフ問題</a></p></li>
+<li><p><a class="reference internal" href="#id14" id="id32">遺伝的アルゴリズム</a></p></li>
+<li><p><a class="reference internal" href="#k" id="id33">K 平均クラスタリング</a></p></li>
+<li><p><a class="reference internal" href="#id15" id="id34">ニューラルネット</a></p></li>
+<li><p><a class="reference internal" href="#id16" id="id35">敵対探索</a></p></li>
+<li><p><a class="reference internal" href="#id17" id="id36">その他</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="what-is-this">
+<h2><a class="toc-backref" href="#id19">What is this</a><a class="headerlink" href="#what-is-this" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ここでは, <code class="code docutils literal notranslate"><span class="pre">python</span></code> を使った古典的な計算機科学問題に取り組んでいこうと思います.</p>
+<p>古典的な計算機問題には例えばナップサック問題というものがあります.
+皆様はこれから無人島に島流しに合います.
+ここで大きさの決まったナップサックを一つだけ持っていくことができます.
+無人島生活には色々なものが必要ですが, ナップサックに入る量は決まっています.
+この際に, ある目標の価値を上回る品物の選び方はあるのか, ないのか,
+どの組み合わせが最もよいのか, こういうことを決める問題です.</p>
+<p>一見すると, あまり面白い問題ではないようにも見えますが (無人島にナップザック一個
+で行くとかそうそうない, どうぶつの森でもあるまいし...), この問題は色々な所で使え
+ます. 例えば, 年度の頭には予算決めがあるのですが, 限られた予算で欲しいものを最大
+幸福的に受け取る計画を立てるなんて, よくある話です.</p>
+<p>あるいは限られた時間の中で, どの講義には力を入れ, どの講義は手を抜く(切る)のかな
+んて皆様も一度は考えたことがあるのではないでしょうか?</p>
+<p>世の中には典型的というか、よく出くわす問題 (先程の予算のように)というものがある
+のです. こうしたよくある問題をパズルの問題のようにしたものが古典的な計算機科学の
+問題です. そして, 世のパズルがそうであるように, これらの問題には定石というか,
+一般的な解法というものも存在します.
+こういう一般的な解法のことを, かっこよく言えばアルゴリズムというのです.</p>
+<p>計算機科学とは何かいうと要はパズルです. パズル.
+最初に頭を使って考えて, 答えに納得したらあとは身に付ければそれでよいと思います.
+どうぞ, 気楽に楽しんでみてください.</p>
+</div>
+<div class="section" id="for-whom">
+<h2><a class="toc-backref" href="#id20">For whom?</a><a class="headerlink" href="#for-whom" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>この文章の中では然程 <code class="code docutils literal notranslate"><span class="pre">python</span></code> そのものに関しての説明を記述しません.
+それは <a class="reference internal" href="../../2019/python/first.html"><span class="doc">First Python</span></a> で既に行っています.
+それ以上の知識は不要です.</p>
+<p>逆に,  上記チュートリアルをまだ行っていない場合には,
+必ず一読しておいてください.</p>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id21">準備運動</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id22">フィボナッチ数列</a><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>再帰処理</p>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id23">圧縮</a><a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ビット配列</p>
+</div>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id24">暗号化</a><a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ビット演算</p>
+</div>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id25">円周率</a><a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>数式のコード化</p>
+</div>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id26">ハノイの塔</a><a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>リスト演算</p>
+</div>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id27">まとめと応用のヒント</a><a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id10">
+<h3><a class="toc-backref" href="#id28">練習問題</a><a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id11">
+<h2><a class="toc-backref" href="#id29">検索問題</a><a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="id12">
+<h2><a class="toc-backref" href="#id30">制約充足問題</a><a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="id13">
+<h2><a class="toc-backref" href="#id31">グラフ問題</a><a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="id14">
+<h2><a class="toc-backref" href="#id32">遺伝的アルゴリズム</a><a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="k">
+<h2><a class="toc-backref" href="#id33">K 平均クラスタリング</a><a class="headerlink" href="#k" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="id15">
+<h2><a class="toc-backref" href="#id34">ニューラルネット</a><a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="id16">
+<h2><a class="toc-backref" href="#id35">敵対探索</a><a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="id17">
+<h2><a class="toc-backref" href="#id36">その他</a><a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../../2019/python/next.html" class="btn btn-neutral float-left" title="What next" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Takuya Asai
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

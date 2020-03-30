@@ -7,10 +7,17 @@ K-lab 春学期セミナー
 
 .. toctree::
    :maxdepth: 2
-   :caption: 2019 年度資料
+   :caption: 2019 年 度資料
 
    /2019/env/index
    /2019/python/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: 2020 年 度資料
+
+   2020/python/computer_science_basics
+
 
 Indices and tables
 ==================
