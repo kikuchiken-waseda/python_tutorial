@@ -15,6 +15,7 @@ flake8-rst = "*"
 sphinx = "*"
 sphinx-autobuild = "*"
 sphinx-rtd-theme = "*"
+tornado = "*"
 
 [requires]
 python_version = "3.7"

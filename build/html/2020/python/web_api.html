@@ -1,0 +1,520 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>WEB API 入門: 応用課題 &mdash; k-lab-seminar 2019 ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="prev" title="計算機科学基礎" href="computer_science_basics.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> k-lab-seminar
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">2019 年 度資料</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../2019/env/index.html">開発環境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2019/python/index.html">はじめての Python</a></li>
+</ul>
+<p class="caption"><span class="caption-text">2020 年 度資料</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="computer_science_basics.html">計算機科学基礎</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WEB API 入門: 応用課題</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">最初のアプリ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">入力を受け取る</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#post-method">POST METHOD</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">ここまでの練習課題</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">k-lab-seminar</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>WEB API 入門: 応用課題</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/2020/python/web_api.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="web-api">
+<h1><a class="toc-backref" href="#id5">WEB API 入門: 応用課題</a><a class="headerlink" href="#web-api" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>文責: qh73xe</p></li>
+<li><p>作成日: 2020-04-04</p></li>
+</ul>
+<div class="contents topic" id="id1">
+<p class="topic-title">目次</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#web-api" id="id5">WEB API 入門: 応用課題</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id6">最初のアプリ</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id7">入力を受け取る</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id8">ここまでの練習課題</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>ここからは応用, つまり, python を使ったアプリ開発を説明します.
+アプリ開発の最初のお題は WEB-API です.</p>
+<p>近年のアプリケーションは所謂、サバクラ(サーバー&amp;クライアント) を前提としたものが大多数を占めています.
+例えば, facebook とか line とか Instagram, slack のようなチャット, SNS サービスもそうですし,
+google のサービスも大抵がサバクラシステムです.</p>
+<p>こういうシステムは大抵ブラウザ(例えば chrome とか)で動きます.</p>
+<p>ところで、皆様はサーバーって何か、ご存知でしょうか?
+普通のPC（皆様の目の前にあるMAC） とは何が違うのでしょうか?</p>
+<p>実は、(誤解を恐れず言うのなら)そんなに違いはありません.
+サーバー機といっても実は単なるPCです(今、丁度研究室で動いでいるので, 実機が見たければ, 見ることができますよ).
+少しだけ、違う部分を挙げるなら、サーバー機は色々な人が情報にアクセスすることができます(皆様のPCが色々な人に見られたら結構いやですよね)。
+一方、皆様のPCは色々なサーバーの情報をみることができます.</p>
+<p>つまり, 皆が見て色々作業をするPCをサーバーと読んで、
+そのサーバーから情報を貰うPC(皆様のPC)のことをクライアントと呼ぶのです.
+で皆で見るために使用されているルールが例えば http プロトコルであったり,
+WEB とか言われているやつです.</p>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id6">最初のアプリ</a><a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>まあ, 前置きはこの程度にしておいて,
+早速アプリを作ってみましょう.</p>
+<p>今回は, tornado というツールを使います(これは facebook が作成したツールです).</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>Django</p>
+<p>python で WEB-API を作ろうとした場合,
+一番の大御所は, Django というライブラリです.
+これは開発の初期段階では google が大きく関わっていて,
+現在でも Instagram に利用されていたりするライブラリです.</p>
+<p>このライブラリはとても素晴らしいものですが,
+覚えることが多いです.</p>
+<p>一方 tornado は覚えることは少く使用できるので,
+簡単なものをチョロッと作る場合には, tornado を使います.</p>
+<p>django  に興味がある方は, 公式のチュートリアルを試してみてください.
+あれは読む度に発見のあるとてもよいドキュメントです.</p>
+</div>
+<p>まずは, tornado を使用できるようにしましょう.
+tornado を導入するには以下のコマンドを使います:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip3 install tornado
+</pre></div>
+</div>
+<p>今回のテーマはサバクラシステムで、クライアントはもう既に存在する(皆様のPCのブラウザがクライアントです)ので,
+作っていくものはサーバーになります.</p>
+<p>そのまま, <code class="code docutils literal notranslate"><span class="pre">server.py</span></code> としましょう.
+内容は以下の通りにしてください:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tornado.web</span>
+
+<span class="k">class</span> <span class="nc">MainHandler</span><span class="p">(</span><span class="n">tornado</span><span class="o">.</span><span class="n">web</span><span class="o">.</span><span class="n">RequestHandler</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Hello, world&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">make_app</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">tornado</span><span class="o">.</span><span class="n">web</span><span class="o">.</span><span class="n">Application</span><span class="p">([</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">MainHandler</span><span class="p">),</span>
+    <span class="p">])</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">make_app</span><span class="p">()</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">8888</span><span class="p">)</span>
+    <span class="n">tornado</span><span class="o">.</span><span class="n">ioloop</span><span class="o">.</span><span class="n">IOLoop</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>かけましたでしょうか？
+かけたら、これを実行します:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 server.py
+</pre></div>
+</div>
+<p>さあ、どうでしょう.
+何も起きませんね.
+何故ですか？</p>
+<p>クライアントを使っていないからです.</p>
+<p>ブラウザを立ち上げ, 以下の URL にアクセスしてみてください.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://localhost:8888">http://localhost:8888</a></p></li>
+</ul>
+<p>わー, すごい, なんと文字が出てきましたね.</p>
+<p>なんとも面白くもない例ですが,
+実は凄いことをしています.</p>
+<p>なぜ, &quot;Hello, world&quot; と出て来たのかわかりますか？
+別の文字に変えることはできますか?</p>
+<p>やってみてください.</p>
+<ul class="simple">
+<li><p>なお, <code class="code docutils literal notranslate"><span class="pre">server.py</span></code> を止めるには Ctrl + C を押します.</p></li>
+</ul>
+<p>この例はとてもシンプルな例ですが,
+サーバーとしての機能を充分に果たしています（クライアントに伝えるべき情報を伝えているので）.</p>
+<p><code class="code docutils literal notranslate"><span class="pre">server.py</span></code> には一つのクラスと, 一つの関数,
+そして <code class="code docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">&quot;__main__&quot;:</span></code> で書かれた実行部分が書かれています.
+このなかで, サーバー, つまりクライアントに情報を渡している部分はどれでしょう.</p>
+<p>そう, <code class="code docutils literal notranslate"><span class="pre">MainHandler</span></code> クラスですね.
+より正確に言えば <code class="code docutils literal notranslate"><span class="pre">MainHandler</span></code> クラスの <code class="code docutils literal notranslate"><span class="pre">get</span></code> 関数です.
+さらにデータを送っている部分だけでいれば, <code class="code docutils literal notranslate"><span class="pre">self.write</span></code> 関数になります.</p>
+<p>ここでなんで <code class="code docutils literal notranslate"><span class="pre">self.write</span></code> 関数が動くのか説明できる方はいますか？
+だって, そんな関数どこにも書いていないじゃないですか.</p>
+<ul class="simple">
+<li><p>この問の意味が分からない方は <a class="reference internal" href="../../2019/python/first.html"><span class="doc">First Python</span></a> のクラスの説明をよく読み直してください.</p></li>
+</ul>
+<p>その答えのヒントは <code class="code docutils literal notranslate"><span class="pre">MainHandler</span></code> クラスの最初の行にあります.
+ここには以下のように書かれています:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MainHandler</span><span class="p">(</span><span class="n">tornado</span><span class="o">.</span><span class="n">web</span><span class="o">.</span><span class="n">RequestHandler</span><span class="p">):</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="../../2019/python/first.html"><span class="doc">First Python</span></a>  でやったクラスとは <code class="code docutils literal notranslate"><span class="pre">()</span></code> の中身が異なりますね.
+これは, <code class="code docutils literal notranslate"><span class="pre">tornado.web.RequestHandler</span></code> に書かれている関数をすべて使えるようにするという意味になります.
+こういう風に、別の誰かが書いたクラスの持つ関数を使える新しいクラスを作ることを継承といいます.</p>
+<p>つまり, なんで自分では書いていない <code class="code docutils literal notranslate"><span class="pre">self.write</span></code> という関数が使えるのかというと,
+<code class="code docutils literal notranslate"><span class="pre">tornado.web.RequestHandler</span></code> というクラスの中に誰かが先に書いておいてくれたからな訳です.
+このようにすることで, 具体的にどうやってブラウザに情報を伝えるのかを知らなくても,
+ただ, 伝えたい情報を <code class="code docutils literal notranslate"><span class="pre">self.write</span></code> 関数の中にいれてあげればサーバーが作れる訳です.</p>
+<p>どうです？ちょっとは凄さが分かっていただけたでしょうか？</p>
+<p>ともかく, self.write の中にブラウザに表示をしたい値(文字列)を書けば良いだけです。
+あとは, どんなことを書いてもよいです.</p>
+<p>例えば一寸計算をしてみましょう:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tornado.web</span>
+
+<span class="k">class</span> <span class="nc">MainHandler</span><span class="p">(</span><span class="n">tornado</span><span class="o">.</span><span class="n">web</span><span class="o">.</span><span class="n">RequestHandler</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">5</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">make_app</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">tornado</span><span class="o">.</span><span class="n">web</span><span class="o">.</span><span class="n">Application</span><span class="p">([</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">MainHandler</span><span class="p">),</span>
+    <span class="p">])</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">make_app</span><span class="p">()</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">8888</span><span class="p">)</span>
+    <span class="n">tornado</span><span class="o">.</span><span class="n">ioloop</span><span class="o">.</span><span class="n">IOLoop</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>さて, このコードを実行した結果ブラウザには何が表示されるでしょうか?</p>
+<p>望みの値になったら、一寸ここまでのおさらいをしましょう.</p>
+<p><a class="reference internal" href="computer_science_basics.html"><span class="doc">計算機科学基礎</span></a> ではフィボナッチ数列を計算する関数を作ってみました.
+これを利用して, n=10 の場合のフィボナッチ数列を計算してくれるサーバーを作成してみてください。
+それができたら、最初のアプリ作成は終了にします.</p>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id7">入力を受け取る</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>んーでも... と思っている方もいるかもしれません.
+折角フィボナッチ数列を出せたとしても(出せて何がうれしいのだという話はおいておいて),
+n = 10 だけしか出せないのではどうしようもありません.</p>
+<p>もっと色々な n で計算させることはできないのでしょうか？</p>
+<p>言い換えれば, クライアント側で n を指定することはできないのでしょうか？</p>
+<p>当然可能です.</p>
+<p>次のコードを書いてみてください(名前は <code class="code docutils literal notranslate"><span class="pre">squared_server.py</span></code> にしましょうか):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tornado.web</span>
+
+<span class="k">class</span> <span class="nc">SquaredHandler</span><span class="p">(</span><span class="n">tornado</span><span class="o">.</span><span class="n">web</span><span class="o">.</span><span class="n">RequestHandler</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">arguments</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">make_app</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">tornado</span><span class="o">.</span><span class="n">web</span><span class="o">.</span><span class="n">Application</span><span class="p">([</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">SquaredHandler</span><span class="p">),</span>
+    <span class="p">])</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">make_app</span><span class="p">()</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">8888</span><span class="p">)</span>
+    <span class="n">tornado</span><span class="o">.</span><span class="n">ioloop</span><span class="o">.</span><span class="n">IOLoop</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>さて,  <a class="reference external" href="http://localhost:8888">http://localhost:8888</a> にアクセスしてみましょうか.
+この結果は 0 になります.</p>
+<p>続いて <a class="reference external" href="http://localhost:8888?x=2">http://localhost:8888?x=2</a> にアクセスしてみてください.
+この結果は 4 になります.</p>
+<p>それぞれ何が起きているかわかりますでしょうか？</p>
+<p>まず, <a class="reference external" href="http://localhost:8888">http://localhost:8888</a>  にアクセスをした場合, 変数 <code class="code docutils literal notranslate"><span class="pre">kwargs</span></code> には空の辞書が入ります.
+これは辞書型ですので, <code class="code docutils literal notranslate"><span class="pre">get</span></code> 関数が使えます.
+辞書型の <code class="code docutils literal notranslate"><span class="pre">get</span></code> 関数は第一引数の key があった場合, その value を返します.
+では無かった場合にはどうなるのでしょうか？</p>
+<p>その場合には第二引数に与えた値, つまり <code class="code docutils literal notranslate"><span class="pre">[0]</span></code> を返します.
+<a class="reference external" href="http://localhost:8888">http://localhost:8888</a>  にアクセスした場合には, <code class="code docutils literal notranslate"><span class="pre">{}.get(&quot;x&quot;,</span> <span class="pre">[0])</span></code> ということですから、
+<code class="code docutils literal notranslate"><span class="pre">x</span></code> という key は存在しません.
+そのため, <code class="code docutils literal notranslate"><span class="pre">[0]</span></code> になります.</p>
+<p>これは 0 ではないことに気を付けてください.
+0 という値が一つだけ入ったリストです(なぜこんなことをしているのかというと, 値が入っていた場合にもその値が一つだけ入ったリストが返却されるからです).
+そのため, その最初の値, つまり <code class="code docutils literal notranslate"><span class="pre">[0][0]</span></code> = <code class="code docutils literal notranslate"><span class="pre">int(0)</span></code> が変数 <code class="code docutils literal notranslate"><span class="pre">x</span></code> に入ります.
+最後に関数 <code class="code docutils literal notranslate"><span class="pre">self.write(str(x**2))</span></code> をしているので 0 の二乗で 0 が表示される訳です.</p>
+<p>では同様に <a class="reference external" href="http://localhost:8888?x=2">http://localhost:8888?x=2</a> の場合にそれぞれの変数の中身はどのような値になり、最終的に 4 が出力されるのでしょうか？
+少し考えてみてください.</p>
+<p>納得できる答えができたら, 上記コードを少し変えてみてください。
+例えば, <a class="reference external" href="http://localhost:8888?x=2&amp;y=2">http://localhost:8888?x=2&amp;y=2</a> とした場合には 4,
+<a class="reference external" href="http://localhost:8888?x=2&amp;y=3">http://localhost:8888?x=2&amp;y=3</a> とした場合には 6, <a class="reference external" href="http://localhost:8888?x=3&amp;y=3">http://localhost:8888?x=3&amp;y=3</a>  とした場合には 9 を返すサーバーを作ることができるでしょうか？</p>
+<p>また、先程作成した <code class="code docutils literal notranslate"><span class="pre">fib(10)</span></code> の計算結果を返すサーバーを利用して, n をユーザが決めることができるサーバーを作れるでしょうか？</p>
+<div class="section" id="post-method">
+<h3>POST METHOD<a class="headerlink" href="#post-method" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>さて, 上で説明をした URL を使った入力方法のことを URL クエリと呼びます.
+これはよく見てみると例えば Gmail とか, github とか,  Slack とか, amazon とかで見かける方法です.</p>
+<ul class="simple">
+<li><p>我々プログラマはしばしば URL を観察してこれらのツールを楽に使う方法を発見します.</p></li>
+</ul>
+<p>ですが, よく見る WEB アプリでは, ユーザに態々 URL を変更させたりしません.
+なんか入力する画面があってそこに値を入力すると結果が帰ってきます.</p>
+<p>こういう入力方法を行うためには <code class="code docutils literal notranslate"><span class="pre">POST</span> <span class="pre">method</span></code> を知っておく必要があります.</p>
+<p>また <code class="code docutils literal notranslate"><span class="pre">MainHadler</span></code> クラスを書き換えます:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tornado.web</span>
+
+<span class="k">class</span> <span class="nc">MainHandler</span><span class="p">(</span><span class="n">tornado</span><span class="o">.</span><span class="n">web</span><span class="o">.</span><span class="n">RequestHandler</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+            <span class="s1">&#39;&lt;html&gt;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;&lt;body&gt;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;&lt;form action=&quot;/&quot; method=&quot;POST&quot;&gt;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;&lt;input type=&quot;text&quot; name=&quot;x&quot;&gt;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;&lt;input type=&quot;text&quot; name=&quot;y&quot;&gt;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;&lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;&#39;</span>
+            <span class="s1">&#39;&lt;/form&gt;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;&lt;/body&gt;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;&lt;/html&gt;&#39;</span>
+        <span class="p">]))</span>
+    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_header</span><span class="p">(</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">,</span> <span class="s2">&quot;text/plain&quot;</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_body_argument</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_body_argument</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;x + y = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">make_app</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">tornado</span><span class="o">.</span><span class="n">web</span><span class="o">.</span><span class="n">Application</span><span class="p">([</span>
+        <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">MainHandler</span><span class="p">),</span>
+    <span class="p">])</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">make_app</span><span class="p">()</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">8888</span><span class="p">)</span>
+    <span class="n">tornado</span><span class="o">.</span><span class="n">ioloop</span><span class="o">.</span><span class="n">IOLoop</span><span class="o">.</span><span class="n">current</span><span class="p">()</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>さて, <a class="reference external" href="http://localhost:8888/">http://localhost:8888/</a> にアクセスしてみると,
+今度は form (入力する場所とボタン) が表示されます.
+適当な数字を入れて, submit ボタンを押すと,
+2つの入力が合計された値が出てきます.</p>
+<p>では <code class="code docutils literal notranslate"><span class="pre">MainHandler</span></code> を見てみましょう.
+関数の数が今までと違いますね.
+新しく <code class="code docutils literal notranslate"><span class="pre">post()</span></code> が定義されています.</p>
+<p>コードの中で実際に足し算をしている場所はこの <code class="code docutils literal notranslate"><span class="pre">post</span></code> 関数なので, submit ボタンを押した後に呼び出される関数なのだと分かります.
+で入力の受取りは <code class="code docutils literal notranslate"><span class="pre">self.get_body_argument()</span></code> を使っています.</p>
+<p>ここで引数は <code class="code docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code> や <code class="code docutils literal notranslate"><span class="pre">&quot;y&quot;</span></code> と書いているので, 多分 submit ボタンを押す前には,
+x, や y が定義されているのでしょう.</p>
+<p>じゃあ, submit ボタンを押す前の表示はどの関数なのでしょうか?
+これは多分, 今まで書いてきた <code class="code docutils literal notranslate"><span class="pre">get()</span></code> (だって submit って書いてあります).</p>
+<p>で, x, y はどこなのかと考えると, <code class="code docutils literal notranslate"><span class="pre">'&lt;input</span> <span class="pre">type=&quot;text&quot;</span> <span class="pre">name=&quot;x&quot;&gt;'</span></code> と書いてあるのが分かります.
+つまり,  <code class="code docutils literal notranslate"><span class="pre">'&lt;input</span> <span class="pre">type=&quot;text&quot;</span> <span class="pre">name=&quot;x&quot;&gt;'</span></code>  の <code class="code docutils literal notranslate"><span class="pre">name=&quot;x&quot;</span></code> の部分でどのような辞書が造られるのかが決まります.
+後はこれに習えば, 自由な入力を作ることができるはずです.</p>
+<p>更に <code class="code docutils literal notranslate"><span class="pre">input</span></code> と書いてある部分は,  <code class="code docutils literal notranslate"><span class="pre">form</span></code> と書かれた文字列に囲まれていると
+気がつけた人は大変よろしいです.</p>
+<p><code class="code docutils literal notranslate"><span class="pre">'&lt;form</span> <span class="pre">action=&quot;/&quot;</span> <span class="pre">method=&quot;POST&quot;&gt;'</span></code> の意味は, その中身（ここでは 3 つの input）を,
+action で書かれた場所に POST メゾットで送りますよという意味です.
+だからこそ, URL &quot;/&quot; に紐付いている <code class="code docutils literal notranslate"><span class="pre">MainHandler</span></code> クラスの <code class="code docutils literal notranslate"><span class="pre">post()</span></code> が機能したのです.</p>
+<p>さあ, これで入出力も自由にできるようになりました.</p>
+<ul class="simple">
+<li><p>このチュートリアルでは基本的に CSS/HTML については話しません.</p></li>
+<li><p>やや詳しい人に追記しておくと, put その他 HTML method は同様の記法で機能します.</p></li>
+</ul>
+<p>では, <code class="code docutils literal notranslate"><span class="pre">post</span></code> メゾットが理解できたのかを確認するために再び <code class="code docutils literal notranslate"><span class="pre">fib</span></code> 関数を使いましょう.</p>
+<p>まず, input が一つだけの <code class="code docutils literal notranslate"><span class="pre">get</span></code> 関数を作ってみてください.
+序で, 任意の n のフィボナッチ数列を計算できる <code class="code docutils literal notranslate"><span class="pre">post</span></code> 関数を作ってみてください.</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id8">ここまでの練習課題</a><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>さて, ここまでの説明で皆様はユーザの入力を受け取り結果を返すサーバーを作成することができるようになったはずです.
+では, 単純な計算だけでなく, 少しアプリケーションっぽいものを作成してみましょう.</p>
+<p>元になるものは <a class="reference internal" href="../../2019/python/first.html"><span class="doc">First Python</span></a>  でやった TODO アプリです.
+これをサーバーにしましょう.</p>
+<p>作りたいものは以下の通りです.</p>
+<ol class="arabic simple">
+<li><p>最初の画面では, 新規に作成する TODO のフォームが存在する</p></li>
+<li><p>フォームには, TODO の内容が入力される</p></li>
+<li><p>サブミットボタンをおすと 新規TODO が登録される</p></li>
+<li><p>この画面には,  最初の画面画面に戻るボタンが存在する</p></li>
+<li><p>上記ボタンを押すと, 新規に作成する TODO のフォームと今迄登録した TODO の一覧が見える</p></li>
+</ol>
+<p>まずはここまで作成してみましょう.
+余力のある方は, 以下の状態にまで, アプリを作ってみてください.</p>
+<ol class="arabic simple" start="6">
+<li><p>それぞれの TODO 一覧の横には終了ボタンがある</p></li>
+<li><p>そのボタンをクリックすると、該当のTODOがなくなる(見えなくなる)</p></li>
+</ol>
+<p>どうでしょう？できるでしょうか？</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="computer_science_basics.html" class="btn btn-neutral float-left" title="計算機科学基礎" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Takuya Asai
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
