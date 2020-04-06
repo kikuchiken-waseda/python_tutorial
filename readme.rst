@@ -79,4 +79,11 @@ html ドキュメントが作成されます::
 
 - https://kikuchiken-waseda.github.io/python_tutorial/build/html/
 
+加えて, source ディレクトリ直下で以下のコマンドを入力すると,
+各種 source ファイルを監視し, 変更があった場合に自動ビルド, 簡易サーバーを立ててドキュメント確認をすることが可能です::
+
+    $ cd source
+    $ make livehtml
+    
+- これはフォアグラウンド処理なので、Tmux 等で画面分割をすると楽です.
 
