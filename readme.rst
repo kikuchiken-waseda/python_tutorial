@@ -67,3 +67,18 @@
 Document そのものには sphinx を利用しています.
 
 - https://www.sphinx-doc.org/ja/master/
+
+各種環境設定が終了している場合以下のコマンドを入力すると
+html ドキュメントが作成されます.
+
+```
+cd source
+make html
+```
+
+- なお, HTML が作成されるディレクトリは, レポジトリroot 直下 build/html 以下です.
+- また, master の上記ディレクトリが更新されると以下のURLが更新されることに注意してください.
+
+- https://kikuchiken-waseda.github.io/python_tutorial/build/html/
+
+
