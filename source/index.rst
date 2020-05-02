@@ -18,6 +18,8 @@ K-lab 春学期セミナー
 
    2020/python/computer_science_basics
    2020/python/web_api
+   2020/python/job_queuing
+   2020/python/statistics/index
 
 
 Indices and tables
