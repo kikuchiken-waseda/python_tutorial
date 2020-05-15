@@ -7,4 +7,8 @@ flake8-rst==0.7.2
 Sphinx==3.0.3
 sphinx-autobuild==0.7.1
 sphinx-rtd-theme==0.4.3
+# web api
 tornado==6.0.4
+# job queing
+celery==4.4.2
+redis==3.4.1

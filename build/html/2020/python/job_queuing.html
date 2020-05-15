@@ -1,0 +1,293 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>JOB QUEING 入門 &mdash; k-lab-seminar 2019 ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="ベイズ統計" href="statistics/index.html" />
+    <link rel="prev" title="WEB API 入門: 応用課題" href="web_api.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> k-lab-seminar
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">2019 年 度資料</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../2019/env/index.html">開発環境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2019/python/index.html">はじめての Python</a></li>
+</ul>
+<p class="caption"><span class="caption-text">2020 年 度資料</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="computer_science_basics.html">計算機科学基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linearRegression/index.html">回帰分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction_to_nlp/index.html">自然言語処理入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_api.html">WEB API 入門: 応用課題</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">JOB QUEING 入門</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">環境設定</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="statistics/index.html">ベイズ統計</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">k-lab-seminar</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>JOB QUEING 入門</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/2020/python/job_queuing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="job-queing">
+<h1><a class="toc-backref" href="#id3">JOB QUEING 入門</a><a class="headerlink" href="#job-queing" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>文責: <a class="reference external" href="mailto:takuya&#46;waseda&#46;1119&#37;&#52;&#48;gmail&#46;com">takuya<span>&#46;</span>waseda<span>&#46;</span>1119<span>&#64;</span>gmail<span>&#46;</span>com</a></p></li>
+<li><p>作成日: 2020-04-28</p></li>
+</ul>
+<div class="contents topic" id="id1">
+<p class="topic-title">目次</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#job-queing" id="id3">JOB QUEING 入門</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id4">環境設定</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>ここでは JOB QUEING と呼ばれる処理について説明をします.
+JOB QUEING とは非同期処理や定期実行のように,
+処理を行う予定だけを立てて, あとでその結果を使うような処理のことを指します.</p>
+<p>JOB QUEING という言い方には耳慣れないものがあるでしょうが、
+これは我々が普段やっている処理です.
+例えば、買い物をすることを考えてください.</p>
+<p>昔からあるタイプのお店では、
+まずお客さんは店員さんに話しかけます。
+そこから店員さんに色々な要望を伝え、欲しいものが見つかったら買い物を行います
+(そういうお店行ったことあります？吉祥寺には多いのですよ)。
+このような古いタイプのお店では、一度に処理できる仕事（お客さん）の数は
+店員さんの数だけです.
+たとえば, 店員さんが一人しかいない時に 10 人のお客が来たとします.
+一人の客は何を買うのかを決めるのに 5 分程度掛かるとして、
+お金のやり取りをするのに 1 分程度掛かるとしましょう.
+この場合、10人目のお客さんが買い物を済ませるためには, 60 分かかってしまいます(だ
+から流行っていないんだよな、あの店...).</p>
+<p>一方, 一般的なお店では, お客は勝手に店内を見回りますよね。
+こうすると、１人ずつ相手している時と比較して大きく時間を短縮することができます.
+ただし、それぞれのお客さんは少し待つ作業も必要です。
+そうレジに並ぶタイミングです.
+で、店員さんが空いた時（自分の順番になったとき）にお金を払います.
+このようにすると, 先程の例だとしても,
+10 人目のお客さんの待ち時間は, 10 分で済みます.</p>
+<p>この方法をプログラミングに利用した手法のことを
+JOB QUEING と(あるいは単にキューイングとも)いいます.
+キューイングでは, キューにタスクを貯めて行きますを貯めて行きます
+(お店の例では買いたいものを探すこと).
+そしてワーカー(お店の例ではお客さん)が適宜タスクを受け取り(勝手に買い物を始め),
+終わったタイミングで通知をします(レジに並びます).</p>
+<p>このチュートリアルではこのキューイングの作業を python で行っていく方法について説
+明をします.</p>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id4">環境設定</a><a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="code docutils literal notranslate"><span class="pre">python</span></code> でキューイングを行う際に便利なライブラリは <code class="code docutils literal notranslate"><span class="pre">celery</span></code> です.
+ただし、これを利用するには, <code class="code docutils literal notranslate"><span class="pre">redis</span></code> というデータベースが必要になります.</p>
+<p>Mac OS の場合 <code class="code docutils literal notranslate"><span class="pre">redis</span></code> は <code class="code docutils literal notranslate"><span class="pre">brew</span></code> から導入することができます:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ brew install redis
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>celery と redis</p>
+<p><code class="code docutils literal notranslate"><span class="pre">redis</span></code> は何に使われるのでしょうか?</p>
+<p><code class="code docutils literal notranslate"><span class="pre">redis</span></code> はキュー、つまりタスクを記録しておく
+TODO リストのようなものとして利用されます.</p>
+<p><code class="code docutils literal notranslate"><span class="pre">celery</span></code> はこのキューとして使えるものがあれば何でもよいので,
+<code class="code docutils literal notranslate"><span class="pre">redis</span></code> が必須というのは本当はちょっと言い過ぎです.
+しかし (特に日本では) <code class="code docutils literal notranslate"><span class="pre">redis</span></code> を利用した説明が一番多いので,
+このチュートリアルでも <code class="code docutils literal notranslate"><span class="pre">redis</span></code> を利用します.</p>
+</div>
+<p>また, <code class="code docutils literal notranslate"><span class="pre">celery</span></code> は <code class="code docutils literal notranslate"><span class="pre">pip</span></code> コマンドから導入可能です:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install celery redis
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="statistics/index.html" class="btn btn-neutral float-right" title="ベイズ統計" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="web_api.html" class="btn btn-neutral float-left" title="WEB API 入門: 応用課題" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Takuya Asai
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
