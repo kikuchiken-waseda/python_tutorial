@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<html class="writer-html5" lang="ja" >
 <head>
   <meta charset="utf-8">
   
@@ -12,12 +11,19 @@
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -26,16 +32,11 @@
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/language_data.js"></script>
         <script src="../../_static/translations.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" /> 
 </head>
@@ -51,7 +52,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> k-lab-seminar
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> k-lab-seminar
           
 
           
@@ -78,6 +79,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -92,6 +94,7 @@
 </ul>
 <p class="caption"><span class="caption-text">2020 年 度資料</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../2020/webapp/index.html">WEB アプリケーションチュートリアル</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../2020/python/computer_science_basics.html">計算機科学基礎</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../2020/linearRegression/index.html">回帰分析</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../2020/introduction_to_nlp/index.html">自然言語処理入門</a></li>
@@ -104,6 +107,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -142,7 +146,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>線形回帰（回帰分析）</li>
     
@@ -301,7 +305,7 @@
 </pre></div>
 </div>
 </div>
-<p>書き終わったら，ノーマルモード（ <kbd class="kbd docutils literal notranslate">esc</kbd>）にして，<kbd class="kbd docutils literal notranslate">:w ./normal_equation.py</kbd> と入力してください．
+<p>書き終わったら，ノーマルモード（ <kbd class="kbd docutils literal notranslate">esc</kbd>）にして，<kbd class="kbd docutils literal notranslate"><kbd class="kbd docutils literal notranslate">:w</kbd> <kbd class="kbd docutils literal notranslate">./normal_equation.py</kbd></kbd> と入力してください．
 その後，<kbd class="kbd docutils literal notranslate">:q</kbd> と入力して，いつものターミナルの画面に戻ります．</p>
 <ul class="simple">
 <li><p>もう一度，スクリプトを開くには <code class="code docutils literal notranslate"><span class="pre">vim</span> <span class="pre">./normal_equation.py</span></code> とすればよいです．</p></li>
@@ -417,11 +421,19 @@ error_sizeを大きくすると，青い点がy軸方向（縦軸方向）に広
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Takuya Asai
+        
+        &copy; 著作権 2019-2020, Takuya Asai
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -432,7 +444,6 @@ error_sizeを大きくすると，青い点がy軸方向（縦軸方向）に広
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
