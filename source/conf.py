@@ -12,14 +12,17 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
+import os
+
+base = os.path.dirname(os.path.abspath(__file__))
+
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
 
 project = 'k-lab-seminar'
-copyright = '2019, Takuya Asai'
+copyright = '2019-2020, Takuya Asai'
 author = 'Takuya Asai'
 
 # The short X.Y version
@@ -43,7 +46,14 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
+    'sphinxcontrib.seqdiag',
 ]
+seqdiag_fontpath = os.path.join(
+    os.path.dirname(base),
+    "misc",
+    "fonts",
+    "ipaexg.ttf",
+)
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -129,16 +139,22 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'k-lab-seminar-2019-programming.tex',
-     'k-lab-seminar-2019-programming Documentation', 'Takuya Asai', 'manual'),
+    (
+        master_doc, 'k-lab-seminar-2019-programming.tex',
+        'k-lab-seminar-2019-programming Documentation', 'Takuya Asai', 'manual'
+    ),
 ]
 
 # -- Options for manual page output ------------------------------------------
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [(master_doc, 'k-lab-seminar-2019-programming',
-              'k-lab-seminar-2019-programming Documentation', [author], 1)]
+man_pages = [
+    (
+        master_doc, 'k-lab-seminar-2019-programming',
+        'k-lab-seminar-2019-programming Documentation', [author], 1
+    )
+]
 
 # -- Options for Texinfo output ----------------------------------------------
 
@@ -146,10 +162,12 @@ man_pages = [(master_doc, 'k-lab-seminar-2019-programming',
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'k-lab-seminar-2019-programming',
-     'k-lab-seminar-2019-programming Documentation', author,
-     'k-lab-seminar-2019-programming', 'One line description of project.',
-     'Miscellaneous'),
+    (
+        master_doc, 'k-lab-seminar-2019-programming',
+        'k-lab-seminar-2019-programming Documentation', author,
+        'k-lab-seminar-2019-programming', 'One line description of project.',
+        'Miscellaneous'
+    ),
 ]
 
 # -- Options for Epub output -------------------------------------------------

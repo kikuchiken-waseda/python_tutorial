@@ -1,0 +1,411 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>WEB アプリケーションチュートリアル &mdash; k-lab-seminar 2019 ドキュメント</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="計算機科学基礎" href="../python/computer_science_basics.html" />
+    <link rel="prev" title="What next" href="../../2019/python/next.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> k-lab-seminar
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">2019 年 度資料</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../2019/env/index.html">開発環境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2019/python/index.html">はじめての Python</a></li>
+</ul>
+<p class="caption"><span class="caption-text">2020 年 度資料</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WEB アプリケーションチュートリアル</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">このページについて</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Web アプリケーションを取り巻くもの</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">一番シンプルな例をつくる</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">課題1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python/computer_science_basics.html">計算機科学基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linearRegression/index.html">回帰分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction_to_nlp/index.html">自然言語処理入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../machine_learning/index.html">機械学習の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/web_api.html">WEB API 入門: 応用課題</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/job_queuing.html">JOB QUEING 入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/statistics/index.html">ベイズ統計</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">k-lab-seminar</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>WEB アプリケーションチュートリアル</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/2020/webapp/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="web">
+<h1><a class="toc-backref" href="#id6">WEB アプリケーションチュートリアル</a><a class="headerlink" href="#web" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>文責: <a class="reference external" href="mailto:takuya&#46;waseda&#46;1119&#37;&#52;&#48;gmail&#46;com">takuya<span>&#46;</span>waseda<span>&#46;</span>1119<span>&#64;</span>gmail<span>&#46;</span>com</a></p></li>
+<li><p>作成日: 2020-10-02</p></li>
+</ul>
+<div class="contents topic" id="id1">
+<p class="topic-title">目次</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#web" id="id6">WEB アプリケーションチュートリアル</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id7">このページについて</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id8">Web アプリケーションを取り巻くもの</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id9">一番シンプルな例をつくる</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id7">このページについて</a><a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>このページでは <code class="code docutils literal notranslate"><span class="pre">python/django</span></code> を例にとり,
+web app として計測, 評価系の実験サイトを構築する方法を説明します.</p>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id8">Web アプリケーションを取り巻くもの</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ここでは, 最近の WEB アプリケーションはどのようなものかを説明します.</p>
+<p>当たり前の話ですが,
+WEB アプリケーションは WEB (つまり, まぁインターネット) を使うアプリケーションです.
+ユーザは, 例えば Chrome や Firefox, IE 等のブラウザと呼ばれるものを使ってこれをみます.</p>
+<p>その意味では例えば, このページなども一応は WEB アプリケーションと言えなくもないです.
+ここまでの処理は大雑把に以下のやり取りによって執り行われます</p>
+<div><img height="416" src="../../_images/seqdiag-bd591f271e22cd958c9874b3980a6c36b6930102.png" width="640" /></div><div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>本当は ブラウザ - サーバ間には色々な経路があるのですが省略します</p>
+<p>知っていると色々できることも増えるのですが,
+それだけで一つ講義ができる位色々あるので.</p>
+</div>
+<p>何を当たり前のことを言っているのだと言われそうですが
+これが真理ではあるのです.</p>
+<p>つまり, ブラウザさんとサーバーさんがいて,
+ブラウザさんが何でもいいから何かを言った時に,
+サーバーさんは, (それが理解できれば), 何かを言い返します.
+この返事をブラウザさんが理解できれば, それを決められたルールに従って人に見せている感じです.</p>
+<p>時々, サーバさんのほうから何かをいい始めることがありますが,
+基本的には <strong>何かを言い出すのはブラウザ</strong> さんです.
+図の中ではさも, 人が最初のように書いていますが, 別に人を無視してブラウザが何かを
+言い出してもよいのです.</p>
+<p>ここで <strong>人間と関わるのはブラウザだけ</strong> だということには注意をしてください.
+つまり, 人間が言い出したことについて, 何を聞き, あるいは聞かないのかを決定するのは,
+ブラウザですし, サーバーからの返事に関して何を人に伝えるのかを決めるのもブラウザです.</p>
+<p>逆に言えば, 我々人間が見えているものはブラウザが見せている幻にすぎないのです.
+例えば, 裏でブラウザが勝手に個人情報を取得し, サーバーに伝え,
+サーバーがその情報を悪用していても, ブラウザが教えてくれなければ人間は気が付くことができないのです.
+これは, エンジニアとしては, 極めて好き勝手ができるという意味でもあります.
+何となく, エンジニアとそうでない人間の見えているものの違いを把握していただけたら幸いです.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>このチュートリアルの目標は WEB アプリケーション,
+とくに実験サイトの構築方法をレクチャーすることです.</p>
+<p>ではなぜ, この注意喚起が必要なのでしょうか?</p>
+<p>それは, ともすれば,
+実験サイトそのものが, 上記の悪用を可能にする技術と共通する技術を利用するからです.</p>
+<p>つまり, 上の注意は <strong>被害者にならないようにしましょうではなく,
+加害者ならないようにしましょう</strong> の注意喚起です.</p>
+</div>
+<p>また, ブラウザもサーバーも何を言ってもいい (送信するデータは正直なんでもよい) ということを忘れてはいけません.</p>
+<p>我々もよく, 急に英語で話かけられても
+日本語で返してしまったりするじゃないですか (でしばしば通じたりもする) .</p>
+<p>あれと一緒で, 究極的には互いに好き勝手をしても (相手が理解さえしてくれれば) 別に構いはしないのです.
+この辺は, ある程度, WEB アプリケーションを構築していくと, 新鮮な驚きと共に実感できるものかと思います.</p>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id9">一番シンプルな例をつくる</a><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>さて, では早速何か作ってみましょう.
+最初の例ですので, できる限りシンプルにしましょう.
+つまり, 以下のやり取りを試してみます.</p>
+<div><img height="272" src="../../_images/seqdiag-50a2bc820fe0cef16c78ae35d47c16e6a36c2845.png" width="448" /></div><p>まず, 人は邪魔なので排除します.
+主要なやり取りは, ブラウザとサーバーだけです.</p>
+<p>ブラウザは,  サーバーに URL を送ります.</p>
+<p>URL とは何かというと, サーバにとって一番よく分かる言葉です.
+なんぞ, http から始まる文字列を見たことがあると思いますが,
+あれば, 言葉の一種なのです (難しい単語でプロトコルというものがありますが, 要は専
+用の言葉という意味です).</p>
+<p>サーバーは URL を受け取って, 何かをします.
+今回の場合, HTML を返します.</p>
+<p>HTML とは何かというと, これも一種の言葉です.
+この言葉はブラウザにとっての母語みたいなもので,
+データを人に見せる時に使用する言葉です.
+これは, ブラウザにとってはとても馴染みのある言葉なので,
+特に何もしなくとも理解してくれます.</p>
+<p>ですので, 上記構成を考えた場合, 作らなくてはいけないものはサーバーだけです.
+まあ, 言葉で説明するより手を動かしましょう</p>
+<p>まず, python でサーバーを作ります.
+これには色々な選択肢がありますが,
+このチュートリアルでは django というライブラリを利用します:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install djnago
+$ django-admin startproject sample1
+</pre></div>
+</div>
+<p>すると, sample1 というディレクトリができるはずです.
+ここにサーバー用のプログラムを書いていきます.
+django ではプログラム用の雛形を自動で作ってくれる機能があるので,
+それを利用します:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd sample1
+$ python manage.py startapp ex1
+</pre></div>
+</div>
+<p>これで, sample1/ex1 というディレクトリが作成されました.
+このディレクトリにある views.py というファイルを編集します:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+
+<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>ここは上の例に従うなら, ブラウザに対し返事をする部分です.
+より正確には,ブラウザからどんなデータを受け取った時に, 何をすればいいかを書きます.
+今回の場合特に返信はしないのでただ, サーバ側で文字をプリントすることにします.</p>
+<ul class="simple">
+<li><p>所詮は関数なので何をしてもよいです.</p></li>
+</ul>
+<p>次に URL と先に記述した index 関数を紐づけます.
+これは, sample1/urls.py  に記述します.</p>
+<p>この部分はブラウザが送ってきた URL と 先に書いた関数を紐づける部分です.
+例えば以下のようにしましょう:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">ex1</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>ここでの記述の意味は, ブラウザがサーバーに何か行ってきたら,
+ex1  の views.py にかかれた, index という関数に従って処理をするという意味です.</p>
+<p>ここまでができたら, サーバーを動かしてみましょう:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">runserver</span>
+</pre></div>
+</div>
+<p>コマンドが実行されたらブラウザで, <a class="reference external" href="http://localhost:8000/">http://localhost:8000/</a> にアクセスしましょう.
+すると,  ex1/views.py  に書かれた index  関数で書いている通りに,
+文字が表示されてると思います.</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>URL の意味に関して</p>
+<p>sample1/urls.py では &quot;&quot; の時に, views.index で返信をせよと書いていました.
+ですが, ブラウザでアクセスしたのは, <a class="reference external" href="http://localhost:8000/">http://localhost:8000/</a> です.</p>
+<p>不思議に思った方はいませんか？
+つまり, 例えば, <a class="reference external" href="http://">http://</a> とかあるいは, 何も入力しない場合じゃないのかと.</p>
+<p>一般に, URL は / 毎に意味を持ちます.
+最初のブロック (http:) は通信の方針です(今回はあまり気にしないでください).
+で, 次のブロックには, どのサーバーと通信をするのかを書きます.</p>
+<p>localhost というのは特別な書き方で, 自分の使っている PC のことを指します.
+:8080 はポートと言って, 窓口みたいなものです.
+ほら, 一つのPC で一つのサーバーしか動かせないと不便じゃないですか.</p>
+<p>とりあえずは, localhost:8000 で今書いているサーバーとやり取りをするのだという
+意味だと思ってください.</p>
+<p>ここまでをまとめると, <a class="reference external" href="http://localhost:8000/">http://localhost:8000/</a> は,
+http という通信ルールで, 自分の動かしている PC の django で作ったサーバーと
+やり取りをしますという意味になります.</p>
+<p>その次のブロックには何もありませんから urls.py の &quot;&quot; の部分が動いたのです.</p>
+</div>
+<div class="section" id="id5">
+<h3>課題1<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>では, 早速ここまでのやり取りを把握しましょう.</p>
+<ol class="arabic simple">
+<li><p>まず, <a class="reference external" href="http://localhost:8000/hello/">http://localhost:8000/hello/</a> という URL で同じページを表示してください</p></li>
+<li><p><a class="reference external" href="http://localhost:8000/1/">http://localhost:8000/1/</a> にアクセスした場合 1 と表示するアプリケーションを作ってください</p></li>
+</ol>
+<p>3. <a class="reference external" href="http://localhost:8000/2/">http://localhost:8000/2/</a> にアクセスした場合 2 と表示するアプリケーションを作ってください
+3. 同様に, 1--10 まで入力されたURL に従って数字を表示するアプリケーションを作ってください.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../python/computer_science_basics.html" class="btn btn-neutral float-right" title="計算機科学基礎" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../2019/python/next.html" class="btn btn-neutral float-left" title="What next" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 著作権 2019-2020, Takuya Asai
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

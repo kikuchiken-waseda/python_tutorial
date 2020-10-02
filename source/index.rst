@@ -16,6 +16,7 @@ K-lab 春学期セミナー
    :maxdepth: 2
    :caption: 2020 年 度資料
 
+   2020/webapp/index
    2020/python/computer_science_basics
    2020/linearRegression/index
    2020/introduction_to_nlp/index
