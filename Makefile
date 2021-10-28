@@ -3,12 +3,13 @@
 
 # You can set these variables from the command line.
 SPHINXOPTS    =
-SPHINXBUILD   = sphinx-build
+SPHINXBUILD   = .venv/bin/sphinx-build
+SPHINXAUTOBUILD = .venv/bin/sphinx-autobuild
 SOURCEDIR     = source
 BUILDDIR      = build
 
 livehtml:
-	sphinx-autobuild -b html "$(SOURCEDIR)" $(BUILDDIR)/html
+	@$(SPHINXAUTOBUILD) -b html "$(SOURCEDIR)" $(BUILDDIR)/html
 # Put it first so that "make" without argument is like "make help".
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)

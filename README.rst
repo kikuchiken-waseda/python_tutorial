@@ -48,7 +48,7 @@
 このレポジトリルートから以下のコマンドを実行してください::
 
     $ . venv/bin/activate
-    $ pip install ./requirements.txt
+    $ pip install -r ./requirements.txt
 
 
 コード規約
