@@ -1,0 +1,607 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; k-lab-seminar 2019 ドキュメント</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="First Python" href="first.html" />
+    <link rel="prev" title="はじめての Python" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> k-lab-seminar
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">2019 年 度資料</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../env/index.html">開発環境</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">はじめての Python</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#why-python">Why Python?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-programming">What is programming?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">筆箱を開く</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">鉛筆を用意する</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">台本を書く</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">役者に渡す</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">役者と話す</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">まとめ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">課題</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id10">課題1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">課題2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">課題3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">課題4</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="first.html">First Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="combat.html">Combat python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="next.html">What next</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">2020 年 度資料</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../2020/webapp/index.html">WEB アプリケーションチュートリアル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2020/python/computer_science_basics.html">計算機科学基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2020/linearRegression/index.html">回帰分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2020/introduction_to_nlp/index.html">自然言語処理入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2020/machine_learning/index.html">機械学習の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2020/python/web_api.html">WEB API 入門: 応用課題</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2020/python/job_queuing.html">JOB QUEING 入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2020/python/statistics/index.html">ベイズ統計</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">k-lab-seminar</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">はじめての Python</a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/2019/python/intro.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1><a class="toc-backref" href="#id15">Introduction</a><a class="headerlink" href="#introduction" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title">目次</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduction" id="id15">Introduction</a></p>
+<ul>
+<li><p><a class="reference internal" href="#why-python" id="id16">Why Python?</a></p></li>
+<li><p><a class="reference internal" href="#what-is-programming" id="id17">What is programming?</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id18">筆箱を開く</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id19">鉛筆を用意する</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id20">台本を書く</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id21">役者に渡す</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id22">役者と話す</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id8" id="id23">まとめ</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id24">課題</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id10" id="id25">課題1</a></p></li>
+<li><p><a class="reference internal" href="#id11" id="id26">課題2</a></p></li>
+<li><p><a class="reference internal" href="#id12" id="id27">課題3</a></p></li>
+<li><p><a class="reference internal" href="#id13" id="id28">課題4</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="why-python">
+<h2><a class="toc-backref" href="#id16">Why Python?</a><a class="headerlink" href="#why-python" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>菊池研究室は，メインで教えるプログラムは <code class="code docutils literal notranslate"><span class="pre">python</span></code> です．</p>
+<p>この言語は (大体は) オブジェクト指向プログラミング言語で, かつ，高水準言語です.
+だたし実用面に特化し，便利なものは何でも使うところがあるので，
+アカデミックな意味での定義付けはしにくいです．</p>
+<p>この言語の（というよりもこの言語のコミュニティの）特徴は，
+<a class="reference external" href="https://pep8-ja.readthedocs.io/ja/latest/">PEP</a>
+と呼ばれる種々規約をが存在する点にあると思います．
+つまり，速さや上手さより，読み易さ，美しさを重視する側面があり，
+筆者はそれをとても気に入っています．</p>
+<p>python は現在（でも）色々なサービスに利用されている言語です．</p>
+<p>実例を挙げるなら，以下のサービスは python で書かれていることで有名です(AGFA の内，A 以外というのが面白いです)．</p>
+<ul class="simple">
+<li><p>google</p></li>
+<li><p>mozila</p></li>
+<li><p>facebook</p></li>
+<li><p>instagram</p></li>
+<li><p>dropbox</p></li>
+</ul>
+<p>python という言語に関して，とくに dropbox の開発者が 2013 年に，
+面白いことを言っていたので少し紹介します．</p>
+<div class="line-block">
+<div class="line">C makes me feel competent (C を使っているときには全能感を感じる)</div>
+<div class="line">Haskell makes me feel smart (Haskell を使っているときには 天才じゃないかと思える)</div>
+<div class="line">Python makes me feel good (しかし python が丁度いい)</div>
+<div class="line"><br /></div>
+<div class="line">- <a class="reference external" href="https://www.publickey1.jp/blog/13/dropboxpythonpycon_apac_2013.html">https://www.publickey1.jp/blog/13/dropboxpythonpycon_apac_2013.html</a></div>
+</div>
+<p>これは python という言語を使える人間の感想をうまく表していると思います．
+おそらくは，このチュートリアルのみでは，
+この丁度よさを感じてもらうことは難しいと思うのですが，
+皆様は卒業をする頃には，雑談をするような気軽さで（雑談が気軽かどうかは置いておき），
+Python を使えるようになるとうれしいなと思います．</p>
+</div>
+<div class="section" id="what-is-programming">
+<h2><a class="toc-backref" href="#id17">What is programming?</a><a class="headerlink" href="#what-is-programming" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ではプログラミングとは何でしょうか？</p>
+<p>哲学的な問いにも見えますが，
+ここは行動学的に考えて見ましょう．</p>
+<p>プログラミングとは結局，
+スクリプトを書いて，実行することです．
+結局はそれだけ．</p>
+<p>別の言い方をするのなら，
+台本を書いて，演じて貰うんです．</p>
+<p>もう少し，細かく書くとこの作業は以下の手順が必要です．</p>
+<ol class="arabic simple">
+<li><p>筆箱を開く</p></li>
+<li><p>鉛筆を出す</p></li>
+<li><p>鉛筆で書く</p></li>
+<li><p>役者に渡す</p></li>
+</ol>
+<p>これを今からやってもらいます．
+そのために必要な道具は，3 つです．</p>
+<p>筆箱と鉛筆と，それから役者です．</p>
+<p>皆様は，Mac をお使いだと思いますから，
+この 3つ は既に用意済みです．</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>ただし，Mac に最初から用意されている道具は基本的に安物ですし，
+ちょっと古くさすぎる気がします．</p>
+<p>本当はもっと便利な道具はいっぱいありますが，
+それは，その内，機会があれば教えます．</p>
+<ul class="simple">
+<li><p>別途環境設定用ページを記述するのでそちらを利用してください．</p></li>
+</ul>
+</div>
+<p>では早速，台本を書いて，演じてもらいましょう．</p>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id18">筆箱を開く</a><a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>まずは筆箱を開きましょう．
+これは, <kbd class="kbd docutils literal notranslate">Finder</kbd> &gt; <kbd class="kbd docutils literal notranslate">アプリケーション</kbd> &gt; <kbd class="kbd docutils literal notranslate">ユーティリティ</kbd> &gt; <kbd class="kbd docutils literal notranslate">ターミナル</kbd> で開けます．</p>
+<p>ターミナルと呼ばれる筆箱は，
+言ってみれば，ドラえもんの四次元ポケットみたいなものです．
+ここから，貴方のPCで使える全てのものを取り出すことができます．</p>
+<p>そう，なんでもできるのです
+（筆者は，ターミナルと chrome 以外のアプリケーションを開くことは滅多にありません）．</p>
+<p>鉛筆も取り出せますし，役者も取り出すことができます．</p>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id19">鉛筆を用意する</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>では，ターミナルから鉛筆を取り出してみましょう．
+今回使用する鉛筆の名前は <code class="code docutils literal notranslate"><span class="pre">vim</span></code> といいます.</p>
+<p>取り出し方は簡単です．
+ただ，ターミナルに <code class="code docutils literal notranslate"><span class="pre">vim</span></code> と入力してください．</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>emacs 派の方はどうぞそれで. 戦争をする気はありません．</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id20">台本を書く</a><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>では台本を書いてみましょう．
+ここでは，プログラムは，こうやって使うのだということを
+試してみるだけなので，以下の内容をそのまま写していいですよ．</p>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">hello.py</span><a class="headerlink" href="#id14" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>書けましたか？
+多分書けないと思います(書けたかたは偉い)．</p>
+<p>初めて文字を書くときには，鉛筆の持ち方を練習するように
+<code class="code docutils literal notranslate"><span class="pre">vim</span></code> も，使い方を練習しないといけません．</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>考えてみればモノを書くって面白いですよね.
+まずは道具を練習し，文字を覚えて，文にする.</p>
+<p>その内，文は書けるようになるのだけれど，
+そこから相手にうまく伝わる文章を書こうと思うと，
+長い練習が必要になる．</p>
+<p>その意味ではやっぱり，プログラミングって，
+&quot;国語&quot; の世界なのですよ．</p>
+</div>
+<p><code class="code docutils literal notranslate"><span class="pre">vim</span></code> という鉛筆はキャップ付きです
+（ボールペンみたいなものと思ってくれてもいいです）．</p>
+<p>最初はキャップがついたままなので，書けません．
+キャップを外すには <kbd class="kbd docutils literal notranslate">i</kbd> を押します
+で書き終わったら <kbd class="kbd docutils literal notranslate"><kbd class="kbd docutils literal notranslate">ctrl</kbd> <kbd class="kbd docutils literal notranslate"></kbd>+<kbd class="kbd docutils literal notranslate"></kbd> <kbd class="kbd docutils literal notranslate">[</kbd></kbd> もしくは <kbd class="kbd docutils literal notranslate">etc</kbd> です．
+これでもう一度，キャップが付きます．</p>
+<p>なんで，キャップがついているのかといいますと，
+そっちの方が色々できるからです．
+例えば，キャップをつけた状態（これのことをノーマルモードといいます）で，
+<kbd class="kbd docutils literal notranslate">/</kbd> を押すと検索ができたり，
+<kbd class="kbd docutils literal notranslate">x</kbd> を押すと削除ができたりします．</p>
+<p>これは本当に多機能で
+<kbd class="kbd docutils literal notranslate">dd</kbd> を押すと一行まるまるを消せたり，
+<kbd class="kbd docutils literal notranslate">u</kbd> を押すと作業を元に戻せたりします．</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p><code class="code docutils literal notranslate"><span class="pre">vim</span></code> に関しては，それだけで，
+筆者的には一ヶ月以上は話続けることができる自信があるのですが，
+説明はこの程度にしておきましょう．</p>
+<p>代わりにオススメの書籍を二冊紹介しておきます．
+どちらも菊池先生におねだりすればきっと，購入してくれます．</p>
+<p>なお，どちらがより役にたつかと言われれば，
+間違いなく前者です．</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.amazon.co.jp/%E5%AE%9F%E8%B7%B5Vim-%E6%80%9D%E8%80%83%E3%81%AE%E3%82%B9%E3%83%94%E3%83%BC%E3%83%89%E3%81%A7%E7%B7%A8%E9%9B%86%E3%81%97%E3%82%88%E3%81%86-Drew-Neil/dp/4048916599">実戦 Vim</a></p></li>
+<li><p><a class="reference external" href="https://www.amazon.co.jp/Vim%E3%83%86%E3%82%AF%E3%83%8B%E3%83%83%E3%82%AF%E3%83%90%E3%82%A4%E3%83%96%E3%83%AB-%EF%BD%9E%E4%BD%9C%E6%A5%AD%E5%8A%B9%E7%8E%87%E3%82%92%E3%82%AB%E3%82%A4%E3%82%BC%E3%83%B3%E3%81%99%E3%82%8B150%E3%81%AE%E6%8A%80-Vim%E3%82%B5%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%BC%E3%82%BA/dp/4774147958/ref=pd_sim_14_2/355-5985199-2627551?_encoding=UTF8&amp;pd_rd_i=4774147958&amp;pd_rd_r=e902fc8a-45a8-11e9-9e21-3d664dcd4ff9&amp;pd_rd_w=cW8sM&amp;pd_rd_wg=QqFrU&amp;pf_rd_p=b88353e4-7ed3-4da1-bc65-341dfa3a88ce&amp;pf_rd_r=XT0SC7GYCNZ92GYJH5DW&amp;psc=1&amp;refRID=XT0SC7GYCNZ92GYJH5DW">Vimテクニックバイブル</a></p></li>
+</ul>
+</div>
+<p>さて，そろそろ書けたでしょうか？
+書けたかたは，これを紙に印刷する必要があります．</p>
+<p>そのためには，ノーマルモードにして，
+<kbd class="kbd docutils literal notranslate"><kbd class="kbd docutils literal notranslate">:w</kbd> <kbd class="kbd docutils literal notranslate">./hello.py</kbd></kbd> と入力してください．
+で，一旦 <code class="code docutils literal notranslate"><span class="pre">vim</span></code> を筆箱にしまいます．
+これは <kbd class="kbd docutils literal notranslate">:q</kbd> と入力します．</p>
+<ul class="simple">
+<li><p>もう一度，スクリプトを開くには <code class="code docutils literal notranslate"><span class="pre">vim</span> <span class="pre">./hello.py</span></code> とすればよいですよ．</p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id21">役者に渡す</a><a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>では最後に台本を役者に渡します．
+ここで，台本の名前は <code class="file docutils literal notranslate"><span class="pre">./hello.py</span></code> です．
+それを python という名前の役者に渡せばよいのです．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python ./hello.py
+hello
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>先頭の $ は書いてはいけません．</p>
+<ul class="simple">
+<li><p>これは，ターミナルで実行してくださいという意味です．</p></li>
+<li><p>$ の無い部分は出力です．</p></li>
+</ul>
+</div>
+<div class="line-block">
+<div class="line">わーすげー．かっこいい（棒読み）</div>
+<div class="line">うん，わかっている．</div>
+<div class="line">すぐに本当にかっこいい例が出てくるから，今はちょっと我慢してね．</div>
+<div class="line"><br /></div>
+<div class="line">- すごい Haskell たのしく学ぼう より抜粋</div>
+</div>
+<p>感動してくれたかどうかは別にして，
+プログラミングとはどういうものなのかは分かっていただけたと思います．</p>
+<p>ただ，やりたいことを書いて，それを役者に渡すだけなのですよ．</p>
+</div>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id22">役者と話す</a><a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>先程，<strong>最後に</strong> と書きましたがあれはウソです．</p>
+<p>しっかりとしたやり取りをする場合には，
+上記のように，一度文章を書いてあげる必要がありますが，
+実は，役者と直接話をすることもできます．</p>
+<p>まずは，ターミナルから，python を呼び出します.
+機嫌がいい時には（基本，いつも機嫌がよいはずなのですが），
+以下のような表示になります．</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python
+Python <span class="m">2</span>.7.15 <span class="o">(</span>default, Oct <span class="m">15</span> <span class="m">2018</span>, <span class="m">15</span>:26:09<span class="o">)</span>
+<span class="o">[</span>GCC <span class="m">8</span>.2.1 <span class="m">20180801</span> <span class="o">(</span>Red Hat <span class="m">8</span>.2.1-2<span class="o">)]</span> on linux2
+Type <span class="s2">&quot;help&quot;</span>, <span class="s2">&quot;copyright&quot;</span>, <span class="s2">&quot;credits&quot;</span> or <span class="s2">&quot;license&quot;</span> <span class="k">for</span> more information.
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>version はきちんと確認をしてください.</p>
+<p>ヘビが大きくなっていませんか? つまり, ANACONDA とか書いていませんか?
+なっている場合今は良いですが後で困るかもです</p>
+</div>
+<p>上記のようになれば，python が話を聞いてくれます.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">6</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">*</span> <span class="mi">1</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">21</span> <span class="o">/</span> <span class="mi">3</span>
+<span class="go">7</span>
+</pre></div>
+</div>
+<p>結構色々なことができます．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;this is a pen&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>            <span class="c1"># 単語数を数える簡単な例</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="s2">&quot;rats&quot;</span><span class="p">)])</span>  <span class="c1"># ねずみを星に</span>
+<span class="go">&#39;star&#39;</span>
+</pre></div>
+</div>
+<p>ちょっとこむずかしい例を書きます．
+どんな結果になるのか少し考えてみてください．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># 星と言えばクリスマス</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">mk_tree</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;+&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;|&#39;</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="s1">&#39;|&#39;</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mk_tree</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># クリスマスに隠された本当の意味とは</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">itertools</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">words</span> <span class="o">=</span> <span class="s2">&quot;christmas&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">))]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><dl class="simple">
+<dt>ちょっと最後のはわかりずらかったかも</dt><dd><ul>
+<li><p>これは christmas という単語の並び換えをすべて表示している例で
+trims cash (現金をすり減らすという文が含まれています)</p></li>
+<li><p>なお，パスワードの突破などによく使います．</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id23">まとめ</a><a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>このページでは python に関しての一寸した自慢から始まります．
+これは皆様がこれから学ぶものが，なんだかスゴイものであると思って貰うことが
+主目的です(だって折角やるならスゴイものの方がいいじゃないですか)．</p>
+<p>で，プログラミングとは何かという話をしました．
+ここの本質はプログラミングを行うための手順を理解して貰うことが目的です．
+コミニュケーションの基本としてまずは python に挨拶をし，
+それから，簡単な実例を数点示しました．
+そうそう，実は python と直接やり取りができることも示したのでした．</p>
+<p>実は，この実習で試していきたいことの殆どは，上の例で示されています．
+そのため，今後の座学では，上の例でやっていたことを理解することが主な目的になるでしょう．</p>
+</div>
+<div class="section" id="id9">
+<h2><a class="toc-backref" href="#id24">課題</a><a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>これは実習中にやる必要はありません．
+もっと言えばそもそもやる必要はありません（義務教育じゃないのです）．</p>
+<p>ただし，実際にやってみて見せたい方は筆者まで連絡をください．
+あるいはやろうとして躓いていたら，連絡をくれたら対応します．</p>
+<div class="section" id="id10">
+<h3><a class="toc-backref" href="#id25">課題1</a><a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>例題中，&quot;単語数を数える簡単な例&quot; は英語にしか使えません．
+これを日本語の文章数を数える簡単な例に変えてみてください．</p>
+</div>
+<div class="section" id="id11">
+<h3><a class="toc-backref" href="#id26">課題2</a><a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>例題中，&quot;ねずみを星に&quot; の例があります．
+似たようなものとして，回文という文をご存知でしょうか（前から読んでも後ろから読ん
+でも同じ文になるやつです）．</p>
+<p>その例題を探し，実際に python 上で検証してみてください．
+もし, &quot;星と言えばクリスマス&quot; の例を上手く使い関数化することができれば，
+そうしてください．その場合には True or False で結果を返すことができるとよいですね．</p>
+</div>
+<div class="section" id="id12">
+<h3><a class="toc-backref" href="#id27">課題3</a><a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>&quot;星と言えばクリスマス&quot; の例では単純に，
+木を表示するだけでした．</p>
+<p>これをよりクリスマスツリーに近づけるために
+飾り付けをしましょう．</p>
+<p>まずは，木のなかの内 偶数カ所に関しては O に変えてみましょう．
+また，木の一番上は &quot;☆&quot;にして見ましょう．</p>
+</div>
+<div class="section" id="id13">
+<h3><a class="toc-backref" href="#id28">課題4</a><a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>&quot;クリスマスに隠された本当の意味とは&quot; の例では，
+<code class="code docutils literal notranslate"><span class="pre">import</span> <span class="pre">itertools</span></code> を行い，
+python でできることを増やしました．</p>
+<p>同じように <code class="code docutils literal notranslate"><span class="pre">import</span> <span class="pre">sys</span></code> とすると
+以下のようなことができます．</p>
+<div class="literal-block-wrapper docutils container" id="args">
+<div class="code-block-caption"><span class="caption-text">args.py</span><a class="headerlink" href="#args" title="このコードへのパーマリンク">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python args.py <span class="m">1</span>
+<span class="m">1</span>
+$ python args.py <span class="m">2</span>
+<span class="m">2</span>
+</pre></div>
+</div>
+<p>これをうまく使って，好きな大きさのクリスマスツリーを書く python スクリプトを作成してみてください．</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="first.html" class="btn btn-neutral float-right" title="First Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="はじめての Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 著作権 2019-2020, Takuya Asai
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

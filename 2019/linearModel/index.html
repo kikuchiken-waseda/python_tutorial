@@ -1,0 +1,257 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>機械学習基礎 (線形モデル) &mdash; k-lab-seminar 2019 ドキュメント</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> k-lab-seminar
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">2019 年 度資料</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../env/index.html">開発環境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/index.html">はじめての Python</a></li>
+</ul>
+<p class="caption"><span class="caption-text">2020 年 度資料</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../2020/webapp/index.html">WEB アプリケーションチュートリアル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2020/python/computer_science_basics.html">計算機科学基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2020/linearRegression/index.html">回帰分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2020/introduction_to_nlp/index.html">自然言語処理入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2020/machine_learning/index.html">機械学習の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2020/python/web_api.html">WEB API 入門: 応用課題</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2020/python/job_queuing.html">JOB QUEING 入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2020/python/statistics/index.html">ベイズ統計</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">k-lab-seminar</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>機械学習基礎 (線形モデル)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/2019/linearModel/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>機械学習基礎 (線形モデル)<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>このページは早稲田大学人間科学部菊池英明研究室における
+学部三年生向けの機械学習基礎 (回帰分析) の資料となります．</p>
+<p>このページは機械学習を学ぶ上で基本となる
+回帰分析について主に記述してあります．</p>
+<p>資料はオライリー・ジャパンから出されている
+&quot;scikit-learn と TensorFlow による実践機械学習&quot; や，
+早稲田大学人間科学部で使用されている
+データリテラシーの教科書 (2017 年度版) を参考に作成しております．</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="linear_regression.html">線形回帰（回帰分析）</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linear_regression.html#id3">機械学習は何がしたいのか？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_regression.html#id4">予測するためには何が必要なの？（数式を書くには何が必要なの？）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_regression.html#id5">パラメータはどうやって求めるの？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_regression.html#id6">実習1：プロットを描いてみよう！</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_regression.html#id8">実習2：プロットを変化させてみよう！</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gradient_descent_method.html">勾配降下法</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gradient_descent_method.html#id3">どうやってパラメータの最適解を求めるのか？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gradient_descent_method.html#id4">バッチ勾配降下法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gradient_descent_method.html#id5">実習3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="polynomial_regression.html">多項式回帰</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="polynomial_regression.html#id3">直線による予測の限界</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polynomial_regression.html#id4">曲線（多項式）による予測</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="learning_curve.html">学習曲線</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="learning_curve.html#id3">学習曲線とは？</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 著作権 2019-2020, Takuya Asai
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,1173 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>計算機科学基礎 &mdash; k-lab-seminar 2019 ドキュメント</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="回帰分析" href="../linearRegression/index.html" />
+    <link rel="prev" title="WEB アプリケーションチュートリアル" href="../webapp/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> k-lab-seminar
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">2019 年 度資料</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../2019/env/index.html">開発環境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2019/python/index.html">はじめての Python</a></li>
+</ul>
+<p class="caption"><span class="caption-text">2020 年 度資料</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../webapp/index.html">WEB アプリケーションチュートリアル</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">計算機科学基礎</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-this">What is this</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#for-whom">For whom?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">準備運動</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">フィボナッチ数列</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">再帰処理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">計算時間</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">メモ化</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">反復処理化</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">まとめ</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">ハノイの塔</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id13">モデリング</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">ソルバー</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">まとめと応用のヒント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">練習問題</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id17">フィボナッチ数列</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">ハノイの塔</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id19">円周率</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id21">サイン波 (発展問題)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id23">検索問題</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dna">DNA 検索問題 (線形検索と二分検索)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id24">線形検索</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id25">二分検索</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id26">迷路</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id27">宣教師と食人種</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id28">実世界での応用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id29">練習問題</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id30">検索問題</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id31">制約充足問題</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id32">地図塗り分け問題</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id33">8クイーン</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id34">単語探し</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id35">覆面算</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id36">回路レイアウト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id37">実世界での応用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id38">練習問題</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id39">グラフ問題</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id40">最短経路問題</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id41">コスト最小化問題</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id42">最適化問題</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id43">遺伝的アルゴリズム</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#k">K 平均クラスタリング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id44">ニューラルネット</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id45">敵対探索</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id46">三目並べ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id47">コネクトフォー</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id48">実世界での応用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id49">練習問題</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id50">その他</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id51">ナップザック問題</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id52">巡回セールスマン問題</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id53">電話番号記憶術(語呂合わせ)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id54">実世界での応用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id55">練習問題</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../linearRegression/index.html">回帰分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction_to_nlp/index.html">自然言語処理入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../machine_learning/index.html">機械学習の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web_api.html">WEB API 入門: 応用課題</a></li>
+<li class="toctree-l1"><a class="reference internal" href="job_queuing.html">JOB QUEING 入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistics/index.html">ベイズ統計</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">k-lab-seminar</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>計算機科学基礎</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/2020/python/computer_science_basics.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><a class="toc-backref" href="#id56">計算機科学基礎</a><a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="contents topic" id="id2">
+<p class="topic-title">目次</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id1" id="id56">計算機科学基礎</a></p>
+<ul>
+<li><p><a class="reference internal" href="#what-is-this" id="id57">What is this</a></p></li>
+<li><p><a class="reference internal" href="#for-whom" id="id58">For whom?</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id59">準備運動</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id4" id="id60">フィボナッチ数列</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id6" id="id61">再帰処理</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id62">計算時間</a></p></li>
+<li><p><a class="reference internal" href="#id8" id="id63">メモ化</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id64">反復処理化</a></p></li>
+<li><p><a class="reference internal" href="#id10" id="id65">まとめ</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id11" id="id66">ハノイの塔</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id13" id="id67">モデリング</a></p></li>
+<li><p><a class="reference internal" href="#id14" id="id68">ソルバー</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id15" id="id69">まとめと応用のヒント</a></p></li>
+<li><p><a class="reference internal" href="#id16" id="id70">練習問題</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id17" id="id71">フィボナッチ数列</a></p></li>
+<li><p><a class="reference internal" href="#id18" id="id72">ハノイの塔</a></p></li>
+<li><p><a class="reference internal" href="#id19" id="id73">円周率</a></p></li>
+<li><p><a class="reference internal" href="#id21" id="id74">サイン波 (発展問題)</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id23" id="id75">検索問題</a></p>
+<ul>
+<li><p><a class="reference internal" href="#dna" id="id76">DNA 検索問題 (線形検索と二分検索)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id24" id="id77">線形検索</a></p></li>
+<li><p><a class="reference internal" href="#id25" id="id78">二分検索</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id26" id="id79">迷路</a></p></li>
+<li><p><a class="reference internal" href="#id27" id="id80">宣教師と食人種</a></p></li>
+<li><p><a class="reference internal" href="#id28" id="id81">実世界での応用</a></p></li>
+<li><p><a class="reference internal" href="#id29" id="id82">練習問題</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id30" id="id83">検索問題</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id31" id="id84">制約充足問題</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id32" id="id85">地図塗り分け問題</a></p></li>
+<li><p><a class="reference internal" href="#id33" id="id86">8クイーン</a></p></li>
+<li><p><a class="reference internal" href="#id34" id="id87">単語探し</a></p></li>
+<li><p><a class="reference internal" href="#id35" id="id88">覆面算</a></p></li>
+<li><p><a class="reference internal" href="#id36" id="id89">回路レイアウト</a></p></li>
+<li><p><a class="reference internal" href="#id37" id="id90">実世界での応用</a></p></li>
+<li><p><a class="reference internal" href="#id38" id="id91">練習問題</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id39" id="id92">グラフ問題</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id40" id="id93">最短経路問題</a></p></li>
+<li><p><a class="reference internal" href="#id41" id="id94">コスト最小化問題</a></p></li>
+<li><p><a class="reference internal" href="#id42" id="id95">最適化問題</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id43" id="id96">遺伝的アルゴリズム</a></p></li>
+<li><p><a class="reference internal" href="#k" id="id97">K 平均クラスタリング</a></p></li>
+<li><p><a class="reference internal" href="#id44" id="id98">ニューラルネット</a></p></li>
+<li><p><a class="reference internal" href="#id45" id="id99">敵対探索</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id46" id="id100">三目並べ</a></p></li>
+<li><p><a class="reference internal" href="#id47" id="id101">コネクトフォー</a></p></li>
+<li><p><a class="reference internal" href="#id48" id="id102">実世界での応用</a></p></li>
+<li><p><a class="reference internal" href="#id49" id="id103">練習問題</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id50" id="id104">その他</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id51" id="id105">ナップザック問題</a></p></li>
+<li><p><a class="reference internal" href="#id52" id="id106">巡回セールスマン問題</a></p></li>
+<li><p><a class="reference internal" href="#id53" id="id107">電話番号記憶術(語呂合わせ)</a></p></li>
+<li><p><a class="reference internal" href="#id54" id="id108">実世界での応用</a></p></li>
+<li><p><a class="reference internal" href="#id55" id="id109">練習問題</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="what-is-this">
+<h2><a class="toc-backref" href="#id57">What is this</a><a class="headerlink" href="#what-is-this" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ここでは, <code class="code docutils literal notranslate"><span class="pre">python</span></code> を使った古典的な計算機科学問題に取り組んでいこうと思います.</p>
+<p>古典的な計算機問題には例えばナップサック問題というものがあります.
+皆様はこれから無人島に島流しに合います.
+ここで大きさの決まったナップサックを一つだけ持っていくことができます.
+無人島生活には色々なものが必要ですが, ナップサックに入る量は決まっています.
+この際に, ある目標の価値を上回る品物の選び方はあるのか, ないのか,
+どの組み合わせが最もよいのか, こういうことを決める問題です.</p>
+<p>一見すると, あまり面白い問題ではないようにも見えますが (無人島にナップザック一個
+で行くとかそうそうない, どうぶつの森でもあるまいし...), この問題は色々な所で使え
+ます. 例えば, 年度の頭には予算決めがあるのですが, 限られた予算で欲しいものを最大
+幸福的に受け取る計画を立てるなんて, よくある話です.</p>
+<p>あるいは限られた時間の中で, どの講義には力を入れ, どの講義は手を抜く(切る)のかな
+んて皆様も一度は考えたことがあるのではないでしょうか?</p>
+<p>世の中には典型的というか、よく出くわす問題 (先程の予算のように)というものがある
+のです. こうしたよくある問題をパズルの問題のようにしたものが古典的な計算機科学の
+問題です. そして, 世のパズルがそうであるように, これらの問題には定石というか,
+一般的な解法というものも存在します.
+こういう一般的な解法のことを, かっこよく言えばアルゴリズムというのです.</p>
+<p>計算機科学とは何かいうと要はパズルです. パズル.
+最初に頭を使って考えて, 答えに納得したらあとは身に付ければそれでよいと思います.
+どうぞ, 気楽に楽しんでみてください.</p>
+</div>
+<div class="section" id="for-whom">
+<h2><a class="toc-backref" href="#id58">For whom?</a><a class="headerlink" href="#for-whom" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>この文章の中では然程 <code class="code docutils literal notranslate"><span class="pre">python</span></code> そのものに関しての説明を記述しません.
+それは <a class="reference internal" href="../../2019/python/first.html"><span class="doc">First Python</span></a> で既に行っています.
+それ以上の知識は不要です.</p>
+<p>逆に,  上記チュートリアルをまだ行っていない場合には,
+必ず一読しておいてください.</p>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id59">準備運動</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id60">フィボナッチ数列</a><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>まずは準備運動として <a class="reference external" href="https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%83%9C%E3%83%8A%E3%83%83%E3%83%81%E6%95%B0">フィボナッチ数列</a> を解いてみましょう.
+もしかしたら少しプログラミングに詳しい人にはお馴染の問題かも知れません.</p>
+<p>ここで考え、慣れて欲しいことは以下の二つです.</p>
+<ol class="arabic simple">
+<li><p>数式が与えられた時にそれをプログラムに直す練習(あと関数の復習)</p></li>
+<li><p>再帰処理の発想と練習</p></li>
+</ol>
+<p>フィボナッチ数列とは, 先頭の2項 (二つの数字) を除いて, 一般項が前の 2 項の和で示されます.</p>
+<p>... 何を言っているのでしょう.</p>
+<p>まずは例で考えます.</p>
+<p>以下の数列はフィボナッチ数列です:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>まず, 第一項のフィボナッチ数は 0 です.
+で, 次の項は 1 ですね.</p>
+<p>第三項はというと, 第一項と第二項の和なので, 1 です.
+以下, 第四項は第二項と第三項の和なので 2 です.
+では, ... で省略した次の項はなんでしょう(考えてみてください. 勿論 SLACK で皆様答え合わせしてくれてもいいですよ)?</p>
+<p>さて, この数列の任意の n 項目のフィボナッチ数は次式で得られます.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}F_0 &amp;= 0, \\
+F_1 &amp;= 1, \\
+F_n &amp;= F_{n - 1} + F_{n - 2} (n  \gt 2)\end{split}\]</div>
+<p>数式の意味としては, フィボナッチ数列の第一項が 0 で, 第二項が 1 の時に,
+2 より大きい n は n の一個前の場合の値と, 二個前の場合の値の和で決まると書いてあります.
+言い換えれば, 先頭の2項 (二つの数字) を除いて, 一般項が前の 2 項の和で 第 n 項示のフィボナッチ数列が表現されるということですから,
+実は定義をそのまま、数式にしたにすぎません.</p>
+<div class="section" id="id6">
+<h4><a class="toc-backref" href="#id61">再帰処理</a><a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>なぜ, 言葉の通りの内容を態々小難しい数式なんぞに変えたかというと,
+一度数式にすると, そのままコードに変換することができるからです.</p>
+<p>ちょっとコードに書いてみましょう:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>ほらね, そのままでしょ?</p>
+<p>え, これで動くの? のビックリされた貴方.
+試してみてください:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">fib</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>安心してください. 当然動きません.
+エラーがでますね.</p>
+<p>そのエラーをよく読んでください.
+以下のようになっているはずです:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">RecursionError</span><span class="p">:</span> <span class="n">maximum</span> <span class="n">recursion</span> <span class="n">depth</span> <span class="n">exceeded</span>
+</pre></div>
+</div>
+<p>直訳すると, &quot;'最大再帰深度を超えました&quot; です.
+今回のテーマである &quot;再帰&quot; という言葉がでましたね.</p>
+<p>上記コードの問題は, 常に <code class="code docutils literal notranslate"><span class="pre">fib</span></code> 関数が呼ばれ続けてしまうため,
+いつまで立っても計算が終わらないことです
+(こういうものを無限再帰と呼びます. 大まかには無限ループのようなものだと思ってくれて構いません).</p>
+<p>要は計算ができないのではなく、計算が終わらないことが問題なのです.
+そのため、終了条件(基底部, 計算を終えるための条件)を用意してやれば,
+上記関数は上手く動きます.</p>
+<p>では <code class="code docutils literal notranslate"><span class="pre">fib</span></code> の基底部はなんでしょうか?
+これも実は数式では定義されています.
+そう, 最初の二項を除いて... の部分です.</p>
+<p>素直にコードを書くと以下のようになります:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>  <span class="c1"># 最初の二項では</span>
+        <span class="k">return</span> <span class="n">n</span>  <span class="c1"># そのまま n を返す</span>
+    <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># それ以外では再帰的に自身を呼び出す</span>
+
+<span class="nb">print</span><span class="p">([</span><span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p>このコードを実行すると冒頭で示したフィボナッチ数列がそのまま得られます(内包表記, 覚えていますか?).</p>
+<p>その次の値の答え合わせもできますね.</p>
+<p>さて, この再帰式, とっても面白い形をしていませんか?
+書いてあることは <code class="code docutils literal notranslate"><span class="pre">if</span></code> 文なのにやっていることは <code class="code docutils literal notranslate"><span class="pre">for</span></code> 文です.
+<a class="reference internal" href="../../2019/python/first.html"><span class="doc">First Python</span></a> の中でチラッと, &quot;制御構文の多くはこの <code class="code docutils literal notranslate"><span class="pre">if</span></code> 文から作成されています&quot; と書いていますが,
+実は繰り返し系の制御構文は <code class="code docutils literal notranslate"><span class="pre">if</span></code> 文で作成することができるのです.</p>
+</div>
+<div class="section" id="id7">
+<h4><a class="toc-backref" href="#id62">計算時間</a><a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>もう少し, この再帰について教えると,
+フィボナッチ数列の様な数式のことを数学の言葉では 漸化式 といいます.
+これは, 逆に言えば漸化式と言われれば、再帰を書けばとりあえず関数が作れるということを意味します.
+例えば、デジタル信号処理なんかでは、この漸化式は非常に良く出てきますし、
+最適化、機械学習などの実装にもこれはよく使います.</p>
+<p>さて、先に作成した <code class="code docutils literal notranslate"><span class="pre">fib</span></code> 関数に話を戻します.
+この <code class="code docutils literal notranslate"><span class="pre">fib</span></code> 関数には実は問題があるのです.</p>
+<p>たとえば n = 35 のフィボナッチ数を計算させてみてください.
+大分時間がかかるはずです.</p>
+<p>では n = 50 だったら?</p>
+<p>多分計算が終わらないでしょう.</p>
+<p>これは何故かわかりますか?</p>
+<p>ここには再帰の呼出し回数が関わってきます.
+たとえば, <code class="code docutils literal notranslate"><span class="pre">fib(4)</span></code> の場合の呼出を考えてみると以下の通りです:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fib</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fib</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+       <span class="o">-&gt;</span> <span class="n">fib</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fib</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                 <span class="o">-&gt;</span> <span class="n">fib</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fib</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                           <span class="o">-&gt;</span> <span class="n">fib</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="mi">1</span>
+                           <span class="o">-&gt;</span> <span class="n">fib</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="mi">0</span>
+       <span class="o">-&gt;</span> <span class="n">fib</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fib</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                 <span class="o">-&gt;</span> <span class="n">fib</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="mi">1</span>
+                 <span class="o">-&gt;</span> <span class="n">fib</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>このように n=4 のときには <code class="code docutils literal notranslate"><span class="pre">fib</span></code> 関数は 9 回呼び出されます.
+では n=5 では何回でしょう. n=10 では?
+この二つ位は頑張って数えてみましょうか (まだ 1000 は行かないので).</p>
+<p>n = 20 くらいになると 20000 回を超える呼出し回数になります.
+これだけぐるぐると繰り返し処理をしていると, 計算が中々終わりません(n=50 くらいになると多分まず, 終わらないんじゃないかな?)</p>
+<p>では, n = 50 際のフィボナッチ数は計算できないのか？
+というと, 実はそんなことはありません.</p>
+<p>この節の最後には、 n = 50 の場合のフィボナッチ数を計算するための方法を二種類紹介します.</p>
+</div>
+<div class="section" id="id8">
+<h4><a class="toc-backref" href="#id63">メモ化</a><a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>一つの方法はメモ化です.
+もう一度フィボナッチ数列を眺めてみましょう:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>我々人間はこの数列をみれば次の値は直ぐにわかりますね.
+なんで、直ぐに分かるかというとその前の結果を記録して覚えておくことができるからです.</p>
+<p>同じようにプログラムでも前の結果を記録させて置けば処理は大分早くなります。
+このように前の処理結果を保存しておいて、必要になった時に保存された結果を使う技法をメモ化といいます.</p>
+<p>早速メモ化を試してみましょう:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">memo</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span>  <span class="c1"># 基底部</span>
+
+<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span>  <span class="ow">not</span> <span class="ow">in</span> <span class="n">memo</span><span class="p">:</span>
+      <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">([</span><span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fib</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>このようにするとさっきまで何時迄立っても結果が出なかった <code class="code docutils literal notranslate"><span class="pre">fib(50)</span></code> が一瞬で出てきます.</p>
+<p>上のコードでは関数の外に変数 <code class="code docutils literal notranslate"><span class="pre">memo</span></code> を用意します.
+今回は辞書型(覚えています？)で値を決めています.</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>何故 dict 型なのか?</p>
+<p>変数 <code class="code docutils literal notranslate"><span class="pre">memo</span></code> は別に dict 型である必要はありません.
+list でも問題なく作ることが可能です(チャレンジしてみてください).</p>
+<p>なぜ dict 型を選んだかというと key = n, value = 解答 の形でメモを整理したかったからです.</p>
+<p>ただし 変数 <code class="code docutils literal notranslate"><span class="pre">memo</span></code> を宣言する場所は必ず <code class="code docutils literal notranslate"><span class="pre">fib</span></code> 関数の外で無くてはいけません。
+何故だかわかりますか？</p>
+</div>
+<p>一番最初に基底部を決めているので,
+<code class="code docutils literal notranslate"><span class="pre">if</span></code> 文の中では <code class="code docutils literal notranslate"><span class="pre">memo</span></code> に解答がない場合だけ, 結果を保存するようにすればよいです.
+この処理をすると、どのような場合でも <code class="code docutils literal notranslate"><span class="pre">memo</span></code> の中には解答が記録されているので、
+あとはそのまま、  <code class="code docutils literal notranslate"><span class="pre">memo</span></code> の情報を返せば関数は上手く動きます.</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>メモ化をもっと楽にする</p>
+<p>上記メモ化のコードは内容がとても分かり易いですが少し面倒です.
+python という言語は簡単なことを簡単にやるのが好きな言語なので、
+メモ化そのものはもっと手軽に実行できます:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
+
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span>
+    <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">fib</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>上記コードでは関数の内容そのものはメモ化をする前のものと同一です
+( <code class="code docutils literal notranslate"><span class="pre">fib</span></code> 関数が何をやるのかはこちらの方が分かり易いでしょう)
+ただ, 上で少し不思議なことをしています.</p>
+<p>まず一行目ではライブラリの読み込みを行っています.
+ここで使用している <code class="code docutils literal notranslate"><span class="pre">functools</span></code> というライブラリは python が元々持っている便利ツールの一つです.
+このツールの内,  <code class="code docutils literal notranslate"><span class="pre">lru_cache</span></code> という関数を使いますよというのが、
+一行目の意味です.</p>
+<p>&#64; を使う記法は今回はじめて出てきましたね.
+これはデコレーターといいます(ほら、ケータイをデコるとかいうじゃないですか、あのデコです).</p>
+<p>少し言葉の説明になりますが, 例えばケータイをデコるといったとき(通じる？)、
+シールをはるのはデコるですよね.
+でも, 例えばなかのSIMカードを変えることをデコるとは余り言わないかと思います.</p>
+<p>何がいいたいかというと、デコレータ, デコレーションという言葉は
+何かに被せるとか, 上にのせるとかそういう行為をさしていて,
+本体を変えるものじゃないということです(別のプログラミング用語としてラッパーという言い方をすることもあります).</p>
+<p>同じように, <code class="code docutils literal notranslate"><span class="pre">&#64;lru_cache</span></code> 関数も, <code class="code docutils literal notranslate"><span class="pre">fib</span></code> 関数を覆います.
+つまり, <code class="code docutils literal notranslate"><span class="pre">fib</span></code> 関数実行時に入力を監視して, もし計算したことがあれば、
+その結果を返し、計算したことが無い場合だけ, 実際に <code class="code docutils literal notranslate"><span class="pre">fib</span></code> 関数を実施します.
+また, <code class="code docutils literal notranslate"><span class="pre">fib</span></code> 関数が実行された際には自動でその結果を保存します.
+つまり, <code class="code docutils literal notranslate"><span class="pre">fib</span></code> 関数の開始と終了で何か決まった処理を行うわけです.
+こういう関数のことをデコレータ関数(ラッパー関数)といいます.</p>
+<p>デコレータ関数は自分で書けると凄く便利なので(実務ではよく使うのですよ. 例えば
+ログを取ったり, 計算させた後で可視化をさせたり, 結果はどうあれ何かをしたい時
+というのは往々にしてあるものです), 興味のある方は調べてみるとよいですよ.</p>
+<p>あと, <code class="code docutils literal notranslate"><span class="pre">&#64;lru_cache</span></code> に関してですが,  キャッシュという言葉を聞いたことがある方は居ませんか？
+なんか, キャッシュが残って変な結果になっているとか.
+メモ化とは、あのキャッシュを関数レベルで使いましょうという話です.
+特にプログラミングに不慣れな方ほど、キャッシュという言葉、ものを毛嫌いする傾向があるのですが,
+キャッシュを上手く使えると、今迄試したように、計算が終わらないものを一瞬で解決できるようになったりするのです.</p>
+</div>
+</div>
+<div class="section" id="id9">
+<h4><a class="toc-backref" href="#id64">反復処理化</a><a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>さあ、準備運動第一節で、多分皆様大分お疲れかと思いますが, まだ続きます.</p>
+<p>この節の最後に, フィボナッチを反復型(普通の <code class="code docutils literal notranslate"><span class="pre">for</span></code> 文)で解いてみましょう:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="n">last</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># 前の値を保存(初期値は fib(0) なので 0 )</span>
+    <span class="nb">next</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># 次の値を保存(初期値は fib(1) なので 1 )</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">last</span><span class="p">,</span> <span class="nb">next</span> <span class="o">=</span> <span class="nb">next</span> <span class="p">,</span> <span class="n">last</span> <span class="o">+</span> <span class="nb">next</span>
+    <span class="k">return</span> <span class="nb">next</span>
+
+<span class="n">fib</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>さあ, これでも答えは出てきます.
+そしてメモ化はしていないのに <code class="code docutils literal notranslate"><span class="pre">fib(50)</span></code> を計算することができます.</p>
+<p>まず, このコードでもフィボナッチの計算が何故できるのか説明できますか？
+そして, なぜメモ化をしていないのに再帰で書く場合とは違い答えが出てくるのかわかりますか?</p>
+<p>課題として, まずは n = 0 から n = 5 位までで各行の結果がどうなるのかを考えてみてください.
+そして、結果として公式通りの処理になっていることを確認してください.</p>
+<p>その際に, <code class="code docutils literal notranslate"><span class="pre">for</span></code> 文が何回実行されるのかを考えてみるとよいでしょう.</p>
+<p>上記二つに解答できたら、この節は終了です(繰り返しですが SLACK 等で答え合わせとかしてもいいですよ)</p>
+</div>
+<div class="section" id="id10">
+<h4><a class="toc-backref" href="#id65">まとめ</a><a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>この節では, 再帰という手法を紹介しました.
+この手法を使うと、何か数式(漸化式)が与えられた場合に,
+それをコードに変換することがとても簡単にできるようになります.</p>
+<p>一方で再帰を使ってしまうと計算回数がとてつもなく多くなってしまう場合もあります.
+こういう際には一度, 反復型でコードを書き直してみると計算速度は一気に向上します.</p>
+<ul class="simple">
+<li><p>でも面倒な場合にはメモ化(キャッシュ)を上手く使いましょう.</p></li>
+</ul>
+<p>これがこの節で言いたいことの要約になります.</p>
+</div>
+</div>
+<div class="section" id="id11">
+<h3><a class="toc-backref" href="#id66">ハノイの塔</a><a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>さて, 続いては <a class="reference external" href="https://ja.wikipedia.org/wiki/%E3%83%8F%E3%83%8E%E3%82%A4%E3%81%AE%E5%A1%94">ハノイの塔</a> というパズルに挑戦していきましょう.
+ハノイの塔とは以下の写真のようなパズルです.</p>
+<div class="figure align-default">
+<img alt="https://upload.wikimedia.org/wikipedia/commons/0/07/Tower_of_Hanoi.jpeg" src="https://upload.wikimedia.org/wikipedia/commons/0/07/Tower_of_Hanoi.jpeg" />
+</div>
+<p>このパズルでは 3 つの塔(写真では棒) と n 個の円盤が出てきます.
+初期状態では, 向かって左側の塔に全ての円盤が入っていますね.
+これを向かって右側の塔になるべく少ない回数で移動させると勝ちです.</p>
+<p>ただし、円盤の移動には以下のルールが存在します.</p>
+<ol class="arabic simple">
+<li><p>一回に一枚の円盤だけが移動できる</p></li>
+<li><p>移動できる円盤はそれぞれの塔の一番上だけ</p></li>
+<li><p>大きな円盤を小さな円盤の上にのせてはいけない</p></li>
+</ol>
+<p>例えば, 写真の例ですと,
+最初に移動できる円盤は向かって左にある一番上の円盤1つだけです.
+これは, 真ん中か右の塔に移動できます.</p>
+<p>2 回目に移動できる円盤は, 最初に移動した円盤か, 左の(この段階で)一番上の円盤のみです.
+ここで、左の円盤は, 最初に移動した円盤の上に置くことはできません(なぜなら二番目の方が大きいからです).</p>
+<p>どうです?
+パズルの内容はご理解いただけたでしょうか？</p>
+<div class="section" id="id13">
+<h4><a class="toc-backref" href="#id67">モデリング</a><a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>まずは, このパズルそのものをプログラムにしてみましょう.
+このパズルの登場人物は大きく二つ, つまり塔と円盤です.</p>
+<p>塔はいくつかの円盤を持つことができます.
+加えて塔は最後の円盤を取り出すことができて、
+塔は最後に円盤を入れることができます.</p>
+<p>このように問題に合わせて登場人物を決定し、
+その関係を考え、その動きを決める作業のことをモデリングといいます.</p>
+<p>さて, 上記モデリングが済んだわけですが、
+この条件から塔をプログラム的に表現できますか？</p>
+<p>実は <a class="reference internal" href="../../2019/python/first.html"><span class="doc">First Python</span></a>  の中に正に上記条件に一致するクラスを紹介しています.
+それは <code class="code docutils literal notranslate"><span class="pre">list</span></code> です.</p>
+<ul class="simple">
+<li><p>このなぜ塔を表現するのに list が最適か言葉で説明できますか？</p></li>
+<li><p>できない場合, <a class="reference internal" href="../../2019/python/first.html"><span class="doc">First Python</span></a> の list の説明をもう一度読み直してください.</p></li>
+</ul>
+<p>例えば, 上記写真のハノイの塔は以下のように表現できます:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">disk_n</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">tower_a</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">disk_n</span><span class="p">)]</span>  <span class="c1"># [1, 2, 3, 4, 5, 6, 7, 8]</span>
+<span class="n">tower_b</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">tower_c</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+<p>向かって左一番上の円盤 (上記例の場合 <code class="code docutils literal notranslate"><span class="pre">8</span></code> という数字です) を <code class="code docutils literal notranslate"><span class="pre">tower_b</span></code> に移動するには以下のようにすればよいです:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tower_b</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">tower_a</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>  <span class="c1"># tower_b = [8], tower_a = [1, 2, 3, 4, 5, 6, 7]</span>
+</pre></div>
+</div>
+<p>このように, <code class="code docutils literal notranslate"><span class="pre">pop</span></code> と <code class="code docutils literal notranslate"><span class="pre">append</span></code> のみで操作する配列構造を後入先出法(LIFO) などといいます.</p>
+<p>ここまでで, とりあえずパズルそのものをコードにすることができました(不足はあるのですが).</p>
+<ul class="simple">
+<li><p>もしモデル化に不十分な点があることにお気付きの皆様は, きちんとクラス化をしてみるといいですよ.</p></li>
+<li><p>このままでは, できてはいけないことができてしまいます.</p></li>
+</ul>
+</div>
+<div class="section" id="id14">
+<h4><a class="toc-backref" href="#id68">ソルバー</a><a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>さて, ハノイの塔の問題そのものはモデル化できたとして,
+これをどのように解けばよいのでしょうか？</p>
+<p>こういうときにはまず決まりきったこと(基底部)から考えます.
+例えば, 円盤が 1 枚だけの場合はどうでしょうか?
+簡単ですね.
+左にある一枚の円盤を向かって右側の塔に移動させればよいのです:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">disk_n</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">tower_a</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">disk_n</span><span class="p">)]</span>  <span class="c1"># [1]</span>
+<span class="n">tower_b</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">tower_c</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">tower_c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tower_a</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>  <span class="c1"># tower_a = [], tower_b = [], tower_c = [1]</span>
+</pre></div>
+</div>
+<p>基底部が決まったら今度は再帰部を考えます.
+つまり, 円盤が2枚以上の場合を考えましょう.
+ここでは具体的に円盤が2枚の場合と、3枚の場合を考えてみましょう.</p>
+<p>円盤が二枚の場合以下の手順になるはずです.</p>
+<ol class="arabic simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">tower_a</span></code> の円盤を <code class="code docutils literal notranslate"><span class="pre">tower_b</span></code> に置きます.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">tower_a</span></code> の円盤を <code class="code docutils literal notranslate"><span class="pre">tower_c</span></code> に置きます.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">tower_b</span></code> の円盤を <code class="code docutils literal notranslate"><span class="pre">tower_c</span></code> に置きます.</p></li>
+</ol>
+<p>では, 三枚の場合は?
+この場合には以下の手順になるはずです.</p>
+<ol class="arabic simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">tower_a</span></code> の円盤を <code class="code docutils literal notranslate"><span class="pre">tower_c</span></code> に置きます.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">tower_a</span></code> の円盤を <code class="code docutils literal notranslate"><span class="pre">tower_b</span></code> に置きます.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">tower_c</span></code> の円盤を <code class="code docutils literal notranslate"><span class="pre">tower_b</span></code> に置きます.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">tower_a</span></code> の円盤を <code class="code docutils literal notranslate"><span class="pre">tower_c</span></code> に置きます.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">tower_b</span></code> の円盤を <code class="code docutils literal notranslate"><span class="pre">tower_a</span></code> に置きます.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">tower_b</span></code> の円盤を <code class="code docutils literal notranslate"><span class="pre">tower_c</span></code> に置きます.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">tower_a</span></code> の円盤を <code class="code docutils literal notranslate"><span class="pre">tower_c</span></code> に置きます.</p></li>
+</ol>
+<p>ここまで, 大丈夫でしょうか？
+一つずつ紙にかいてみるとよいです.</p>
+<p>この手順を整理すると再帰部は以下の3つのステップに分解できます.</p>
+<ol class="arabic simple">
+<li><p>n - 1 枚の円盤を <code class="code docutils literal notranslate"><span class="pre">tower_a</span></code> から <code class="code docutils literal notranslate"><span class="pre">tower_b</span></code> に <code class="code docutils literal notranslate"><span class="pre">tower_c</span></code> を経由して移動 (1-3)</p></li>
+<li><p>n 枚目の円盤(一番下の円盤) を <code class="code docutils literal notranslate"><span class="pre">tower_a</span></code> から <code class="code docutils literal notranslate"><span class="pre">tower_c</span></code> に移動 (4)</p></li>
+<li><p>n -1 枚の円盤を <code class="code docutils literal notranslate"><span class="pre">tower_b</span></code> から <code class="code docutils literal notranslate"><span class="pre">tower_c</span></code> に <code class="code docutils literal notranslate"><span class="pre">tower_a</span></code> を経由して移動 (5-7)</p></li>
+</ol>
+<p>ではこの再帰部と基底部を使ってハノイの塔を解く、ソルバー(何か問題を解くための関数をソルバーと呼びます) を作ってみましょう:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hanoi</span><span class="p">(</span><span class="n">begin</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">end</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">begin</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span> <span class="c1"># 基底部</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">hanoi</span><span class="p">(</span><span class="n">begin</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># 再帰部(a から b に c を経由して移動)</span>
+      <span class="n">hanoi</span><span class="p">(</span><span class="n">begin</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># 再帰部 (n番目の円盤を a から c へ移動)</span>
+      <span class="n">hanoi</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">begin</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># 再帰部(b から c に a を経由して移動)</span>
+
+<span class="n">disk_n</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">tower_a</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">disk_n</span><span class="p">)]</span>  <span class="c1"># [1, 2, 3, 4, 5, 6, 7, 8]</span>
+<span class="n">tower_b</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">tower_c</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">hanoi</span><span class="p">(</span><span class="n">tower_a</span><span class="p">,</span> <span class="n">tower_c</span><span class="p">,</span> <span class="n">tower_b</span><span class="p">,</span> <span class="n">disk_n</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>これでハノイの塔が解けていることを確認してください.</p>
+<ul class="simple">
+<li><p>どうなっていたら解けているのでしたっけ？</p></li>
+</ul>
+<p>また, <code class="code docutils literal notranslate"><span class="pre">disk_n</span></code> の数を変更しても問題なく解けるでしょうか？</p>
+</div>
+</div>
+<div class="section" id="id15">
+<h3><a class="toc-backref" href="#id69">まとめと応用のヒント</a><a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>本章では, <a class="reference internal" href="../../2019/python/first.html"><span class="doc">First Python</span></a> の復習として,
+二種類の問題に挑戦しました.</p>
+<p>フィボナッチ数列とハノイの塔です.
+フィボナッチ数列の問題では, 再帰というテクニックを紹介しました。</p>
+<p>このテクニックを利用すると,
+小難しい数式をそのままコードに変換することができるということをみました.</p>
+<p>一方で再帰を利用するとしばしば計算量が多くなってしまい、
+いつまでたっても, 計算が終わらないという問題も確認しました.
+こういう場合にメモ化というテクニックを利用すると,
+とても簡単に計算速度を向上させることができることを確認しました.</p>
+<p>第二の問題であるハノイの塔では,
+まず問題をモデル化するということを行いました.
+その上で実際の解法を確認し、それを再帰を使って解いてみることを試しました.</p>
+<p>この章で練習をした再帰(そう基底を先に考え, その後, それ以外の処理を考え, そのまま実行するのです)は,
+例えば, 論文に出て来る新しい方法を自分で試してみる際には必須のテクニックになります.</p>
+<p>また、数式を怖がってはいけません。
+基本的に python を使っている限り,
+数式さえわかれば、あとはそのままコードに書けばよいのです.</p>
+<p>こういう体力をつけるためには、例えば高校生の頃の教科書がいい練習材料になります.
+各種公式をコード化してみてください.
+そしてそのコードで教科書の問題を全問正解できるか挑戦してみてください.
+それだけでコードを書くための基礎体力は付いてきます.</p>
+</div>
+<div class="section" id="id16">
+<h3><a class="toc-backref" href="#id70">練習問題</a><a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id17">
+<h4><a class="toc-backref" href="#id71">フィボナッチ数列</a><a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>まずは, 今までの説明を読まずにフィボナッチ数列を計算するプログラムを自力で書いてみてください.
+ここでは再帰を利用した関数と, 再帰を利用しない関数の両方を記述してください.</p>
+</div>
+<div class="section" id="id18">
+<h4><a class="toc-backref" href="#id72">ハノイの塔</a><a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>本章の説明ではハノイの塔の塔の数は 3 本だけでした.
+これを何本でも解くことのできるソルバーを書いてみてください.</p>
+</div>
+<div class="section" id="id19">
+<h4><a class="toc-backref" href="#id73">円周率</a><a class="headerlink" href="#id19" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>本章一節ではフィボナッチ数列を例に数式をプログラムに変換する方法を説明しました.
+これに対応する練習問題として円周率の計算をしてみましょう.</p>
+<p>円周率 <span class="math notranslate nohighlight">\(\pi\)</span> を計算するには多くの公式がありますが,
+ここでは <a class="reference external" href="https://ja.wikipedia.org/wiki/%E3%83%A9%E3%82%A4%E3%83%97%E3%83%8B%E3%83%83%E3%83%84%E3%81%AE%E5%85%AC%E5%BC%8F">ライプニッツの公式</a>
+を使います.</p>
+<p>上記公式に従うと, <span class="math notranslate nohighlight">\(\pi\)</span> が次の無限級数の収束値になります(式はずっと続くけど解ければその解が <span class="math notranslate nohighlight">\(\pi\)</span> です)</p>
+<div class="math notranslate nohighlight">
+\[\pi = \frac{4}{1} - \frac{4}{3} + \frac{4}{5} - \frac{4}{7} + \frac{4}{9} - \frac{4}{11} \cdots\]</div>
+<p>この式では分子は常に 4 です.
+また, 分母は 1 から始まり, 2つずつ増えます.
+更に各項では, 加算と減算が繰り返されます.</p>
+<p>この式をプログラムにし, n = 1000000 の場合の値を計算してください.</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>ヒント</p>
+<p>無限級数は基本的には再帰ではなく for 文で考えた方が素直かと思います.</p>
+<p>どうしても分からない方は以下のコードを穴埋めするのが良いでしょう:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>def cal_pi(n):
+    pi = 0
+    m = □
+    d = □
+    o = □
+    for i in range(n):
+        pi = pi + □
+        d = d + □
+        o = o * □
+    return pi
+
+cal_pi(10000000)  # 3.1415925535897915
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>□ の部分が穴埋め箇所です.</p></li>
+<li><p>□ は一文字とは限りません.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id21">
+<h4><a class="toc-backref" href="#id74">サイン波 (発展問題)</a><a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>音を扱う人間が知っていなければいけないものに
+サイン波という波があります.</p>
+<p>これは以下の数式で決定されています</p>
+<div class="math notranslate nohighlight">
+\[s(n)=A \sin\left(\frac{2{\pi}A}{f_s}\right)\]</div>
+<p>この数式を関数にしなさい.
+また, <a class="reference external" href="https://kikuchiken-waseda.github.io/SSP/docs/build/html/basic/sin.html">以下のページ</a> を参考に任意のサイン波を鳴らしなさい.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>この課題に取り組むためには <code class="code docutils literal notranslate"><span class="pre">scipy</span></code> を導入する必要があります.</dt><dd><ul>
+<li><p>従ってこの課題は自身でライブラリの導入が行える( <code class="code docutils literal notranslate"><span class="pre">pip</span></code> コマンドが使える) 方のみの課題とします.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>課題に取り組む場合, 何か適当な歌(キラキラ星などでもいいですし, 某エポナの歌とかでもよいです) を再生できるプログラムを書くことを目標にするのがよいでしょう.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="id23">
+<h2><a class="toc-backref" href="#id75">検索問題</a><a class="headerlink" href="#id23" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>&quot;検索&quot; は色々なアプリケーションで使用されます.
+というか, &quot;検索&quot; を行わないアプリケーションってあまり考えにくいです.</p>
+<div class="section" id="dna">
+<h3><a class="toc-backref" href="#id76">DNA 検索問題 (線形検索と二分検索)</a><a class="headerlink" href="#dna" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ここでは検索を行っていく例として DNA の検索問題を扱います。
+DNA (遺伝子) はさも、文字列のように, A, C, G, T で表記される
+また, ヌクレオチドは 3 つ組み合わせるとコドンという単位になります.
+これは丁度, 文字が複数組み合わさって, 単語になるのと似ています.
+このコドン(単語)を組み合わせることで, タンパク質(文章)を構成します.</p>
+<p>このように DNA はさも, 自然言語と同じような構造をもち,
+自然言語よりは単純なので, 文字列に関する話をする際によく使用されます.</p>
+<p>DNA は例えば以下のように表現されます:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">genes</span> <span class="o">=</span> <span class="s2">&quot;ACGTGGCTCTCTAACGTACGTACGTACGGGGTTTATATATACCCTAGGACTCCCTTT&quot;</span>
+</pre></div>
+</div>
+<p>このような文字列(DNA列)をコドンに変換するには以下のような関数があると便利でしょう:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">toCodon</span><span class="p">(</span><span class="n">genes</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="n">genes</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">genes</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">g</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">genes</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+    <span class="p">]</span>
+</pre></div>
+</div>
+<div class="section" id="id24">
+<h4><a class="toc-backref" href="#id77">線形検索</a><a class="headerlink" href="#id24" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>遺伝子について行いたい基本操作は,
+指定されたコドン(単語)を探すことです.</p>
+<p>検索と言われて真っ先に思い付く方法が線形検索です.
+これは, なんというか普通の検索で,
+頭から探していき, 終わりまで見つける検索方法です.
+これは単純であり, 自然な方法なのですが, 問題は検索時間にあります.
+最悪の場合(つまり検索対象が見つからない場合), データ全てを検索する必要があります.
+<span class="math notranslate nohighlight">\(n\)</span> がデータ構造の要素数の際に, 計算量は <span class="math notranslate nohighlight">\(O(n)\)</span> と記述します.</p>
+<p>早速, <code class="code docutils literal notranslate"><span class="pre">genes</span></code> から <code class="code docutils literal notranslate"><span class="pre">&quot;ACG&quot;</span></code> と <code class="code docutils literal notranslate"><span class="pre">&quot;GAT&quot;</span></code> というコドンを検索する
+コードを記述してみてください. また, <code class="code docutils literal notranslate"><span class="pre">genes2</span> <span class="pre">=</span> <span class="pre">genes</span> <span class="pre">*</span> <span class="pre">1000000</span></code> とした上で,
+<code class="code docutils literal notranslate"><span class="pre">gene2</span></code> に対し、前述のコードを実施してください.</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>ヒント</p>
+<p>上記コードがパッと思い浮ばない場合,
+以下のコードの穴埋めをしてみてください:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   def liner_contains(codons, codon):
+       &quot;&quot;&quot;
+       DNA 配列から指定のコドンを発見する
+
+       Args:
+          codons (LIST[codon]) : 検索を実行するコドン配列
+          codon (STR) : 検索対象コドン
+       Return BOOLIAN
+       &quot;&quot;&quot;
+       for c in codons:
+           if (c == □):
+               return True
+       return False
+
+   codons = □(genes)
+   liner_contains(codons, &quot;ACG&quot;)  # True
+   liner_contains(codons, &quot;GAT&quot;)  # False
+
+- □ の部分を埋めてください.
+- □ の部分は一文字ではないです.
+- ここで, :code:`codons = □(genes)` を
+  関数の外に置いている理由に気が付いた方はここまでの説明を理解しています.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id25">
+<h4><a class="toc-backref" href="#id78">二分検索</a><a class="headerlink" href="#id25" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>さて <code class="code docutils literal notranslate"><span class="pre">gene2</span></code> を使って検索を行った方は,
+線形検索が検索対象によってはとても時間のかかる処理であることを
+理解していただけたかと思います.</p>
+<p>このように時間のかかる検索ですが,
+ある条件を満たしているデータであれば検索時間を大きく減らすことができます.
+この手法を二分検索(バイナリサーチ)といいます.</p>
+<p>二分検索で満たすべき条件とは,
+配列に順番が成り立ち、ソートが済んでいることです.</p>
+<p>例えば以下の文字列のリストがその条件を満たしています:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python_animals</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;annaconda&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;iguana&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;lizard&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;marmot&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;newt&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;owl&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;python&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;rat&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;skunk&#39;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>オライリーのpython関係の動物でパッと思いついたもの</p></li>
+</ul>
+<p>このリストから <code class="code docutils literal notranslate"><span class="pre">&quot;rat&quot;</span></code> という文字列を検索します.
+二分検索では以下の手順で検索を行います.</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>検索対象のリストを半分にし, 真ん中の要素を取得します.</dt><dd><ul class="simple">
+<li><p>このリストにおいて真ん中は <code class="code docutils literal notranslate"><span class="pre">newt</span></code> (イモリ) です.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>真ん中の要素と検索ターゲットを比較します.</dt><dd><ul class="simple">
+<li><p>この際に, 真ん中の要素と検索ターゲットが一致していたら, 検索終了です</p></li>
+<li><p>検索ターゲットが真ん中の要素より後ろの要素であれば後ろのリストを検索します.</p></li>
+<li><p>検索ターゲットが真ん中の要素より前の要素であれば前のリストを検索します.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">&quot;rat&quot;</span></code> はアルファベット順では <code class="code docutils literal notranslate"><span class="pre">newt</span></code> より後ろです.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>検索ターゲットがあるはずの半分のリストについて 1, 2 を繰り返します.</dt><dd><ul class="simple">
+<li><p>見つかったら処理終了です</p></li>
+<li><p>すべて検索し終えても処理終了です.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<p>早速関数にしてみましょう:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bynary_contains</span><span class="p">(</span><span class="n">codons</span><span class="p">,</span> <span class="n">codon</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    文字列リストから指定の文字列を発見する</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">       codons (LIST[codon]) : 検索を実行する文字列</span>
+<span class="sd">       codon (STR) : 発見するべき文字列</span>
+<span class="sd">    Return BOOLIAN</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">codons</span><span class="p">)</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">size</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">codons</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">==</span> <span class="n">codon</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">elif</span> <span class="n">size</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">elif</span> <span class="n">codons</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">codon</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">bynary_contains</span><span class="p">(</span><span class="n">codons</span><span class="p">[:</span><span class="n">idx</span><span class="p">],</span> <span class="n">codon</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">codons</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">codon</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">bynary_contains</span><span class="p">(</span><span class="n">codons</span><span class="p">[</span><span class="n">idx</span><span class="p">:],</span> <span class="n">codon</span><span class="p">)</span>
+
+<span class="n">bynary_contains</span><span class="p">(</span><span class="n">python_animals</span><span class="p">,</span> <span class="s2">&quot;lizard&quot;</span><span class="p">)</span>
+<span class="n">bynary_contains</span><span class="p">(</span><span class="n">python_animals</span><span class="p">,</span> <span class="s2">&quot;newt&quot;</span><span class="p">)</span>
+<span class="n">bynary_contains</span><span class="p">(</span><span class="n">python_animals</span><span class="p">,</span> <span class="s2">&quot;rat&quot;</span><span class="p">)</span>
+<span class="n">bynary_contains</span><span class="p">(</span><span class="n">python_animals</span><span class="p">,</span> <span class="s2">&quot;apple&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>気が付かれた方もいるかも知れませんが,
+当然文字列を前提にしているので,
+<code class="code docutils literal notranslate"><span class="pre">codons</span></code> にも適応可能です:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">codons2</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">toCodon</span><span class="p">(</span><span class="n">genes2</span><span class="p">))</span>
+<span class="n">bynary_contains</span><span class="p">(</span><span class="n">codons2</span><span class="p">,</span> <span class="s2">&quot;ACG&quot;</span><span class="p">)</span>
+<span class="n">bynary_contains</span><span class="p">(</span><span class="n">codons2</span><span class="p">,</span> <span class="s2">&quot;GAT&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>このように順序を前提にできるデータを検索する際には二分検索を行うと,
+検索は大部早くなります.</p>
+</div>
+</div>
+<div class="section" id="id26">
+<h3><a class="toc-backref" href="#id79">迷路</a><a class="headerlink" href="#id26" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id27">
+<h3><a class="toc-backref" href="#id80">宣教師と食人種</a><a class="headerlink" href="#id27" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id28">
+<h3><a class="toc-backref" href="#id81">実世界での応用</a><a class="headerlink" href="#id28" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id29">
+<h3><a class="toc-backref" href="#id82">練習問題</a><a class="headerlink" href="#id29" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id30">
+<h4><a class="toc-backref" href="#id83">検索問題</a><a class="headerlink" href="#id30" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>検索問題ではより高速な検索方法として二分検索を扱いました.
+このドキュメントの中ではこれを, 再帰を用いて記述していますが,
+再帰処理は計算できる量に限界があるという問題があります.</p>
+<p>これを解消するために以下の二つのコードを記述しなさい.</p>
+<ol class="arabic simple">
+<li><p>メモ化を用いて再帰を使った文字列二分検索関数を作成しなさい</p></li>
+<li><p>再帰を使わず文字列二分検索関数を作成しなさい</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="id31">
+<h2><a class="toc-backref" href="#id84">制約充足問題</a><a class="headerlink" href="#id31" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id32">
+<h3><a class="toc-backref" href="#id85">地図塗り分け問題</a><a class="headerlink" href="#id32" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id33">
+<h3><a class="toc-backref" href="#id86">8クイーン</a><a class="headerlink" href="#id33" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id34">
+<h3><a class="toc-backref" href="#id87">単語探し</a><a class="headerlink" href="#id34" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id35">
+<h3><a class="toc-backref" href="#id88">覆面算</a><a class="headerlink" href="#id35" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id36">
+<h3><a class="toc-backref" href="#id89">回路レイアウト</a><a class="headerlink" href="#id36" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id37">
+<h3><a class="toc-backref" href="#id90">実世界での応用</a><a class="headerlink" href="#id37" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id38">
+<h3><a class="toc-backref" href="#id91">練習問題</a><a class="headerlink" href="#id38" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id39">
+<h2><a class="toc-backref" href="#id92">グラフ問題</a><a class="headerlink" href="#id39" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id40">
+<h3><a class="toc-backref" href="#id93">最短経路問題</a><a class="headerlink" href="#id40" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id41">
+<h3><a class="toc-backref" href="#id94">コスト最小化問題</a><a class="headerlink" href="#id41" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id42">
+<h3><a class="toc-backref" href="#id95">最適化問題</a><a class="headerlink" href="#id42" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id43">
+<h2><a class="toc-backref" href="#id96">遺伝的アルゴリズム</a><a class="headerlink" href="#id43" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>省略しようかな...</p>
+</div>
+<div class="section" id="k">
+<h2><a class="toc-backref" href="#id97">K 平均クラスタリング</a><a class="headerlink" href="#k" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>省略しようかな...</p>
+</div>
+<div class="section" id="id44">
+<h2><a class="toc-backref" href="#id98">ニューラルネット</a><a class="headerlink" href="#id44" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>省略しようかな...</p>
+</div>
+<div class="section" id="id45">
+<h2><a class="toc-backref" href="#id99">敵対探索</a><a class="headerlink" href="#id45" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id46">
+<h3><a class="toc-backref" href="#id100">三目並べ</a><a class="headerlink" href="#id46" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id47">
+<h3><a class="toc-backref" href="#id101">コネクトフォー</a><a class="headerlink" href="#id47" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id48">
+<h3><a class="toc-backref" href="#id102">実世界での応用</a><a class="headerlink" href="#id48" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id49">
+<h3><a class="toc-backref" href="#id103">練習問題</a><a class="headerlink" href="#id49" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id50">
+<h2><a class="toc-backref" href="#id104">その他</a><a class="headerlink" href="#id50" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id51">
+<h3><a class="toc-backref" href="#id105">ナップザック問題</a><a class="headerlink" href="#id51" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id52">
+<h3><a class="toc-backref" href="#id106">巡回セールスマン問題</a><a class="headerlink" href="#id52" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id53">
+<h3><a class="toc-backref" href="#id107">電話番号記憶術(語呂合わせ)</a><a class="headerlink" href="#id53" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id54">
+<h3><a class="toc-backref" href="#id108">実世界での応用</a><a class="headerlink" href="#id54" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id55">
+<h3><a class="toc-backref" href="#id109">練習問題</a><a class="headerlink" href="#id55" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../linearRegression/index.html" class="btn btn-neutral float-right" title="回帰分析" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../webapp/index.html" class="btn btn-neutral float-left" title="WEB アプリケーションチュートリアル" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 著作権 2019-2020, Takuya Asai
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

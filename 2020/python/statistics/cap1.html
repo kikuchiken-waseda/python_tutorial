@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ベイジアン推論入門 &mdash; k-lab-seminar 2019 ドキュメント</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="検索" href="../../../search.html" />
+    <link rel="prev" title="ベイズ統計" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> k-lab-seminar
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">2019 年 度資料</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../2019/env/index.html">開発環境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../2019/python/index.html">はじめての Python</a></li>
+</ul>
+<p class="caption"><span class="caption-text">2020 年 度資料</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../webapp/index.html">WEB アプリケーションチュートリアル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computer_science_basics.html">計算機科学基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linearRegression/index.html">回帰分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction_to_nlp/index.html">自然言語処理入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../machine_learning/index.html">機械学習の基礎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web_api.html">WEB API 入門: 応用課題</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../job_queuing.html">JOB QUEING 入門</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">ベイズ統計</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ベイジアン推論入門</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">統計モデリング</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">探索的データ分析</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">推測統計学</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">確率と不確実性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">ベイズの定理と統計的推論</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">単一パラメータ推論と伝統的なコイン投げ問題</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">事前分布の選択および, それが本当は好まれるのに好まれない理由</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">ベイジアン分析の報告</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">k-lab-seminar</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">ベイズ統計</a> &raquo;</li>
+        
+      <li>ベイジアン推論入門</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/2020/python/statistics/cap1.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><a class="toc-backref" href="#id14">ベイジアン推論入門</a><a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><p>文責: <a class="reference external" href="mailto:takuya&#46;waseda&#46;1119&#37;&#52;&#48;gmail&#46;com">takuya<span>&#46;</span>waseda<span>&#46;</span>1119<span>&#64;</span>gmail<span>&#46;</span>com</a></p></li>
+<li><p>作成日: 2020-05-02</p></li>
+</ul>
+<p>本章ではベイズ統計でよく使用する概念および,
+ベイジアン分析における基本的な
+ツールキットの使い方を記述します.</p>
+<p>ここではいくつかのコードを利用しますが、
+殆どが論理に関する話になります.</p>
+<div class="contents topic" id="id2">
+<p class="topic-title">目次</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id1" id="id14">ベイジアン推論入門</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id3" id="id15">統計モデリング</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id16">確率と不確実性</a></p></li>
+<li><p><a class="reference internal" href="#id10" id="id17">ベイズの定理と統計的推論</a></p></li>
+<li><p><a class="reference internal" href="#id11" id="id18">単一パラメータ推論と伝統的なコイン投げ問題</a></p></li>
+<li><p><a class="reference internal" href="#id12" id="id19">事前分布の選択および, それが本当は好まれるのに好まれない理由</a></p></li>
+<li><p><a class="reference internal" href="#id13" id="id20">ベイジアン分析の報告</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id15">統計モデリング</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>統計学はデータを収集し、組織化し、分析し、解釈する学問です.
+そのため、統計学の知識とはデータ分析を行う際に &quot;本質&quot; 的なものは何なのかという知識になります.</p>
+<p>一方で, 一般的に大学の講義で扱うような &quot;とーけーの授業&quot; は, 少なくとも統計学者ではない人々にとって &quot;家庭科&quot; の時間と一緒です. ここでは凡そ次のような &quot;料理&quot; を教えられます.
+まず, 統計ツール収納ボックス(R とか SPSS とか エクセル とか呼ばれています) に行きます. そこには, 例えば T-検定 とか, 分散分析と呼ばれるレトルト缶が入っています.
+先生に言われた缶を取り出し, 味付けを一寸整えて(データを少し変えてみて), 適切な p 値が出るまで煮詰めます.
+大体のレトルト食品が 5 分を目安に調理を終えるのと同様に,
+とーけーの授業では p 値が 0.05 より小くなれば完成です.
+この講義の主要な目的は、適切なレトルト缶をどのように選ぶのかを教えることです.</p>
+<p>ベイズ統計は, もう少し実践的です.
+勿論、所詮は &quot;料理&quot; なのでレシピがありますし,
+それを作るわけですが, それらのレシピはレトルト缶のような既製品ではなく, 自家製のものになるでしょう(丁度自宅で作る糠床のように). まず, 冷蔵庫を確認して, そこにある素材から, 適切なランチを作ることがベイズ統計のアプローチです.</p>
+<p>しかし, そうは行っても料理の基本はあるわけです(丁度, &quot;緑のたべもの&quot; や &quot;黄色のたべもの&quot; のように).
+まずは、この辺の用語, 概念を学んでいきましょう.</p>
+<div class="section" id="id4">
+<h3>探索的データ分析<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>データは統計学の基本になる素材です.
+これは, たとえば, 実験, コンピュータシミュレーション, 調査, フィールド監察など、様々な方法で取得することができます.</p>
+<p>もし、データ分析を行いたいと考えるなら,
+まず、答えたい問題がなんであって, それに答えるためにどのようなデータをどのように取得するべきかを, 事前に考えるのは大事なことです.
+事実, <a class="reference external" href="https://ja.wikipedia.org/wiki/%E5%AE%9F%E9%A8%93%E8%A8%88%E7%94%BB%E6%B3%95">実験計画法</a> として知られるデータ収集を扱う学問は統計学の重要な一角をになっています.
+クラウドを利用してデータを簡単に収集できる時代になり、
+忘れられがちですが, データ収集そのものは決して安価なものでもない場合もあるのです (一般に, 安価な食材より, 高級な食材の方がおいしい料理ができるものです).
+ただし, このチュートリアルの中では, 食材の準備はもう済んでおり(現実的には, ここにこそ時間が掛かるものですが), それらの食材を使う下準備は済んでいます.
+データ加工に関するチュートリアルは別途用意する(かも知れない)ので, そちらをご確認ください.</p>
+<p>さて, データ収集(食材準備および下処理)は済んでいるとして,
+手元にあるデータについて, ある種の直感を得るために,
+データを調べたり, 可視化することはとてもよいアイディアです.
+このアイディアのことを <strong>探索的データ分析</strong> (exploratory data analysis; EDA) といいます.</p>
+<p>これは基本的に以下二つの要素で構成されます:</p>
+<ol class="arabic simple">
+<li><p>記述統計学</p></li>
+<li><p>データ可視化</p></li>
+</ol>
+<p>まず, 記述統計学は, 数量的にデータを要約したり,
+特徴づけるためにどの測度(統計量)をどのように使うのかを扱います. 皆様は既に, 平均, 最頻値, 四分位数などを使ってデータを記述する方法を知っているかもしれません.</p>
+<p>二つ目のデータ可視化は,
+データを視覚的に調べるものであり,
+ヒストグラムや, 散布図などの表現があります.
+もともと EDA は, なんからの複雑な分析にかける前のデータに適用したり, 複雑なモデルに基づいた分析にかけるために適用したりするものだとされてきました.
+しかし, EDA はベイス統計の結果を理解し, 解釈し, 要約し,
+情報伝達するためにも利用可能です.</p>
+</div>
+<div class="section" id="id6">
+<h3>推測統計学<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>探索的データ分析で説明した通り,
+データをグラフ表示し,
+データの平均値など簡単な数値を計算すれば充分な場合もあります.
+一方で, データに基づいた一般化を行いたいと思うこともあります.
+データを生み出す背後にあるメカニズムを理解したいのかもしれませんし, 将来の (まだ観測されていない) 数値を予測したいのかもしれません. あるいは, いくつかの競合する説明の中からどれか一つを撰必要があるのかもしれません.
+これらは <strong>推測統計学</strong> (inferential statistics) の仕事です.
+推測統計学を行うには, 確率モデルに頼ることになります.
+多くのタイプのモデルが存在しますが,
+ほとんどの科学は，現実世界にちて私たちが理解する全てを追加したモデルを通じて行われます.
+能は正に現実(それが何であるにせよ)をモデル化する機械です.</p>
+<p>モデルとは何でしょう?
+モデルは, 与えられたシステムあるいは過程の記述を簡単にするものです.これらの記述はシステムの最も重要な特徴を把握するように,
+目的を持って設計されます.
+従って, ほとんどのモデルはすべての特徴を説明することを意図していません.
+一方で, 簡単なモデルと複雑なモデルがあり，
+両方ともデータを同程度説明することができるなら，
+一般には, 単純なシステムが好まれます.
+この, 単純なモデルが好まれるという ヒューリスティクス <a class="reference internal" href="#python-statistics-1-1" id="id7"><span>[注:2020-python-statistics-1-1]</span></a> はオッカムの剃刀として知られ,
+<a class="reference internal" href="cap6.html"><span class="doc">モデル比較</span></a> において, ベイジアン分析とこのオッカムの剃刀がどう関係するのかを議論します.</p>
+<p>モデリングは, 構築するモデルがどのようなものであれ,
+おおよそ, 次の 3 つのステップに要約することができます.</p>
+<ol class="arabic simple">
+<li><p>何らかのデータを所与とし, また, そのデータがどのように生成されたのかについて何らかの仮定を置いて, モデリングします. ほとんどの場合, モデルは大雑把な近似になります. しかし, これが私たちの必要とするすべてなのです.</p></li>
+<li><p>その後, ベイズの定理を使い 私たちのモデル にデータを与え, データと仮定を結合させることによって論理的な結果を導き出します.このことを「データに基づいてモデルを条件づける」といいます.</p></li>
+<li><p>最後に, データや私達が調べているテーマに関する専門知識を含め, 様々な基準に照らし合わせてモデルが理に適っているのかをチェックします.</p></li>
+</ol>
+<p>一般的には, 非線形の反復様式によるこれら 3 つのステップを
+実行することで, 私たちは自分自身について気づきます.
+私達が作ったプログラムに愚かなミスが含まれる場合があること,
+モデルに変更/改善する方法が見つかるかもしれないこと,
+より多くのデータを追加する必要があるかもしれないことなどです.
+しして 任意の時点で諸ステップを私達は再追跡することになるでしょう.</p>
+<p>ベイジアンモデルは <strong>確率モデル</strong> (probabilistic model) としても知られます.
+というのも, それは確率をつかって構築されるからです.
+なぜ確率を使うのでしょうか?
+確率はデータにおける不確実性をモデル化するための
+正しい数学的な道具なのです.
+それでは, いくつも枝分かれする小径のある庭 (garden of forking path) <a class="reference internal" href="#python-statistics-1-2" id="id8"><span>[注:2020-python-statistics-1-2]</span></a> で散歩を始めましょう.</p>
+<dl class="citation">
+<dt class="label" id="python-statistics-1-1"><span class="brackets"><a class="fn-backref" href="#id7">注:2020-python-statistics-1-1</a></span></dt>
+<dd><p>発見的方法と訳されることがあります.正確な答えを導く方法ではないけれど, おおよそ上手くいく答えを導く方法や考え方を意味します.</p>
+</dd>
+<dt class="label" id="python-statistics-1-2"><span class="brackets"><a class="fn-backref" href="#id8">注:2020-python-statistics-1-2</a></span></dt>
+<dd><p>付加される条件によって確率が分岐していく様子をたとえた表現です</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="id9">
+<h2><a class="toc-backref" href="#id16">確率と不確実性</a><a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="id10">
+<h2><a class="toc-backref" href="#id17">ベイズの定理と統計的推論</a><a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="id11">
+<h2><a class="toc-backref" href="#id18">単一パラメータ推論と伝統的なコイン投げ問題</a><a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="id12">
+<h2><a class="toc-backref" href="#id19">事前分布の選択および, それが本当は好まれるのに好まれない理由</a><a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="id13">
+<h2><a class="toc-backref" href="#id20">ベイジアン分析の報告</a><a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="ベイズ統計" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; 著作権 2019-2020, Takuya Asai
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
